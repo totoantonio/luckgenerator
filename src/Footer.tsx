@@ -11,7 +11,7 @@ function Footer() {
           >
             <img
               className="pe-1 text d-inline-block"
-              src="/dragonviking.svg"
+              src="./dragonviking.svg"
               alt=""
               width="30"
               height="24"
@@ -27,7 +27,7 @@ function Footer() {
             <a className="text-body-secondary" href="#">
               <img
                 className="d-block mx-auto mb-4"
-                src="/x.svg"
+                src="./x.svg"
                 alt=""
                 width="30"
                 height="24"
@@ -38,7 +38,7 @@ function Footer() {
             <a className="text-body-secondary" href="#">
               <img
                 className="d-block mx-auto mb-4"
-                src="/insta.svg"
+                src="./insta.svg"
                 alt=""
                 width="30"
                 height="24"
@@ -49,7 +49,7 @@ function Footer() {
             <a className="text-body-secondary" href="#">
               <img
                 className="d-block mx-auto mb-4"
-                src="/facebook.svg"
+                src="./facebook.svg"
                 alt=""
                 width="30"
                 height="24"

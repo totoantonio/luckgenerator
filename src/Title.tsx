@@ -56,7 +56,7 @@ function Title() {
       <div className="position-relative">
         <img
           className="d-block mx-auto mb-4"
-          src="/dragonviking.svg"
+          src="./dragonviking.svg"
           alt=""
           width="72"
           height="57"
