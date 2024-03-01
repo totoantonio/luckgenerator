@@ -93,7 +93,9 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
         {showResult && (
           <div className="modal-content rounded-4 shadow">
             <div className="modal-body p-2">
-              <span className="lucky-numbers-text mb-0">{zodiacSign}</span>
+              <span className="display-5 fw-bolder zodiactitle mb-0">
+                {zodiacSign}
+              </span>
               <p className="lead lh-1 p-3">{zodiacDescription}</p>
               <p className="lead lh-1 p-3 pt-4">
                 {" "}

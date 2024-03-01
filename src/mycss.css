@@ -286,11 +286,10 @@ fw-bolder {
   margin-right: 5px; /* Adjust spacing between numbers */
 }
 
-h2.gradient-text {
+.zodiactitle {
   background: linear-gradient(89deg, #2689e8 18.91%, #a168ff 79.91%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-weight: bold;
-  font-size: 150%;
 }
