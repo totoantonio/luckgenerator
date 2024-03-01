@@ -78,7 +78,7 @@ function Title() {
         </span>
       </h4>
       <div className="col-lg-6 mx-auto">
-        <p className="lead mb-4 lh-1">
+        <p className="lead mb-4 lh-1 p-3">
           Discover the fascinating traits of your{" "}
           <span style={{ color: "red", fontWeight: "bold" }}>
             Chinese Zodiac
