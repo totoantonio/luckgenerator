@@ -98,16 +98,15 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
               </h2>
               <p className="lead lh-1 p-3">{zodiacDescription}</p>
               <p className="lead lh-1 p-3 pt-4">
-                {" "}
-                {/* Add pt-4 for padding-top */}
                 Your lucky numbers:
                 <br />
-                <br />{" "}
+                <br />
                 <span className="lucky-numbers-text">
                   {luckyNumbers.map((number, index) => (
-                    <span key={index} className="lucky-number">
-                      {number}
-                    </span>
+                    <React.Fragment key={index}>
+                      {index !== 0 && <span className="dot">. </span>}
+                      <span className="lucky-number">{number}</span>
+                    </React.Fragment>
                   ))}
                 </span>
               </p>
