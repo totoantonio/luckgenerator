@@ -137,6 +137,10 @@ CSS .badge {
   font-size: 150% !important;
 }
 
+fw-bolder {
+  font-weight: 800 !important;
+}
+
 /*Modal*/
 
 .modal {
