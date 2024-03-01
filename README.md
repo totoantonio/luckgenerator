@@ -25,7 +25,7 @@ The website takes your birth year as input and calculates your Chinese zodiac si
 
 ## Preview
 
-![Luck Generator Preview](./images/luckysymbol.svg)
+![Luck Generator Preview](./dragonviking.svg)
 
 ## Usage
 
