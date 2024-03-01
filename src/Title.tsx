@@ -77,17 +77,12 @@ function Title() {
           {title}
         </span>
       </h4>
-      <div className="col-lg-6 mx-auto">
+      <div className="container-lg" style={{ width: "600px", height: "200px" }}>
         <p className="lead mb-4 lh-1 p-3">
           Discover the fascinating traits of your{" "}
-          <span style={{ color: "red", fontWeight: "bold" }}>
-            Chinese Zodiac
-          </span>{" "}
-          animal and receive a set of lucky numbers tailored to your sign! Our
-          fun{" "}
-          <span style={{ color: "blue", fontWeight: "bold" }}>
-            Zodiac Lucky Number
-          </span>{" "}
+          <span className="text-danger fw-bold">Chinese Zodiac</span> animal and
+          receive a set of lucky numbers tailored to your sign! Our fun{" "}
+          <span className="text-primary fw-bold">Zodiac Lucky Number</span>{" "}
           Finder reveals the secrets of this ancient tradition. Simply enter
           your birth year and embark on a journey of self-discovery and good
           fortune!

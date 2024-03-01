@@ -58,7 +58,7 @@ html {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  color: var(--text_primary);
+  color: rgb(128, 128, 128);
   background-color: var(--background_page);
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-text-size-adjust: none;
@@ -284,4 +284,13 @@ fw-bolder {
 
 .lucky-number {
   margin-right: 5px; /* Adjust spacing between numbers */
+}
+
+h2.gradient-text {
+  background: linear-gradient(89deg, #2689e8 18.91%, #a168ff 79.91%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 150%;
 }
