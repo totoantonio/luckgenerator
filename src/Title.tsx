@@ -109,7 +109,7 @@ function Title() {
                 <div className="modal-header d-flex justify-content-center align-items-center">
                   <img
                     className="me-2"
-                    src="/chinese.svg"
+                    src="./chinese.svg"
                     alt="Logo"
                     width="62"
                     height="37"
