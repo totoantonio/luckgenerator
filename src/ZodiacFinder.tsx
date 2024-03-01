@@ -97,11 +97,19 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                 {zodiacSign}
               </h2>
               <p className="lead lh-1 p-3">{zodiacDescription}</p>
-              <p className="lead lh-1 p-3">
-                Your lucky numbers:{" "}
-                <span style={{ color: "red", fontWeight: "bold" }}>
-                  {luckyNumbers.join(", ")}
-                </span>{" "}
+              <p className="lead lh-1 p-3 pt-4">
+                {" "}
+                {/* Add pt-4 for padding-top */}
+                Your lucky numbers:
+                <br />
+                <br />{" "}
+                <span className="lucky-numbers-text">
+                  {luckyNumbers.map((number, index) => (
+                    <span key={index} className="lucky-number">
+                      {number}
+                    </span>
+                  ))}
+                </span>
               </p>
 
               <button

@@ -272,3 +272,16 @@ fw-bolder {
     line-height: 58px;
   }
 }
+
+.lucky-numbers-text {
+  background: linear-gradient(89deg, #2689e8 18.91%, #a168ff 79.91%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: 150% !important;
+}
+
+.lucky-number {
+  margin-right: 5px; /* Adjust spacing between numbers */
+}
