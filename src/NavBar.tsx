@@ -18,7 +18,7 @@ function NavBar() {
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img
-            src="/dragonviking.svg"
+            src="./dragonviking.svg"
             alt="Logo"
             className="pe-1 text d-inline-block"
           />
