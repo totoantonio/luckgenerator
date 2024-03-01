@@ -72,7 +72,7 @@ function Title() {
           {`${starCount}+`} <span className="visually-hidden">stars</span>
         </span>
       </div>
-      <h4 className="display-5 fw-bold text-body-emphasis">
+      <h4 className="display-5 fw-bold text-body-emphasis lh-1">
         <span className="gradient-text" style={titleStyle}>
           {title}
         </span>

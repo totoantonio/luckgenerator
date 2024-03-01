@@ -134,6 +134,7 @@ CSS .badge {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  font-size: 200% !important;
 }
 
 /*Modal*/
