@@ -1,14 +1,10 @@
 @font-face {
-  font-family: "Google Sans";
-  src: url("./fonts/GoogleSans-Regular.woff") format("woff");
-}
-
-@font-face {
   font-family: JetBrains Mono;
   font-style: normal;
   font-weight: 700;
   font-display: block;
   src: url(../src/assets/fonts/JetBrainsMono-Bold.woff) format("woff2");
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +13,7 @@
   font-weight: 400;
   font-display: block;
   src: url(../src/assets/fonts/JetBrainsMono-Regular.woff) format("woff2");
+  font-display: swap;
 }
 
 @font-face {
@@ -25,6 +22,7 @@
   font-weight: 400;
   font-display: block;
   src: url(../src/assets/fonts/Inter-400.woff) format("woff2");
+  font-display: swap;
 }
 
 @font-face {
@@ -33,6 +31,7 @@
   font-weight: 500;
   font-display: block;
   src: url(../src/assets/fonts/Inter-500.woff) format("woff2");
+  font-display: swap;
 }
 
 @font-face {
@@ -41,6 +40,7 @@
   font-weight: 600;
   font-display: block;
   src: url(../src/assets/fonts/Inter-600.woff) format("woff2");
+  font-display: swap;
 }
 
 @font-face {
@@ -49,6 +49,7 @@
   font-weight: 700;
   font-display: block;
   src: url(../src/assets/fonts/Inter-700.woff) format("woff2");
+  font-display: swap;
 }
 
 body,
