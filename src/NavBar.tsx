@@ -16,7 +16,10 @@ function NavBar() {
   return (
     <nav className="navbar bg-white fs-5 fw-bold fs-4">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a
+          className="navbar-brand"
+          href="https://totoantonio.github.io/luckgenerator/"
+        >
           <img
             src="./dragonviking.svg"
             alt="Logo"
