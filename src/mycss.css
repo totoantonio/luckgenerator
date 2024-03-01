@@ -1,0 +1,163 @@
+@font-face {
+  font-family: "Google Sans";
+  src: url("./fonts/GoogleSans-Regular.woff") format("woff");
+}
+
+body {
+  font-family: "Google Sans", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+.no-border {
+  border: none !important;
+}
+.fs-1-plus {
+  font-size: 2em; /* Adjust the value as needed */
+}
+.my-custom-navbar {
+  background-color: rgba(255, 255, 255, 1); /* White with optional opacity */
+}
+.my-navbar {
+  position: fixed; /* Key for staying on top */
+  top: 0; /* Sticks to the top of the screen */
+  left: 0; /* Stretches across the full width */
+  width: 100%; /* Ensures full width coverage */
+  z-index: 1000; /* A high z-index to win against other elements */
+}
+.card-img-top {
+  border-radius: 0;
+  animation: doubleHeartbeat 1.5s ease-in-out infinite alternate;
+}
+@keyframes doubleHeartbeat {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  35% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  80% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.card-img-top {
+  max-width: 50%; /* Make the image scale to its container */
+  height: auto; /* Maintain aspect ratio */
+}
+.card {
+  /* Or the class of the parent container */
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically (optional) */
+}
+.card {
+  position: relative; /* Establish a positioning context */
+}
+
+.card-img-top {
+  border-radius: 0; /* Remove rounded corners */
+}
+.card-content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.position-relative {
+  /* Target the container with the badge */
+  display: inline-block; /* Allow content to flow beside it */
+}
+
+CSS .badge {
+  top: 10px;
+  right: 10px;
+  display: inline-flex; /* Enables internal centering */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  width: 30px; /* Set desired width */
+  height: 30px; /* Set desired height */
+  border-radius: 50%; /* Create a circle */
+  overflow: hidden; /* Hide any overflow */
+}
+
+.star-burst {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background-color: gold;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.star-burst::before {
+  content: "$"; /* Or another currency symbol */
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.star-burst.active {
+  opacity: 1;
+  transform: translateY(-20px) scale(1.5);
+}
+
+.star-burst.active {
+  opacity: 1;
+  transform: translateY(-20px) scale(1.5); /* Adjust translate and scale if needed */
+  animation: coinFloatUp 1s ease-out; /* Add animation */
+}
+@keyframes coinFloatUp {
+  0% {
+    transform: translateY(-20px) scale(1.5);
+  } /* Match initial state */
+  100% {
+    transform: translateY(-50px) scale(1.5);
+  } /* Coin moves further up */
+}
+
+.star-burst svg {
+  fill: gold;
+  width: 5em; /* Larger coin */
+}
+
+/*Modal*/
+
+.modal {
+  /* Center modal horizontally and vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Set modal to cover the entire viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-dialog {
+  /* Set width and max-width */
+  width: 90%;
+  max-width: 400px; /* Adjust as needed */
+}
+
+.modal-content {
+  /* Add padding */
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .modal-dialog {
+    width: 90%;
+    max-width: none; /* Override max-width for smaller screens */
+  }
+}
