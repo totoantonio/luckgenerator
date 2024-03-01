@@ -129,6 +129,13 @@ CSS .badge {
   fill: gold;
   width: 5em; /* Larger coin */
 }
+.gradient-text {
+  background: var(--gradientColor);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 112px !important;
+}
 
 /*Modal*/
 

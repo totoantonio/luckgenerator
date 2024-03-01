@@ -2,7 +2,14 @@ import React, { useState, useEffect, useRef } from "react";
 import "./mycss.css";
 import ZodiacFinder from "./ZodiacFinder";
 
-const title = "The Luck Generator";
+const title = "Luck Generator";
+const titleStyle: CustomCSSProperties = {
+  "--gradientColor": "linear-gradient(89deg, #2689E8 18.91%, #A168FF 79.91%)",
+};
+
+interface CustomCSSProperties extends React.CSSProperties {
+  "--gradientColor": string;
+}
 
 function Title() {
   const [starCount, setStarCount] = useState(0);
@@ -65,7 +72,11 @@ function Title() {
           {`${starCount}+`} <span className="visually-hidden">stars</span>
         </span>
       </div>
-      <h1 className="display-5 fw-bold text-body-emphasis">{title}</h1>
+      <h1 className="display-5 fw-bold text-body-emphasis">
+        <span className="gradient-text" style={titleStyle}>
+          {title}
+        </span>
+      </h1>
       <div className="col-lg-6 mx-auto">
         <p className="lead mb-4 lh-1">
           Discover the fascinating traits of your{" "}
