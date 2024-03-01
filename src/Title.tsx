@@ -59,7 +59,7 @@ function Title() {
   };
 
   return (
-    <div className="px-1 py-2 my-2 text-center">
+    <div className="px-4 py-5 my-5 text-center">
       <div className="position-relative">
         <img
           className="d-block mx-auto"
