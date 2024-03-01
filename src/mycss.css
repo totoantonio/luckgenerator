@@ -280,16 +280,8 @@ fw-bolder {
   color: transparent;
   font-weight: bold;
   font-size: 150% !important;
-  line-height: 1;
 }
 
 .lucky-number {
   margin-right: 5px; /* Adjust spacing between numbers */
-}
-.dot {
-  display: inline-flex;
-  align-items: center; /* Align items vertically */
-  justify-content: center; /* Align items horizontally */
-  width: 1em; /* Adjust the width of the dot */
-  height: 1em; /* Adjust the height of the dot */
 }
