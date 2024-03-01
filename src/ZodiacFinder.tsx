@@ -108,6 +108,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                 type="button"
                 className="btn btn-primary btn-lg px-4 gap-3"
                 data-bs-dismiss="modal"
+                onClick={() => setShowResult(false)} // Add onClick event handler here
               >
                 Great, thanks!
               </button>
