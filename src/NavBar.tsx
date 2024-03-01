@@ -16,13 +16,11 @@ function NavBar() {
   return (
     <nav className="navbar bg-white fs-5 fw-bold fs-4">
       <div className="container-fluid">
-        <a className="navbar-brand pulse-animation" href="#">
+        <a className="navbar-brand" href="#">
           <img
-            src={isPulsating ? "/dragonvikingred.svg" : "/dragonviking.svg"}
+            src="/dragonviking.svg"
             alt="Logo"
-            className={`pe-1 text d-inline-block ${
-              isPulsating ? "pulse-animation" : ""
-            }`}
+            className="pe-1 text d-inline-block"
           />
           {title}
         </a>
