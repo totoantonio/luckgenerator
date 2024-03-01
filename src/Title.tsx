@@ -59,14 +59,14 @@ function Title() {
   };
 
   return (
-    <div className="px-4 py-5 my-5 text-center">
+    <div className="px-1 py-2 my-2 text-center">
       <div className="position-relative">
         <img
-          className="d-block mx-auto mb-4"
-          src="./dragonviking.svg"
+          className="d-block mx-auto"
+          src="./luckysymbol.svg"
           alt=""
-          width="72"
-          height="57"
+          width="492"
+          height="342"
         />
         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
           {`${starCount}+`} <span className="visually-hidden">stars</span>

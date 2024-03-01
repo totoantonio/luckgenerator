@@ -134,6 +134,12 @@ CSS .badge {
   border-radius: 50%; /* Create a circle */
   overflow: hidden; /* Hide any overflow */
 }
+.start-100 {
+  left: 77% !important;
+}
+.top-0 {
+  top: 26% !important;
+}
 
 .star-burst {
   position: absolute;
