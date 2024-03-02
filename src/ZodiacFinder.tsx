@@ -87,6 +87,11 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     return numbers;
   };
 
+  const handleToggleResult = () => {
+    setShowResult(false); // Reset showResult state
+    // Other logic to trigger calculation of new result
+  };
+
   return (
     <div className={`container mt-5 ${showResult ? "" : "hidden"}`}>
       <div ref={resultRef} className="result-section">
@@ -114,7 +119,10 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                 type="button"
                 className="btn btn-primary btn-lg px-4 gap-3"
                 data-bs-dismiss="modal"
-                onClick={() => setShowResult(false)}
+                onClick={() => {
+                  setShowResult(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               >
                 Great, thanks!
               </button>
