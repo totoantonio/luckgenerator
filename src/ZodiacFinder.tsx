@@ -88,7 +88,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className={`container mt-5 ${showResult ? "" : "hidden"}`}>
       <div ref={resultRef} className="result-section">
         {showResult && (
           <div className="modal-content rounded-4 shadow">
@@ -98,11 +98,9 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
               </span>
               <p className="lead lh-1 p-3">{zodiacDescription}</p>
               <p className="lead lh-1 p-3 pt-4">
-                {" "}
-                {/* Add pt-4 for padding-top */}
                 Your lucky numbers:
                 <br />
-                <br />{" "}
+                <br />
                 <span className="lucky-numbers-text">
                   {luckyNumbers.map((number, index) => (
                     <span key={index} className="lucky-number">
@@ -116,7 +114,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                 type="button"
                 className="btn btn-primary btn-lg px-4 gap-3"
                 data-bs-dismiss="modal"
-                onClick={() => setShowResult(false)} // Add onClick event handler here
+                onClick={() => setShowResult(false)}
               >
                 Great, thanks!
               </button>

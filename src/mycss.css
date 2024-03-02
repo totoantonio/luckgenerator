@@ -288,3 +288,7 @@ fw-bolder {
   color: transparent;
   font-weight: bold;
 }
+
+.hidden {
+  display: none;
+}
