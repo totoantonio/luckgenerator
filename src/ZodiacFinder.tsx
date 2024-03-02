@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./mycss.css";
+import "./mycss.css"; // Import your custom CSS styles here
 import * as zodiacData from "./chinesezodiac.json";
 import horoscopeData from "./horoscope.json";
 
@@ -18,11 +18,7 @@ interface Horoscope {
 }
 
 interface HoroscopeData {
-  "2024": {
-    [zodiac: string]: {
-      horoscope: string;
-    };
-  };
+  [key: string]: Horoscope;
 }
 
 interface ZodiacFinderProps {
@@ -37,6 +33,17 @@ interface CustomCSSProperties extends React.CSSProperties {
   "--gradientColor": string;
 }
 
+const getCurrentDate = () => {
+  const dateObj = new Date();
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return dateObj.toLocaleDateString("en-US", options);
+};
+
 const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   const [showResult, setShowResult] = useState(false);
   const [zodiacSign, setZodiacSign] = useState("");
@@ -48,7 +55,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   useEffect(() => {
     if (birthYear) {
       calculateZodiac(birthYear);
-      fetchHoroscope();
     }
   }, [birthYear]);
 
@@ -85,6 +91,12 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       setZodiacDescription(zodiacInfo.description);
       setLuckyNumbers(generateLuckyNumbers(7));
       setShowResult(true);
+      // Ensure that the key exists in horoscopeData before accessing it
+      if (calculatedZodiacSign in horoscopeData) {
+        setHoroscope(
+          (horoscopeData as HoroscopeData)[calculatedZodiacSign].horoscope
+        );
+      }
     }
   };
 
@@ -99,39 +111,13 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     return numbers;
   };
 
-  const fetchHoroscope = () => {
-    try {
-      const year = "2024"; // Assuming you're fetching data for the year 2024
-      const horoscopeObj = horoscopeData[year] as {
-        [key: string]: { horoscope: string };
-      };
-      if (!horoscopeObj) {
-        throw new Error("Horoscope data for the year 2024 not found.");
-      }
-      const signData = horoscopeObj[zodiacSign];
-      if (!signData) {
-        throw new Error(`Horoscope data for ${zodiacSign} not found.`);
-      }
-      const horoscope = signData.horoscope;
-      setHoroscope(horoscope);
-    } catch (error) {
-      console.error("Error fetching horoscope:", error);
-    }
-  };
-
-  useEffect(() => {
-    console.log("Horoscope state:", horoscope);
-  }, [horoscope]);
-
-  console.log("Horoscope:", horoscope);
-
   return (
     <div className={`container mt-5 ${showResult ? "" : "hidden"}`}>
       <div ref={resultRef} className="result-section">
         {showResult && (
           <div className="row">
             <div className="col-lg-6">
-              <div className="modal-content rounded-4 shadow">
+              <div className="modal-content">
                 <div className="modal-body p-2">
                   <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
                     <span className="gradient-text" style={titleStyle}>
@@ -156,7 +142,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                   <button
                     type="button"
                     className="btn btn-primary btn-lg px-4 gap-3"
-                    data-bs-dismiss="modal"
                     onClick={() => {
                       setShowResult(false);
                       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -168,7 +153,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
               </div>
             </div>
             <div className="col-lg-6">
-              <div className="modal-content rounded-4 shadow">
+              <div className="modal-content">
                 <div className="modal-body p-2">
                   <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
                     <span className="gradient-text" style={titleStyle}>
