@@ -108,7 +108,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       if (!horoscopeObj) {
         throw new Error("Horoscope data for the year 2024 not found.");
       }
-      const signData = horoscopeObj[zodiacSign.toLowerCase()];
+      const signData = horoscopeObj[zodiacSign];
       if (!signData) {
         throw new Error(`Horoscope data for ${zodiacSign} not found.`);
       }
