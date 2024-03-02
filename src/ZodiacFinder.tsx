@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./mycss.css"; // Import your custom CSS styles here
+import "./mycss.css";
 import * as zodiacData from "./chinesezodiac.json";
-import axios from "axios"; // Import Axios for making HTTP requests
+import horoscopeData from "./horoscope.json";
 
 interface ZodiacInfo {
   description: string;
@@ -17,6 +17,14 @@ interface Horoscope {
   horoscope: string;
 }
 
+interface HoroscopeData {
+  "2024": {
+    [zodiac: string]: {
+      horoscope: string;
+    };
+  };
+}
+
 interface ZodiacFinderProps {
   birthYear?: string | null;
 }
@@ -28,17 +36,6 @@ const titleStyle: CustomCSSProperties = {
 interface CustomCSSProperties extends React.CSSProperties {
   "--gradientColor": string;
 }
-
-const getCurrentDate = () => {
-  const dateObj = new Date();
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return dateObj.toLocaleDateString("en-US", options);
-};
 
 const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   const [showResult, setShowResult] = useState(false);
@@ -102,16 +99,31 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     return numbers;
   };
 
-  const fetchHoroscope = async () => {
+  const fetchHoroscope = () => {
     try {
-      const response = await axios.get<Horoscope>(
-        "YOUR_HOROSCOPE_API_ENDPOINT"
-      );
-      setHoroscope(response.data.horoscope);
+      const year = "2024"; // Assuming you're fetching data for the year 2024
+      const horoscopeObj = horoscopeData[year] as {
+        [key: string]: { horoscope: string };
+      };
+      if (!horoscopeObj) {
+        throw new Error("Horoscope data for the year 2024 not found.");
+      }
+      const signData = horoscopeObj[zodiacSign.toLowerCase()];
+      if (!signData) {
+        throw new Error(`Horoscope data for ${zodiacSign} not found.`);
+      }
+      const horoscope = signData.horoscope;
+      setHoroscope(horoscope);
     } catch (error) {
       console.error("Error fetching horoscope:", error);
     }
   };
+
+  useEffect(() => {
+    console.log("Horoscope state:", horoscope);
+  }, [horoscope]);
+
+  console.log("Horoscope:", horoscope);
 
   return (
     <div className={`container mt-5 ${showResult ? "" : "hidden"}`}>
@@ -165,14 +177,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     </span>
                   </h1>
 
-                  <small>{getCurrentDate()}</small>
                   <p className="lead lh-1 p-3">{horoscope}</p>
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-lg px-4 me-md-2"
-                  >
-                    Primary
-                  </button>
                 </div>
               </div>
             </div>
