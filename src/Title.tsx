@@ -88,8 +88,10 @@ function Title() {
             <span style={{ color: "red", fontWeight: "bold" }}>
               Chinese Zodiac&nbsp;
             </span>
-            animal and receive a set of lucky numbers tailored to your sign! Our
-            fun&nbsp;
+            animal and receive a set of lucky numbers tailored to your sign!{" "}
+            <br />
+            <br />
+            Our fun&nbsp;
             <span style={{ color: "blue", fontWeight: "bold" }}>
               Zodiac Lucky Number&nbsp;
             </span>

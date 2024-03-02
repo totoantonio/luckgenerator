@@ -230,35 +230,38 @@ fw-bolder {
 
 /* Default style */
 .Title {
-  /* Default font size */
-  font-size: 96px;
-  /* Default padding */
-  padding-bottom: 20px; /* Adjust as needed */
+  font-size: 6rem; /* Using rem; adjust as needed */
+  padding-bottom: 1.25rem;
 }
 
-/* Media queries */
-@media (max-width: 1280px) {
+/* Media queries using Bootstrap breakpoints */
+@media (max-width: 1400px) {
+  /* lg breakpoint */
   .Title {
-    font-size: 86px;
+    font-size: 5.5rem;
     padding-bottom: 0;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
+  /* md breakpoint */
   .Title {
-    font-size: 64px;
+    font-size: 4rem;
   }
 }
 
-@media (max-width: 834px) {
+@media (max-width: 992px) {
+  /* sm breakpoint */
   .Title {
-    font-size: 56px;
+    font-size: 3.5rem;
   }
 }
 
-@media (max-width: 734px) {
+@media (max-width: 768px) {
+  /* xs breakpoint */
   .Title {
-    line-height: 58px;
+    font-size: 3rem;
+    line-height: 3.25rem;
   }
 }
 
@@ -305,5 +308,12 @@ fw-bolder {
   .col-12.col-lg-6.order-lg-1 {
     margin: 0;
     padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  /* Adjust breakpoint as needed */
+  .col-12.col-lg-6.order-lg-2.text-center.text-lg-start {
+    /* Target your text card */
+    margin-top: -1.5rem; /* Use a negative top margin */
   }
 }
