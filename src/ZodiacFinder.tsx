@@ -98,9 +98,17 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       setLuckyNumbers(generateLuckyNumbers(7));
       setShowResult(true);
       if (calculatedZodiacSign in horoscopeData) {
-        setHoroscope(
-          (horoscopeData as HoroscopeData)[calculatedZodiacSign].horoscope
-        );
+        let modifiedHoroscope = (horoscopeData as HoroscopeData)[
+          calculatedZodiacSign
+        ].horoscope;
+
+        // Split into paragraphs (Create a paragraph per sentence)
+        const sentences = modifiedHoroscope.split(". "); // Split by periods
+        modifiedHoroscope = sentences
+          .map((sentence) => `<p>${sentence}.</p>`)
+          .join(""); // Build paragraph structure
+
+        setHoroscope(modifiedHoroscope);
       }
     }
   };
@@ -117,7 +125,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   };
 
   return (
-    <div className={`container mt-5 ${showResult ? "" : "hidden"}`}>
+    <div className={`container mt-1 ${showResult ? "" : "hidden"}`}>
       <div ref={resultRef} className="result-section">
         {showResult && (
           <div className="row">
@@ -125,13 +133,13 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
               <div className="modal-content">
                 <div className="modal-body p-2">
                   <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
-                    <span className="gradient-text" style={titleStyle}>
+                    <span className="graytitles" style={titleStyle}>
                       {" "}
                       {zodiacSign}
                     </span>
                   </h1>
 
-                  <p className="lead lh-1 p-3">{zodiacDescription}</p>
+                  <p className="lead lh-1">{zodiacDescription}</p>
                   <p className="lead lh-1 p-3 pt-4">
                     Your lucky numbers:
                     <br />
@@ -161,13 +169,17 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
               <div className="modal-content">
                 <div className="modal-body p-2">
                   <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
-                    <span className="gradient-text" style={titleStyle}>
+                    <span className="graytitles" style={titleStyle}>
                       {" "}
                       2024 Outlook
                     </span>
                   </h1>
-
-                  <p className="lead lh-1 p-3">{horoscope}</p>
+                  <div className="lead lh-1">
+                    <p
+                      className="border-test"
+                      dangerouslySetInnerHTML={{ __html: horoscope }}
+                    ></p>
+                  </div>
                 </div>
               </div>
             </div>

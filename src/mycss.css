@@ -228,15 +228,8 @@ fw-bolder {
   }
 }
 
-/* Default style */
-.Title {
-  font-size: 6rem; /* Using rem; adjust as needed */
-  padding-bottom: 1.25rem;
-}
-
 /* Media queries using Bootstrap breakpoints */
 @media (max-width: 1400px) {
-  /* lg breakpoint */
   .Title {
     font-size: 5.5rem;
     padding-bottom: 0;
@@ -244,24 +237,21 @@ fw-bolder {
 }
 
 @media (max-width: 1200px) {
-  /* md breakpoint */
   .Title {
     font-size: 4rem;
   }
 }
 
 @media (max-width: 992px) {
-  /* sm breakpoint */
   .Title {
-    font-size: 3.5rem;
+    font-size: 4.5rem; /* Increase this for larger font on smaller screens */
   }
 }
 
 @media (max-width: 768px) {
-  /* xs breakpoint */
   .Title {
-    font-size: 3rem;
-    line-height: 3.25rem;
+    font-size: 4rem; /* Increase this for even larger font on very small screens */
+    line-height: 3.25rem; /* Reduce line-height if needed */
   }
 }
 
@@ -316,4 +306,18 @@ fw-bolder {
     /* Target your text card */
     margin-top: -1.5rem; /* Use a negative top margin */
   }
+}
+@media (max-width: 768px) {
+  /* Adjust breakpoint as needed */
+  .my-custom-title {
+    font-size: calc(1.5rem + 3vw); /* Initial smaller font size */
+    max-width: 100%; /* Allow text to fill container width */
+    white-space: nowrap; /* Prevent wrapping initially */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if necessary */
+  }
+}
+.graytitles {
+  /* Assuming you're still using this class */
+  color: #70757a !important; /* Default Google gray */
 }

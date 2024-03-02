@@ -78,7 +78,7 @@ function Title() {
         </div>
 
         <div className="col-12 col-lg-6 order-lg-2 text-center text-lg-start">
-          <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+          <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3 my-custom-title">
             <span className="gradient-text" style={titleStyle}>
               {title}
             </span>
