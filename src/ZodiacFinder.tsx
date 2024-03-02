@@ -158,7 +158,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                   <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
                     <span className="gradient-text" style={titleStyle}>
                       {" "}
-                      {zodiacSign}
+                      2024 Outlook
                     </span>
                   </h1>
 
