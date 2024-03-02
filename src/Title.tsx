@@ -59,55 +59,61 @@ function Title() {
   };
 
   return (
-    <div className="px-2 py-2 my-2 text-center">
-      <div className="position-relative">
-        <img
-          className="d-block mx-auto mb-2"
-          src="./luckysymbol.svg"
-          alt=""
-          width="80%"
-          height="80%"
-        />
-        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
-          {`${starCount}+`} <span className="visually-hidden">stars</span>
-        </span>
-      </div>
-      <h4 className="display-5 fw-bolder text-body-emphasis lh-1">
-        <span className="gradient-text" style={titleStyle}>
-          {title}
-        </span>
-      </h4>
-      <div className="col-lg-6 mx-auto">
-        <p className="lead mb-4 lh-1 p-3">
-          Discover the fascinating traits of your{" "}
-          <span style={{ color: "red", fontWeight: "bold" }}>
-            Chinese Zodiac
-          </span>{" "}
-          animal and receive a set of lucky numbers tailored to your sign! Our
-          fun{" "}
-          <span style={{ color: "blue", fontWeight: "bold" }}>
-            Zodiac Lucky Number
-          </span>{" "}
-          Finder reveals the secrets of this ancient tradition. Simply enter
-          your birth year and embark on a journey of self-discovery and good
-          fortune!
-        </p>
-        <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button
-            type="button"
-            className="btn btn-primary btn-lg px-4 gap-3"
-            onClick={handleModalOpen}
-          >
-            Try It Now!
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-secondary btn-lg px-4"
-            onClick={handleSendStars}
-            ref={buttonRef}
-          >
-            Send Stars
-          </button>
+    <div className="container col-xxl-8 px-2 py-2">
+      <div className="row flex-lg-row align-items-center g-5 py-5">
+        <div className="col-lg-6">
+          <div className="image-container">
+            <img
+              src="./luckysymbol.svg"
+              className="d-block mx-lg-auto img-fluid mb-2"
+              alt=""
+              width="100%"
+              height="100%"
+            />
+            <span className="badge rounded-pill bg-warning">
+              {" "}
+              {`${starCount}+`} <span className="visually-hidden">stars</span>{" "}
+            </span>
+          </div>
+        </div>
+
+        <div className="col-lg-6">
+          <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+            <span className="gradient-text" style={titleStyle}>
+              {title}
+            </span>
+          </h1>
+          <p className="lead mb-4 lh-1">
+            Discover the fascinating traits of your&nbsp;
+            <span style={{ color: "red", fontWeight: "bold" }}>
+              Chinese Zodiac&nbsp;
+            </span>
+            animal and receive a set of lucky numbers tailored to your sign! Our
+            fun&nbsp;
+            <span style={{ color: "blue", fontWeight: "bold" }}>
+              Zodiac Lucky Number&nbsp;
+            </span>
+            Finder reveals the secrets of this ancient tradition. Simply enter
+            your birth year and embark on a journey of self-discovery and good
+            fortune!
+          </p>
+          <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button
+              type="button"
+              className="btn btn-primary btn-lg px-4 gap-3"
+              onClick={handleModalOpen}
+            >
+              Try It Now!
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-secondary btn-lg px-4"
+              onClick={handleSendStars}
+              ref={buttonRef}
+            >
+              Send Stars
+            </button>
+          </div>
         </div>
       </div>
 

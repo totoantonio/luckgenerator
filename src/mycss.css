@@ -131,27 +131,16 @@ html {
   align-items: center;
   justify-content: center;
 }
-.position-relative {
-  /* Target the container with the badge */
-  display: inline-block; /* Allow content to flow beside it */
+/* badge */
+.image-container {
+  position: relative;
+  padding: 0; /* Set padding to zero or adjust as needed */
 }
 
-CSS .badge {
-  top: 10px;
-  right: 10px;
-  display: inline-flex; /* Enables internal centering */
-  align-items: center; /* Vertical centering */
-  justify-content: center; /* Horizontal centering */
-  width: 30px; /* Set desired width */
-  height: 30px; /* Set desired height */
-  border-radius: 50%; /* Create a circle */
-  overflow: hidden; /* Hide any overflow */
-}
-.start-100 {
-  left: 77% !important;
-}
-.top-0 {
-  top: 26% !important;
+.badge {
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
 }
 
 .star-burst {
@@ -200,7 +189,13 @@ CSS .badge {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-size: 150% !important;
+}
+
+/* Adjust font size for smaller screens */
+@media screen and (max-width: 768px) {
+  #title {
+    font-size: 100%; /* Adjust as needed */
+  }
 }
 
 fw-bolder {
