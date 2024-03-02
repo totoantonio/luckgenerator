@@ -58,6 +58,12 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     }
   }, [birthYear]);
 
+  useEffect(() => {
+    if (showResult && resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showResult]);
+
   const calculateZodiac = (year: string) => {
     const parsedYear = parseInt(year);
     const zodiacSigns = [
@@ -91,7 +97,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       setZodiacDescription(zodiacInfo.description);
       setLuckyNumbers(generateLuckyNumbers(7));
       setShowResult(true);
-      // Ensure that the key exists in horoscopeData before accessing it
       if (calculatedZodiacSign in horoscopeData) {
         setHoroscope(
           (horoscopeData as HoroscopeData)[calculatedZodiacSign].horoscope

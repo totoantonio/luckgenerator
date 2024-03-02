@@ -23,10 +23,12 @@ function NavBar() {
           <img
             src="./dragonviking.svg"
             alt="Logo"
-            className="pe-1 text d-inline-block"
+            className="d-inline-block align-text-top pe-1"
           />
           {title}
         </a>
+
+        <div className="collapse navbar-collapse" id="navbarContent"></div>
       </div>
     </nav>
   );

@@ -77,13 +77,7 @@ html {
 .my-custom-navbar {
   background-color: rgba(255, 255, 255, 1); /* White with optional opacity */
 }
-.my-navbar {
-  position: fixed; /* Key for staying on top */
-  top: 0; /* Sticks to the top of the screen */
-  left: 0; /* Stretches across the full width */
-  width: 100%; /* Ensures full width coverage */
-  z-index: 1000; /* A high z-index to win against other elements */
-}
+
 .card-img-top {
   border-radius: 0;
   animation: doubleHeartbeat 1.5s ease-in-out infinite alternate;
@@ -297,4 +291,19 @@ fw-bolder {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 767px) {
+  /* Adjust breakpoint as needed */
+  .container.col-xxl-8 {
+    padding-top: 1rem !important; /* Smaller top padding */
+    padding-bottom: 1rem; /* Smaller bottom padding */
+  }
+}
+@media (max-width: 767px) {
+  /* Adjust breakpoint as needed */
+  .col-12.col-lg-6.order-lg-1 {
+    margin: 0;
+    padding: 0;
+  }
 }

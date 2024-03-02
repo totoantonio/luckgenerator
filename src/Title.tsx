@@ -61,7 +61,7 @@ function Title() {
   return (
     <div className="container col-xxl-8 px-4 py-5">
       <div className="row flex-lg-row align-items-center g-5 py-5">
-        <div className="col-lg-6">
+        <div className="col-12 col-lg-6 order-lg-1">
           <div className="image-container">
             <img
               src="./luckysymbol.svg"
@@ -77,7 +77,7 @@ function Title() {
           </div>
         </div>
 
-        <div className="col-lg-6">
+        <div className="col-12 col-lg-6 order-lg-2 text-center text-lg-start">
           <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
             <span className="gradient-text" style={titleStyle}>
               {title}
@@ -97,7 +97,7 @@ function Title() {
             your birth year and embark on a journey of self-discovery and good
             fortune!
           </p>
-          <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <div className="d-grid gap-2 d-md-flex justify-content-md-center">
             <button
               type="button"
               className="btn btn-primary btn-lg px-4 gap-3"
@@ -138,7 +138,6 @@ function Title() {
                     {title}
                   </h4>
                 </div>
-
                 <div className="modal-body">
                   <form onSubmit={handleSubmit}>
                     <div className="form-group mb-3">
@@ -172,7 +171,6 @@ function Title() {
 
       {/* Conditional rendering for displaying the result */}
       <ZodiacFinder birthYear={birthYear} />
-      {birthYear && <div></div>}
     </div>
   );
 }
