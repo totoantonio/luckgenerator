@@ -268,17 +268,23 @@ fw-bolder {
   }
 }
 
+.lucky-number {
+  margin-right: 5px; /* Adjust spacing between numbers */
+}
+
 .lucky-numbers-text {
-  background: linear-gradient(89deg, #2689e8 18.91%, #a168ff 79.91%);
+  background: linear-gradient(
+    108deg,
+    #985cc9 8%,
+    #ff5e69 40%,
+    #ff8a56 77%,
+    #ffa84b 91%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-weight: bold;
   font-size: 150% !important;
-}
-
-.lucky-number {
-  margin-right: 5px; /* Adjust spacing between numbers */
 }
 
 .zodiactitle {
