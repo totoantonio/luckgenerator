@@ -129,7 +129,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       <div ref={resultRef} className="result-section">
         {showResult && (
           <div className="row align-items-stretch">
-            <div className="col-lg-6 d-flex">
+            <div className="col-lg-6 mb-4 mb-lg-0">
               <div className="modal-content rounded-4 cbg flex-fill">
                 <div className="modal-body p-2">
                   <h1 className="display-6 fw-bold text-body-emphasis zodiactitle mb-3">
