@@ -6,7 +6,6 @@
   src: url(../src/assets/fonts/JetBrainsMono-Bold.woff) format("woff2");
   font-display: swap;
 }
-
 @font-face {
   font-family: JetBrains Mono;
   font-style: normal;
@@ -15,7 +14,6 @@
   src: url(../src/assets/fonts/JetBrainsMono-Regular.woff) format("woff2");
   font-display: swap;
 }
-
 @font-face {
   font-family: Inter;
   font-style: normal;
@@ -24,7 +22,6 @@
   src: url(../src/assets/fonts/Inter-400.woff) format("woff2");
   font-display: swap;
 }
-
 @font-face {
   font-family: Inter;
   font-style: normal;
@@ -33,7 +30,6 @@
   src: url(../src/assets/fonts/Inter-500.woff) format("woff2");
   font-display: swap;
 }
-
 @font-face {
   font-family: Inter;
   font-style: normal;
@@ -42,7 +38,6 @@
   src: url(../src/assets/fonts/Inter-600.woff) format("woff2");
   font-display: swap;
 }
-
 @font-face {
   font-family: Inter;
   font-style: normal;
@@ -51,7 +46,6 @@
   src: url(../src/assets/fonts/Inter-700.woff) format("woff2");
   font-display: swap;
 }
-
 body,
 html {
   position: relative;
@@ -67,17 +61,16 @@ html {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-style: normal;
 }
-
 .no-border {
   border: none !important;
 }
 .fs-1-plus {
-  font-size: 2em; /* Adjust the value as needed */
+  font-size: 2em;
+  /* Adjust the value as needed */
 }
 .my-custom-navbar {
-  background-color: rgba(255, 255, 255, 1); /* White with optional opacity */
+  background-color: rgba(255, 255, 255, 1);
 }
-
 .card-img-top {
   border-radius: 0;
   animation: doubleHeartbeat 1.5s ease-in-out infinite alternate;
@@ -103,21 +96,17 @@ html {
   }
 }
 .card-img-top {
-  max-width: 50%; /* Make the image scale to its container */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 50%;
+  height: auto;
+  border-radius: 0;
 }
 .card {
-  /* Or the class of the parent container */
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically (optional) */
+  justify-content: center;
+  align-items: center;
 }
 .card {
-  position: relative; /* Establish a positioning context */
-}
-
-.card-img-top {
-  border-radius: 0; /* Remove rounded corners */
+  position: relative;
 }
 .card-content-center {
   display: flex;
@@ -127,18 +116,22 @@ html {
 }
 /* badge */
 .image-container {
-  position: relative; /* Keeps existing relative positioning */
-  display: flex; /* Enable Flexbox */
-  align-items: center; /* Vertically center the badge */
-  gap: 10px; /* Spacing between image and badge */
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: hidden;
 }
-
+.image-container img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
 .badge {
-  position: absolute; /* Keeps existing absolute positioning */
-  top: 61px; /* Adjust top placement as needed */
-  right: 47px; /* Adjust right placement as needed */
+  position: absolute;
+  top: 61px;
+  right: 47px;
 }
-
 /* (Optional) Media Query for Mobile Responsiveness */
 @media (max-width: 768px) {
   .col-12.col-lg-6 {
@@ -146,7 +139,6 @@ html {
     align-items: center;
   }
 }
-
 .star-burst {
   position: absolute;
   width: 2em;
@@ -157,36 +149,35 @@ html {
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .star-burst::before {
-  content: "$"; /* Or another currency symbol */
+  content: "$";
   color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .star-burst.active {
   opacity: 1;
   transform: translateY(-20px) scale(1.5);
 }
-
 .star-burst.active {
   opacity: 1;
-  transform: translateY(-20px) scale(1.5); /* Adjust translate and scale if needed */
-  animation: coinFloatUp 1s ease-out; /* Add animation */
+  transform: translateY(-20px) scale(1.5);
+  animation: coinFloatUp 1s ease-out;
 }
 @keyframes coinFloatUp {
   0% {
     transform: translateY(-20px) scale(1.5);
-  } /* Match initial state */
+  }
   100% {
     transform: translateY(-50px) scale(1.5);
-  } /* Coin moves further up */
+  }
+  /* Coin moves further up */
 }
-
 .star-burst svg {
   fill: gold;
-  width: 5em; /* Larger coin */
+  width: 5em;
+  /* Larger coin */
 }
 .gradient-text {
   background: var(--gradientColor);
@@ -194,50 +185,40 @@ html {
   background-clip: text;
   color: transparent;
 }
-
 /* Adjust font size for smaller screens */
 @media screen and (max-width: 768px) {
   #title {
-    font-size: 100%; /* Adjust as needed */
+    font-size: 100%;
+    /* Adjust as needed */
   }
 }
-
 fw-bolder {
   font-weight: 900 !important;
 }
-
 /*Modal*/
-
 .modal {
-  /* Center modal horizontally and vertically */
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Set modal to cover the entire viewport */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-
 .modal-dialog {
-  /* Set width and max-width */
   width: 90%;
-  max-width: 400px; /* Adjust as needed */
+  max-width: 400px;
 }
-
 .modal-content {
-  /* Add padding */
   padding: 20px;
 }
 @media (max-width: 768px) {
   .modal-dialog {
     width: 90%;
-    max-width: none; /* Override max-width for smaller screens */
+    max-width: none;
   }
 }
-
 /* Media queries using Bootstrap breakpoints */
 @media (max-width: 1400px) {
   .Title {
@@ -245,30 +226,29 @@ fw-bolder {
     padding-bottom: 0;
   }
 }
-
 @media (max-width: 1200px) {
   .Title {
     font-size: 4rem;
   }
 }
-
 @media (max-width: 992px) {
   .Title {
-    font-size: 4.5rem; /* Increase this for larger font on smaller screens */
+    font-size: 4.5rem;
+    /* Increase this for larger font on smaller screens */
   }
 }
-
 @media (max-width: 768px) {
   .Title {
-    font-size: 4rem; /* Increase this for even larger font on very small screens */
-    line-height: 3.25rem; /* Reduce line-height if needed */
+    font-size: 4rem;
+    /* Increase this for even larger font on very small screens */
+    line-height: 3.25rem;
+    /* Reduce line-height if needed */
   }
 }
-
 .lucky-number {
-  margin-right: 5px; /* Adjust spacing between numbers */
+  margin-right: 5px;
+  /* Adjust spacing between numbers */
 }
-
 .zodiactitle {
   background: linear-gradient(89deg, #2689e8 18.91%, #a168ff 79.91%);
   -webkit-background-clip: text;
@@ -276,16 +256,16 @@ fw-bolder {
   color: transparent;
   font-weight: bold;
 }
-
 .hidden {
   display: none;
 }
-
 @media (max-width: 767px) {
   /* Adjust breakpoint as needed */
   .container.col-xxl-8 {
-    padding-top: 1rem !important; /* Smaller top padding */
-    padding-bottom: 1rem; /* Smaller bottom padding */
+    padding-top: 1rem !important;
+    /* Smaller top padding */
+    padding-bottom: 1rem;
+    /* Smaller bottom padding */
   }
 }
 @media (max-width: 767px) {
@@ -299,50 +279,57 @@ fw-bolder {
   /* Adjust breakpoint as needed */
   .col-12.col-lg-6.order-lg-2.text-center.text-lg-start {
     /* Target your text card */
-    margin-top: -1.5rem; /* Use a negative top margin */
+    margin-top: -1.5rem;
+    /* Use a negative top margin */
   }
 }
 @media (max-width: 768px) {
   /* Adjust breakpoint as needed */
   .my-custom-title {
-    font-size: calc(1.5rem + 3vw); /* Initial smaller font size */
-    max-width: 100%; /* Allow text to fill container width */
-    white-space: nowrap; /* Prevent wrapping initially */
+    font-size: calc(1.5rem + 3vw);
+    /* Initial smaller font size */
+    max-width: 100%;
+    /* Allow text to fill container width */
+    white-space: nowrap;
+    /* Prevent wrapping initially */
     overflow: hidden;
-    text-overflow: ellipsis; /* Add ellipsis if necessary */
+    text-overflow: ellipsis;
+    /* Add ellipsis if necessary */
   }
 }
 .graytitles {
   /* Assuming you're still using this class */
-  color: #70757a !important; /* Default Google gray */
+  color: #70757a !important;
+  /* Default Google gray */
 }
-
 .cbg {
-  background-color: #f0f4f8; /* Replace with your desired background color */
+  background-color: #f0f4f8;
+  /* Replace with your desired background color */
 }
 .mtxt {
   color: #191f2f;
 }
-
 /* Style for the container of the lucky numbers */
 .lucky-number {
-  display: inline-flex; /* Allows better spacing control */
-  margin-right: 5px; /* Space between numbers */
+  display: inline-flex;
+  /* Allows better spacing control */
+  margin-right: 5px;
+  /* Space between numbers */
 }
-
 /* Style for the middle dot */
 .lucky-number > span::after {
-  content: "·"; /* Insert the middle dot character */
-  margin: 0 5px; /* Adjust spacing around the dot as needed */
-  color: #333; /* Set the color of the middle dot */
+  content: "·";
+  /* Insert the middle dot character */
+  margin: 0 5px;
+  /* Adjust spacing around the dot as needed */
+  color: #333;
+  /* Set the color of the middle dot */
 }
-
 /* Remove the dot after the last digit */
 .lucky-number > span:last-child::after {
   content: none;
 }
 /* Animation Toggle */
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -353,22 +340,19 @@ fw-bolder {
     transform: translateY(0);
   }
 }
-
 .image-container img {
   animation: fadeIn 1s ease-out;
 }
-
 .image-container img {
   transition: transform 0.3s ease;
 }
-
 .image-container img:hover {
-  transform: translateX(5px); /* Move the image 5 pixels to the right */
+  transform: translateX(5px);
+  /* Move the image 5 pixels to the right */
 }
 .gradient-text:hover {
   animation: nudge 0.5s ease infinite alternate;
 }
-
 @keyframes nudge {
   0% {
     transform: translateX(0);
