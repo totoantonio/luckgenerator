@@ -6,3 +6,4 @@ vite.config.ts
 vite-envd.ts
 chinesezodiac.json
 horoscope.json
+tsconfig.node.json

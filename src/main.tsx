@@ -1,15 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import NavBar from "./NavBar";
 import Title from "./Title";
 import ZodiacFinder from "./ZodiacFinder";
 import Footer from "./Footer";
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.render(
   <React.StrictMode>
     <NavBar />
     <Title />
     <ZodiacFinder />
     <Footer />
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
