@@ -65,7 +65,7 @@ function Title() {
           <div className="image-container">
             <img
               src="./luckysymbol.svg"
-              className="d-block mx-lg-auto img-fluid mb-2 animated-image"
+              className="d-block mx-lg-auto img-fluid mb-2"
               alt=""
               width="100%"
               height="100%"
