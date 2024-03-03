@@ -53,6 +53,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   const resultRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    console.log("useEffect triggered, birthYear:", birthYear);
     if (birthYear) {
       calculateZodiac(birthYear);
     }
@@ -65,6 +66,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   }, [showResult]);
 
   const calculateZodiac = (year: string) => {
+    console.log("Inside calculateZodiac. Year:", year);
     const parsedYear = parseInt(year);
     const zodiacSigns = [
       "Rat",
@@ -97,18 +99,21 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       setZodiacDescription(zodiacInfo.description);
       setLuckyNumbers(generateLuckyNumbers(7));
       setShowResult(true);
+
+      console.log("Setting horoscope");
       if (calculatedZodiacSign in horoscopeData) {
         let modifiedHoroscope = (horoscopeData as HoroscopeData)[
           calculatedZodiacSign
         ].horoscope;
 
-        // Split into paragraphs (Create a paragraph per sentence)
-        const sentences = modifiedHoroscope.split(". "); // Split by periods
+        const sentences = modifiedHoroscope.split(". ");
         modifiedHoroscope = sentences
           .map((sentence) => `<p>${sentence}.</p>`)
-          .join(""); // Build paragraph structure
+          .join("");
 
         setHoroscope(modifiedHoroscope);
+      } else {
+        console.log("Zodiac sign not found in horoscopeData");
       }
     }
   };
@@ -122,6 +127,14 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       }
     }
     return numbers;
+  };
+
+  const resetState = () => {
+    setShowResult(false);
+    setZodiacSign("");
+    setZodiacDescription("");
+    setLuckyNumbers([]);
+    setHoroscope("");
   };
 
   return (
@@ -152,7 +165,8 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     type="button"
                     className="btn btn-primary btn-lg px-4 gap-3"
                     onClick={() => {
-                      setShowResult(false);
+                      console.log("Great, thanks! clicked");
+                      resetState();
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
                   >
