@@ -128,17 +128,15 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     <div className={`container mt-1 ${showResult ? "" : "hidden"}`}>
       <div ref={resultRef} className="result-section">
         {showResult && (
-          <div className="row">
+          <div className="row align-items-stretch">
             <div className="col-lg-6">
-              <div className="modal-content">
+              <div className="modal-content rounded-4 cbg">
                 <div className="modal-body p-2">
                   <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
                     <span className="graytitles" style={titleStyle}>
-                      {" "}
                       {zodiacSign}
                     </span>
                   </h1>
-
                   <p className="lead lh-1">{zodiacDescription}</p>
                   <p className="lead lh-1 p-3 pt-4">
                     Your lucky numbers:
@@ -166,11 +164,10 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
               </div>
             </div>
             <div className="col-lg-6">
-              <div className="modal-content">
+              <div className="modal-content rounded-4 cbg">
                 <div className="modal-body p-2">
                   <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
                     <span className="graytitles" style={titleStyle}>
-                      {" "}
                       2024 Outlook
                     </span>
                   </h1>
