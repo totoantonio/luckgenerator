@@ -330,34 +330,35 @@ fw-bolder {
   content: none;
 }
 /* Animation Toggle */
-@keyframes fadeIn {
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: rotateImage 20s ease-in-out 0s 1 forwards;
+}
+
+.image-container:hover img {
+  animation: rotateImage 10s linear infinite;
+}
+
+@keyframes rotateImage {
   0% {
-    opacity: 0;
-    transform: translateY(-20px);
+    transform: rotate(0deg);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    transform: rotate(720deg);
+  } /* 2 rotations */
 }
-.image-container img {
-  animation: fadeIn 1s ease-out;
+
+.image-container {
+  width: 100%;
+  max-width: 400px; /* Adjust the max-width as needed */
+  overflow: hidden;
 }
-.image-container img {
-  transition: transform 0.3s ease;
-}
-.image-container img:hover {
-  transform: translateX(5px);
-  /* Move the image 5 pixels to the right */
-}
-.gradient-text:hover {
-  animation: nudge 0.5s ease infinite alternate;
-}
-@keyframes nudge {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(5px);
+/* padding of image from the top */
+@media (max-width: 767px) {
+  .row.flex-lg-row.align-items-center.g-5.py-5 {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
   }
 }
