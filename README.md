@@ -1,12 +1,8 @@
 # Luck Generator Website
 
-<img
-              src="./luckysymbol.svg"
-              className="d-block mx-lg-auto img-fluid mb-2"
-              alt=""
-              width="100%"
-              height="100%"
-            />Welcome to the Luck Generator website! This project is a practice exercise for learning React and understanding how it works.
+<img src="/luckysymbol.svg" alt="Lucky Symbol" width="100%" height="100%" />
+
+Welcome to the Luck Generator website! This project is a practice exercise for learning React and understanding how it works.
 
 ## Introduction
 
