@@ -129,15 +129,13 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       <div ref={resultRef} className="result-section">
         {showResult && (
           <div className="row align-items-stretch">
-            <div className="col-lg-6">
-              <div className="modal-content rounded-4 cbg">
+            <div className="col-lg-6 d-flex">
+              <div className="modal-content rounded-4 cbg flex-fill">
                 <div className="modal-body p-2">
-                  <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
-                    <span className="graytitles" style={titleStyle}>
-                      {zodiacSign}
-                    </span>
+                  <h1 className="display-6 fw-bold text-body-emphasis zodiactitle mb-3">
+                    {zodiacSign}
                   </h1>
-                  <p className="lead lh-1">{zodiacDescription}</p>
+                  <p className="lead lh-1 mtxt">{zodiacDescription}</p>
                   <p className="lead lh-1 p-3 pt-4">
                     Your lucky numbers:
                     <br />
@@ -163,15 +161,13 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
-              <div className="modal-content rounded-4 cbg">
+            <div className="col-lg-6 d-flex">
+              <div className="modal-content rounded-4 cbg flex-fill">
                 <div className="modal-body p-2">
-                  <h1 className="display-5 fw-bold text-body-emphasis zodiactitle mb-3">
-                    <span className="graytitles" style={titleStyle}>
-                      2024 Outlook
-                    </span>
+                  <h1 className="display-6 fw-bold text-body-emphasis zodiactitle mb-3">
+                    2024 Outlook
                   </h1>
-                  <div className="lead lh-1">
+                  <div className="lead lh-1 mtxt">
                     <p
                       className="border-test"
                       dangerouslySetInnerHTML={{ __html: horoscope }}
