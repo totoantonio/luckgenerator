@@ -127,14 +127,24 @@ html {
 }
 /* badge */
 .image-container {
-  position: relative;
-  padding: 0; /* Set padding to zero or adjust as needed */
+  position: relative; /* Keeps existing relative positioning */
+  display: flex; /* Enable Flexbox */
+  align-items: center; /* Vertically center the badge */
+  gap: 10px; /* Spacing between image and badge */
 }
 
 .badge {
-  position: absolute;
-  top: 10px; /* Adjust as needed */
-  right: 10px; /* Adjust as needed */
+  position: absolute; /* Keeps existing absolute positioning */
+  top: 61px; /* Adjust top placement as needed */
+  right: 47px; /* Adjust right placement as needed */
+}
+
+/* (Optional) Media Query for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .col-12.col-lg-6 {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .star-burst {
