@@ -145,14 +145,14 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   };
 
   return (
-    <div className={`container mt-1 ${showResult ? "" : "hidden"}`}>
+    <div className={`container mt-1 px-0 ${showResult ? "" : "hidden"}`}>
       <div ref={resultRef} className="result-section">
         {showResult && (
           <div className="row align-items-stretch">
             <div className="col-lg-6 mb-4 mb-lg-0">
               <div className="modal-content rounded-4 cbg flex-fill">
                 <div className="modal-body p-2">
-                  <h1 className="display-6 fw-bold text-body-emphasis zodiactitle mb-3">
+                  <h1 className="display-6 fw-bold text-body-emphasis mb-3">
                     {zodiacSign}
                   </h1>
                   <div className="lead lh-1 mtxt">
@@ -206,7 +206,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
             <div className="col-lg-6 d-flex">
               <div className="modal-content rounded-4 cbg flex-fill">
                 <div className="modal-body p-2">
-                  <h1 className="display-6 fw-bold text-body-emphasis zodiactitle mb-3">
+                  <h1 className="display-6 fw-bold text-body-emphasis mb-3">
                     2024 Outlook
                   </h1>
                   <div className="lead lh-1 mtxt">
