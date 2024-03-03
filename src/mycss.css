@@ -259,21 +259,6 @@ fw-bolder {
   margin-right: 5px; /* Adjust spacing between numbers */
 }
 
-.lucky-numbers-text {
-  background: linear-gradient(
-    108deg,
-    #985cc9 8%,
-    #ff5e69 40%,
-    #ff8a56 77%,
-    #ffa84b 91%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: bold;
-  font-size: 150% !important;
-}
-
 .zodiactitle {
   background: linear-gradient(89deg, #2689e8 18.91%, #a168ff 79.91%);
   -webkit-background-clip: text;
@@ -327,4 +312,22 @@ fw-bolder {
 }
 .mtxt {
   color: #04060b;
+}
+
+/* Style for the container of the lucky numbers */
+.lucky-number {
+  display: inline-flex; /* Allows better spacing control */
+  margin-right: 5px; /* Space between numbers */
+}
+
+/* Style for the middle dot */
+.lucky-number > span::after {
+  content: "·"; /* Insert the middle dot character */
+  margin: 0 5px; /* Adjust spacing around the dot as needed */
+  color: #333; /* Set the color of the middle dot */
+}
+
+/* Remove the dot after the last digit */
+.lucky-number > span:last-child::after {
+  content: none;
 }

@@ -60,6 +60,13 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   }, [birthYear]);
 
   useEffect(() => {
+    console.log("useEffect triggered, birthYear:", birthYear);
+    if (birthYear !== null && birthYear !== undefined) {
+      calculateZodiac(birthYear);
+    }
+  }, [birthYear]);
+
+  useEffect(() => {
     if (showResult && resultRef.current) {
       resultRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -153,10 +160,17 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     Your lucky numbers:
                     <br />
                     <br />
-                    <span className="lucky-numbers-text gradient-text">
+                    <span className="lucky-numbers lead lh-1 fw-bold">
                       {luckyNumbers.map((number, index) => (
                         <span key={index} className="lucky-number">
-                          {number}
+                          {/* Use a Fragment to wrap the digit spans */}
+                          <React.Fragment>
+                            {String(number)
+                              .split("")
+                              .map((digit, digitIndex) => (
+                                <span key={digitIndex}>{digit}</span>
+                              ))}
+                          </React.Fragment>
                         </span>
                       ))}
                     </span>
