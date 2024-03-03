@@ -155,7 +155,15 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                   <h1 className="display-6 fw-bold text-body-emphasis zodiactitle mb-3">
                     {zodiacSign}
                   </h1>
-                  <p className="lead lh-1 mtxt">{zodiacDescription}</p>
+                  <div className="lead lh-1 mtxt">
+                    {zodiacDescription.split(". ").map((sentence, index) => (
+                      <p key={index} className="lead lh-1 mtxt">
+                        {sentence.trim()}
+                        {index !== zodiacDescription.split(". ").length - 1 &&
+                          "."}
+                      </p>
+                    ))}
+                  </div>
                   <p className="lead lh-1 p-3 pt-4">
                     Your lucky numbers:
                     <br />
@@ -163,7 +171,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     <span className="lucky-numbers lead lh-1 fw-bold">
                       {luckyNumbers.map((number, index) => (
                         <span key={index} className="lucky-number">
-                          {/* Use a Fragment to wrap the digit spans */}
                           <React.Fragment>
                             {String(number)
                               .split("")
@@ -181,7 +188,14 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     onClick={() => {
                       console.log("Great, thanks! clicked");
                       resetState();
-                      window.scrollTo({ top: 0, behavior: "smooth" });
+                      if (typeof window !== "undefined") {
+                        const scrollOptions: ScrollToOptions = {
+                          top: 0,
+                          behavior: "smooth" as ScrollBehavior,
+                        };
+                        window.scrollTo(scrollOptions);
+                        document.documentElement.scrollTop = 0; // For older browsers
+                      }
                     }}
                   >
                     Great, thanks!
