@@ -334,27 +334,31 @@ fw-bolder {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  animation: rotateImage 20s ease-in-out 0s 1 forwards;
+  animation: rotateAnimation 1s linear 1; /* Limit to 3 rotations by default */
 }
 
-.image-container:hover img {
-  animation: rotateImage 10s linear infinite;
+.image-container img:hover {
+  animation: rotateOnce 1s linear forwards; /* Rotate once on hover */
 }
 
-@keyframes rotateImage {
-  0% {
+@keyframes rotateAnimation {
+  from {
     transform: rotate(0deg);
   }
-  100% {
-    transform: rotate(720deg);
-  } /* 2 rotations */
+  to {
+    transform: rotate(180deg);
+  }
 }
 
-.image-container {
-  width: 100%;
-  max-width: 400px; /* Adjust the max-width as needed */
-  overflow: hidden;
+@keyframes rotateOnce {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg); /* Rotate only 180 degrees on hover */
+  }
 }
+
 /* padding of image from the top */
 @media (max-width: 767px) {
   .row.flex-lg-row.align-items-center.g-5.py-5 {
