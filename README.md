@@ -1,6 +1,12 @@
 # Luck Generator Website
 
-Welcome to the Luck Generator website! This project is a practice exercise for learning React and understanding how it works.
+<img
+              src="./luckysymbol.svg"
+              className="d-block mx-lg-auto img-fluid mb-2"
+              alt=""
+              width="100%"
+              height="100%"
+            />Welcome to the Luck Generator website! This project is a practice exercise for learning React and understanding how it works.
 
 ## Introduction
 
@@ -27,7 +33,6 @@ The website takes your birth year as input and calculates your Chinese zodiac si
 
 ![Luck Generator Preview](https://totoantonio.github.io/luckgenerator/dragonviking.svg)
 
-
 ## Usage
 
 1. Input your birth year in the provided field.
@@ -45,4 +50,3 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 **Disclaimer:** This website is for educational purposes only and does not guarantee any actual luck or fortune.
-
