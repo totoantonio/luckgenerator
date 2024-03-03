@@ -1,6 +1,6 @@
 # Luck Generator Website
 
-<img src="/luckysymbol.svg" alt="Lucky Symbol" width="100%" height="100%" />
+<img src="https://totoantonio.github.io/luckgenerator/dragonviking.svg"/>
 
 Welcome to the Luck Generator website! This project is a practice exercise for learning React and understanding how it works.
 
