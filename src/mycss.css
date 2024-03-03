@@ -341,48 +341,39 @@ fw-bolder {
 .lucky-number > span:last-child::after {
   content: none;
 }
-/* Theme Toggle */
-.theme-toggle {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+/* Animation Toggle */
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.theme-toggle input[type="checkbox"] {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.image-container img {
+  animation: fadeIn 1s ease-out;
 }
 
-.theme-toggle label {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  border-radius: 34px;
-  transition: background-color 0.4s;
+.image-container img {
+  transition: transform 0.3s ease;
 }
 
-.theme-toggle label:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  border-radius: 50%;
-  transition: transform 0.4s;
+.image-container img:hover {
+  transform: translateX(5px); /* Move the image 5 pixels to the right */
+}
+.gradient-text:hover {
+  animation: nudge 0.5s ease infinite alternate;
 }
 
-.theme-toggle input:checked + label {
-  background-color: #2196f3;
-}
-
-.theme-toggle input:checked + label:before {
-  transform: translateX(26px);
+@keyframes nudge {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(5px);
+  }
 }
