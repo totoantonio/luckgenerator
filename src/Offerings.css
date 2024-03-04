@@ -1,0 +1,21 @@
+.card-body:hover img {
+  animation: rubberBand 1s infinite;
+}
+
+@keyframes rubberBand {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.25);
+  }
+  40% {
+    transform: scale(0.75);
+  }
+  60% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

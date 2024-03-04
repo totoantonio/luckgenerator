@@ -1,3 +1,6 @@
+import React from "react";
+import "./Offerings.css"; // Import CSS file for animations
+
 function Offerings() {
   return (
     <div className="container col-xxl-8 px-4 py-5">
@@ -6,17 +9,17 @@ function Offerings() {
       </h2>
       <div className="row gx-3 gx-md-4 gy-3 gy-md-4 align-items-center">
         <div className="col-md-6">
-          <div className="modal-content rounded-4 cbg flex-fill">
-            <div className="card-body d-flex align-items-center">
+          <div className="rounded-4 cbg flex-fill px-4 py-2">
+            <div className="card-body d-flex align-items-center p-3">
               <img
                 src="./fire.svg" // Replace with your image path
                 alt="Daily Horoscope"
-                className="me-3"
+                className="animated-icon me-3" // Add animated-icon class
                 height="50"
               />
               <div>
                 <h5 className="card-title mb-0">Daily Chinese Horoscope:</h5>
-                <p className="card-text lead lh-1 mtxt p-3">
+                <p className="card-text lh-1 p-3">
                   Discover what the stars have in store for you today. Get
                   insights into your current Chinese zodiac sign and
                   personalized horoscope predictions.
@@ -31,7 +34,7 @@ function Offerings() {
               <img
                 src="./random.svg" // Replace with your image path
                 alt="Fortune Subscription"
-                className="me-3"
+                className="animated-icon me-3" // Add animated-icon class
                 height="50"
               />
               <div>
@@ -56,7 +59,7 @@ function Offerings() {
               <img
                 src="./fortune.svg" // Replace with your image path
                 alt="Random Number Generator"
-                className="me-3"
+                className="animated-icon me-3" // Add animated-icon class
                 height="50"
               />
               <div>
@@ -76,7 +79,7 @@ function Offerings() {
               <img
                 src="./wheel.svg" // Replace with your image path
                 alt="Wheel of Fortune"
-                className="me-3"
+                className="animated-icon me-3" // Add animated-icon class
                 height="50"
               />
               <div>

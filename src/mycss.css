@@ -53,7 +53,7 @@ html {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  color: rgb(128, 128, 128) !important;
+  color: rgb(128, 128, 128);
   background-color: var(--background_page);
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-text-size-adjust: none;
@@ -62,6 +62,33 @@ html {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-style: normal;
 }
+
+.card-text {
+  color: #161c28 !important;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+  .card-text {
+    font-size: 16px;
+  }
+}
+
+.card-title {
+  color: #161c28 !important;
+  font-size: 24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 768px) {
+  .card-text {
+    font-size: 20px;
+  }
+}
+
 .no-border {
   border: none !important;
 }
