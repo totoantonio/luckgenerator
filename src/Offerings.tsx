@@ -1,6 +1,6 @@
 function Offerings() {
   return (
-    <div className="container col-xxl-10 px-2 py-2-fluid">
+    <div className="container col-xxl-8 px-4 py-5">
       <h2 className="display-6 fw-bold text-body-emphasis mb-3">
         What's coming
       </h2>
