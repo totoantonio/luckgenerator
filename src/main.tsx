@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import NavBar from "./NavBar";
 import Title from "./Title";
 import ZodiacFinder from "./ZodiacFinder";
+import Offerings from "./Offerings";
 import Footer from "./Footer";
 
 const rootElement = document.getElementById("root") as Element;
@@ -11,6 +12,7 @@ createRoot(rootElement).render(
     <NavBar />
     <Title />
     <ZodiacFinder />
+    <Offerings />
     <Footer />
   </React.StrictMode>
 );

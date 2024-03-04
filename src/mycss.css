@@ -47,27 +47,13 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/Inter-400-954bfdf8.woff2") format("woff2");
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/Inter-700-b3b91f43.woff2") format("woff2");
-  font-weight: 700;
-  font-display: swap;
-}
-
 body,
 html {
   position: relative;
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  color: rgb(128, 128, 128);
+  color: rgb(128, 128, 128) !important;
   background-color: var(--background_page);
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-text-size-adjust: none;
@@ -321,7 +307,7 @@ fw-bolder {
   background-color: #f0f4f8;
   /* Replace with your desired background color */
 }
-.mtxt {
+.xtmt {
   color: #191f2f;
 }
 /* Style for the container of the lucky numbers */
@@ -380,4 +366,9 @@ fw-bolder {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
   }
+}
+
+.card-text-container {
+  height: 100px; /* Adjust the height as needed */
+  overflow: hidden;
 }
