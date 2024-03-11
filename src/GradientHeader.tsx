@@ -1,78 +1,100 @@
 import React from "react";
 
-interface MoonProps {
-  size: number;
-  color: string; // Include the color property
+interface Bubble {
+  pos: { x: number; y: number };
+  radius: number;
+  velocity: number;
+  init: () => void;
+  draw: () => void;
 }
 
 const GradientHeader = () => {
+  let bubbles: Bubble[] = [];
+
+  const initHeader = () => {
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
+    let canvas = document.getElementById("demo-canvas") as HTMLCanvasElement;
+    canvas.width = width;
+    canvas.height = height;
+    let ctx = canvas.getContext("2d")!;
+
+    // create bubbles
+    bubbles = [];
+    for (let x = 0; x < width * 0.5; x++) {
+      let b: Bubble = {
+        pos: { x: Math.random() * width, y: Math.random() * height },
+        radius: Math.random() * 5 + 2, // Adjusted size of bubbles
+        velocity: Math.random() * 2 + 1,
+        init: function () {
+          this.pos.x = Math.random() * width;
+          this.pos.y = height;
+          this.radius = Math.random() * 5 + 2; // Adjusted size of bubbles
+          this.velocity = Math.random() * 2 + 1;
+        },
+        draw: function () {
+          this.pos.y -= this.velocity;
+          if (this.pos.y + this.radius < 0) {
+            this.init();
+          }
+          ctx.beginPath();
+          ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI);
+          ctx.fillStyle = "#ffffff";
+          ctx.fill();
+        },
+      };
+      bubbles.push(b);
+    }
+    animate();
+  };
+
+  const animate = () => {
+    requestAnimationFrame(animate);
+    animateHeader && drawBubbles();
+  };
+
+  const drawBubbles = () => {
+    let canvas = document.getElementById("demo-canvas") as HTMLCanvasElement;
+    let ctx = canvas.getContext("2d")!;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    bubbles.forEach((bubble) => bubble.draw());
+  };
+
+  React.useEffect(() => {
+    initHeader();
+
+    const scrollCheck = () => {
+      animateHeader = document.body.scrollTop <= window.innerHeight;
+    };
+
+    const resize = () => {
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      let canvas = document.getElementById("demo-canvas") as HTMLCanvasElement;
+      canvas.width = width;
+      canvas.height = height;
+    };
+
+    window.addEventListener("scroll", scrollCheck);
+    window.addEventListener("resize", resize);
+
+    return () => {
+      window.removeEventListener("scroll", scrollCheck);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  let animateHeader = true;
+
   return (
     <div className="row gradient-header position-relative">
       <div className="col-12 px-0 position-relative">
-        {/* Stars */}
-        <div className="floating-stars position-absolute top-0 start-0 w-100 h-100">
-          {/* Larger Twinkling stars */}
-          <div
-            className="star twinkling-star larger-star"
-            style={{ top: "10%", left: "20%" }}
-          ></div>
-          <div
-            className="star twinkling-star larger-star"
-            style={{ top: "30%", left: "70%" }}
-          ></div>
-
-          {/* Add more larger stars as needed */}
-          <div
-            className="star twinkling-star larger-star"
-            style={{ top: "50%", left: "40%" }}
-          ></div>
-          <div
-            className="star twinkling-star larger-star"
-            style={{ top: "60%", left: "90%" }}
-          ></div>
-
-          {/* Smaller Twinkling stars */}
-          <div
-            className="star twinkling-star"
-            style={{ top: "40%", left: "50%" }}
-          ></div>
-          <div
-            className="star twinkling-star"
-            style={{ top: "70%", left: "30%" }}
-          ></div>
-          <div
-            className="star twinkling-star"
-            style={{ top: "80%", left: "80%" }}
-          ></div>
-
-          {/* Steady stars */}
-          <div
-            className="star steady-star"
-            style={{ top: "20%", left: "60%" }}
-          ></div>
-          <div
-            className="star steady-star"
-            style={{ top: "50%", left: "40%" }}
-          ></div>
-          <div
-            className="star steady-star"
-            style={{ top: "60%", left: "90%" }}
-          ></div>
-
-          {/* Add more stars as needed */}
-        </div>
-
-        {/* Passing comet */}
-        <div className="passing-comet position-absolute">
-          <img src="./planet.svg" alt="Planet" />
-        </div>
-        {/* Moon */}
-        <div className="moon position-absolute spinning-moon">
-          <img src="./moon.svg" alt="Moon" />
-        </div>
-
         {/* Gradient Background */}
         <div className="gradient-background"></div>
+
+        {/* Canvas */}
+        <canvas id="demo-canvas"></canvas>
       </div>
     </div>
   );
