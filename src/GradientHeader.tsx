@@ -1,5 +1,4 @@
 import React from "react";
-import Moon from "./Moon";
 
 interface MoonProps {
   size: number;
@@ -21,6 +20,17 @@ const GradientHeader = () => {
             className="star twinkling-star larger-star"
             style={{ top: "30%", left: "70%" }}
           ></div>
+
+          {/* Add more larger stars as needed */}
+          <div
+            className="star twinkling-star larger-star"
+            style={{ top: "50%", left: "40%" }}
+          ></div>
+          <div
+            className="star twinkling-star larger-star"
+            style={{ top: "60%", left: "90%" }}
+          ></div>
+
           {/* Smaller Twinkling stars */}
           <div
             className="star twinkling-star"
@@ -34,6 +44,7 @@ const GradientHeader = () => {
             className="star twinkling-star"
             style={{ top: "80%", left: "80%" }}
           ></div>
+
           {/* Steady stars */}
           <div
             className="star steady-star"
@@ -47,17 +58,17 @@ const GradientHeader = () => {
             className="star steady-star"
             style={{ top: "60%", left: "90%" }}
           ></div>
+
           {/* Add more stars as needed */}
         </div>
+
         {/* Passing comet */}
         <div className="passing-comet position-absolute">
-          <img src="comet.png" alt="Comet" />
+          <img src="/planet.svg" alt="Planet" />
         </div>
         {/* Moon */}
-        <div className="moon-container position-absolute top-0 end-0">
-          {" "}
-          {/* New container */}
-          <Moon size={200} color="yellow" />
+        <div className="moon position-absolute spinning-moon">
+          <img src="/moon.svg" alt="Moon" />
         </div>
 
         {/* Gradient Background */}

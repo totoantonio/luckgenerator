@@ -14,8 +14,6 @@ function NavBar() {
           <img
             src="./dragonviking.svg"
             alt="Logo"
-            width="28"
-            height="22"
             className="d-inline-block align-text-top pe-1"
           />
           {title}

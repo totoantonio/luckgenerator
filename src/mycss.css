@@ -558,10 +558,11 @@ fw-bolder {
 }
 
 .passing-comet img {
-  width: 50px; /* Adjust comet size */
+  width: 100px; /* Adjust comet size */
   position: absolute;
+  z-index: 1;
   top: 20%; /* Adjust comet position */
-  left: -50px; /* Start comet off-screen */
+  left: 67px; /* Start comet off-screen */
   animation: cometPassing 10s linear infinite;
 }
 
@@ -572,4 +573,14 @@ fw-bolder {
   100% {
     left: 100%; /* Move comet across the screen */
   }
+}
+
+.moon {
+  position: absolute;
+  z-index: 1;
+  transform: scale(10.5);
+  width: 31px;
+  height: 0px;
+  right: 27px;
+  top: 17%;
 }
