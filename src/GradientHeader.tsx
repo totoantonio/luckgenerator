@@ -64,11 +64,11 @@ const GradientHeader = () => {
 
         {/* Passing comet */}
         <div className="passing-comet position-absolute">
-          <img src="/planet.svg" alt="Planet" />
+          <img src="./planet.svg" alt="Planet" />
         </div>
         {/* Moon */}
         <div className="moon position-absolute spinning-moon">
-          <img src="/moon.svg" alt="Moon" />
+          <img src="./moon.svg" alt="Moon" />
         </div>
 
         {/* Gradient Background */}
