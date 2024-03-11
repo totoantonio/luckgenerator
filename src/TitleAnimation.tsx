@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
-import HeaderImage from "./assets/images/Header.png";
-import profilePic from "./assets/images/ChineseLuck.jpg";
+import HeaderImage from "./assets/images/LiftOffHeader.png";
+import profilePic from "./assets/images/LiftOff.png";
 import TwitterVerifiedIcon from "/twitterverified.svg";
 import ZodiacFinder from "./ZodiacFinder"; // Import the ZodiacFinder component
 
@@ -24,10 +24,6 @@ const TitleAnimation = () => {
     event.preventDefault();
     handleModalClose();
     setBirthYear(event.currentTarget.birthYear.value); // Set birthYear from form input
-  };
-
-  const handleGreatThanks = () => {
-    setBirthYear(""); // Reset the birthYear state
   };
 
   return (
