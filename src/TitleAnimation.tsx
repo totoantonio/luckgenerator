@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import HeaderImage from "./assets/images/Header.png";
+import profilePic from "./assets/images/ChineseLuck.jpg";
 import TwitterVerifiedIcon from "/twitterverified.svg";
 import ZodiacFinder from "./ZodiacFinder"; // Import the ZodiacFinder component
 
@@ -45,7 +46,7 @@ const TitleAnimation = () => {
               <div className="mb-3 d-flex justify-content-between align-items-center">
                 {/* Profile Picture */}
                 <img
-                  src="./assets/images/ChineseLuck.jpg"
+                  src={profilePic}
                   className="card-img-top rounded-circle"
                   alt="Profile Picture"
                   style={{
