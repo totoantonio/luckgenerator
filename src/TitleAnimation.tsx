@@ -45,7 +45,7 @@ const TitleAnimation = () => {
               <div className="mb-3 d-flex justify-content-between align-items-center">
                 {/* Profile Picture */}
                 <img
-                  src="src/assets/images/ChineseLuck.jpg"
+                  src="./assets/images/ChineseLuck.jpg"
                   className="card-img-top rounded-circle"
                   alt="Profile Picture"
                   style={{
