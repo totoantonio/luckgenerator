@@ -584,3 +584,12 @@ fw-bolder {
   right: 27px;
   top: 17%;
 }
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .moon {
+    /* Adjust size and positioning for smaller screens */
+    transform: scale(7); /* Scale down to 7 times its original size */
+    right: 10px; /* Adjust right offset */
+    top: 10%; /* Adjust top offset */
+  }
+}
