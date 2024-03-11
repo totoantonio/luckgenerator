@@ -1,12 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, lazy, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import HeaderImage from "./assets/images/LiftOffHeader.png";
 import profilePic from "./assets/images/LiftOff.png";
 import TwitterVerifiedIcon from "/twitterverified.svg";
+import "./mycss.css";
+import GradientHeader from "./GradientHeader";
 import ZodiacFinder from "./ZodiacFinder"; // Import the ZodiacFinder component
 
 const title = "Luck Generator";
+const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 
 const TitleAnimation = () => {
   const [showModal, setShowModal] = useState(false);
@@ -32,7 +35,7 @@ const TitleAnimation = () => {
       {/* Header Image */}
       <div className="row">
         <div className="col-12 px-0">
-          <img src={HeaderImage} alt="Header" className="img-fluid w-100" />
+          <GradientHeader />
         </div>
       </div>
       {/* First Card */}
@@ -195,8 +198,10 @@ const TitleAnimation = () => {
         </div>
       )}
 
-      {/* Conditional rendering for displaying the result */}
-      <ZodiacFinder birthYear={birthYear} />
+      {/* Lazy-loaded component with Suspense */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyZodiacFinder birthYear={birthYear} />
+      </Suspense>
     </div>
   );
 };
