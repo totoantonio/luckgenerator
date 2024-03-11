@@ -24,6 +24,7 @@ const TitleAnimation = () => {
     event.preventDefault();
     handleModalClose();
     setBirthYear(event.currentTarget.birthYear.value); // Set birthYear from form input
+    event.currentTarget.birthYear.value = ""; // Clear the input field after submission
   };
 
   return (
