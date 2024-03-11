@@ -10,7 +10,7 @@ function Offerings() {
       <div className="row gx-3 gx-md-4 gy-3 gy-md-4 align-items-center">
         <div className="col-md-6">
           <div className="rounded-4 cbg flex-fill px-4 py-2">
-            <div className="card-body d-flex align-items-center p-3">
+            <div className="card-body d-flex align-items-center p-2">
               <img
                 src="./fire.svg" // Replace with your image path
                 alt="Daily Horoscope"
@@ -19,7 +19,7 @@ function Offerings() {
               />
               <div>
                 <h5 className="card-title mb-0">Daily Chinese Horoscope:</h5>
-                <p className="card-text lh-1 p-3">
+                <p className="card-text lh-1 p-2">
                   Discover what the stars have in store for you today. Get
                   insights into your current Chinese zodiac sign and
                   personalized horoscope predictions.
@@ -30,7 +30,7 @@ function Offerings() {
         </div>
         <div className="col-md-6">
           <div className="modal-content rounded-4 cbg flex-fill">
-            <div className="card-body d-flex align-items-center">
+            <div className="card-body d-flex align-items-center p-2">
               <img
                 src="./random.svg" // Replace with your image path
                 alt="Fortune Subscription"
@@ -38,10 +38,8 @@ function Offerings() {
                 height="50"
               />
               <div>
-                <h5 className="card-title mb-0">
-                  Subscription for Daily Fortune:
-                </h5>
-                <p className="card-text lead lh-1 mtxt p-3">
+                <h5 className="card-title mb-0">Your Daily Fortune:</h5>
+                <p className="card-text lead lh-1 mtxt p-2">
                   Sign up to receive daily fortune updates straight to your
                   inbox. Stay informed about your fortune for the day with our
                   free subscription service.
@@ -55,7 +53,7 @@ function Offerings() {
       <div className="row gx-3 gx-md-4 gy-3 gy-md-4 align-items-center">
         <div className="col-md-6">
           <div className="modal-content rounded-4 cbg flex-fill">
-            <div className="card-body d-flex align-items-center">
+            <div className="card-body d-flex align-items-center p-2">
               <img
                 src="./fortune.svg" // Replace with your image path
                 alt="Random Number Generator"
@@ -64,7 +62,7 @@ function Offerings() {
               />
               <div>
                 <h5 className="card-title mb-0">Random Number Generator:</h5>
-                <p className="card-text lead lh-1 mtxt p-3">
+                <p className="card-text lead lh-1 mtxt p-2">
                   Need a random number for your zodiac sign or a specific range?
                   Use our generator to get the perfect number tailored just for
                   you.
@@ -75,7 +73,7 @@ function Offerings() {
         </div>
         <div className="col-md-6">
           <div className="modal-content rounded-4 cbg flex-fill">
-            <div className="card-body d-flex align-items-center">
+            <div className="card-body d-flex align-items-center p-2">
               <img
                 src="./wheel.svg" // Replace with your image path
                 alt="Wheel of Fortune"
@@ -84,7 +82,7 @@ function Offerings() {
               />
               <div>
                 <h5 className="card-title mb-0">Wheel of Fortune:</h5>
-                <p className="card-text lead lh-1 mtxt p-3">
+                <p className="card-text lead lh-1 mtxt p-2">
                   Let fate decide with our Wheel of Fortune. Whether it's making
                   decisions or seeking guidance, spin the wheel for an answer
                   from the universe.

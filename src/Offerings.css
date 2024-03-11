@@ -1,3 +1,7 @@
+.card-body img {
+  transition: transform 0.3s ease;
+}
+
 .card-body:hover img {
   animation: rubberBand 1s infinite;
 }

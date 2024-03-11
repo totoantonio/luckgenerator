@@ -5,7 +5,7 @@ const title = "TLG";
 
 function NavBar() {
   return (
-    <nav className="navbar bg-white fs-5 fw-bold fs-4">
+    <nav className="navbar bg-white fs-5 fw-bold fs-4 bg-opacity-75">
       <div className="container-fluid">
         <a
           className="navbar-brand"

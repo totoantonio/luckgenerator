@@ -5,12 +5,13 @@ import Title from "./Title";
 import ZodiacFinder from "./ZodiacFinder";
 import Offerings from "./Offerings";
 import Footer from "./Footer";
+import TitleAnimation from "./TitleAnimation";
 
 const rootElement = document.getElementById("root") as Element;
 createRoot(rootElement).render(
   <React.StrictMode>
     <NavBar />
-    <Title />
+    <TitleAnimation />
     <ZodiacFinder />
     <Offerings />
     <Footer />

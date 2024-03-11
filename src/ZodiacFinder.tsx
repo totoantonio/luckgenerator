@@ -148,7 +148,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     <div className={`container mt-1 px-0 ${showResult ? "" : "hidden"}`}>
       <div ref={resultRef} className="result-section">
         {showResult && (
-          <div className="row align-items-stretch">
+          <div className="row align-items-stretch pt-3">
             <div className="col-lg-6 mb-4 mb-lg-0">
               <div className="modal-content rounded-4 cbg flex-fill">
                 <div className="modal-body p-2">
@@ -187,7 +187,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     className="btn btn-primary btn-lg px-4 gap-3"
                     onClick={() => {
                       console.log("Great, thanks! clicked");
-                      resetState();
+                      resetState(); // Call the resetState function to reset the state
                       if (typeof window !== "undefined") {
                         const scrollOptions: ScrollToOptions = {
                           top: 0,
@@ -198,7 +198,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                       }
                     }}
                   >
-                    Great, thanks!
+                    Great, Thanks
                   </button>
                 </div>
               </div>

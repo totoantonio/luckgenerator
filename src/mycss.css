@@ -78,14 +78,16 @@ html {
 
 .card-title {
   color: #161c28 !important;
-  font-size: 24px;
+  font-size: 22px;
+  font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 @media (max-width: 768px) {
-  .card-text {
+  .card-title {
     font-size: 20px;
+    font-weight: bold;
   }
 }
 
@@ -96,10 +98,8 @@ html {
   font-size: 2em;
   /* Adjust the value as needed */
 }
-.my-custom-navbar {
-  background-color: rgba(255, 255, 255, 1);
-}
-.card-img-top {
+
+/* .card-img-top {
   border-radius: 0;
   animation: doubleHeartbeat 1.5s ease-in-out infinite alternate;
 }
@@ -141,7 +141,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 /* badge */
 .image-container {
   position: relative;
@@ -160,6 +160,13 @@ html {
   top: 61px;
   right: 47px;
 }
+.badge.coming-soon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
 /* (Optional) Media Query for Mobile Responsiveness */
 @media (max-width: 768px) {
   .col-12.col-lg-6 {
@@ -398,4 +405,101 @@ fw-bolder {
 .card-text-container {
   height: 100px; /* Adjust the height as needed */
   overflow: hidden;
+}
+
+/* new look */
+/* styles.css */
+@media (min-width: 992px) {
+  .first-card {
+    background-color: white;
+    border-radius: 30px;
+    min-height: 500px;
+    transform: translate(0px, -49.568px);
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 992px) {
+  .widescreen-card {
+    background-color: white;
+    border-radius: 10px !important;
+    min-height: 500px;
+    transform: translate(0px, -49.568px);
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+.no-gutter {
+  padding-right: 0;
+  padding-left: 0;
+}
+@media (max-width: 767px) {
+  /* Adjust breakpoint if needed */
+  .full-width-mobile {
+    /* Assuming this is your class for the card */
+    border-radius: 0;
+  }
+}
+/* General Profile Picture Styles */
+.card-img-top {
+  margin-bottom: 0; /* Remove default bottom margin */
+  position: relative; /* Allows for positioning adjustments */
+}
+
+/* White Border (using pseudo-element) */
+.card-img-top::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 5px solid white; /* Adjust border thickness as needed */
+  border-radius: inherit; /* Inherit rounded corners from image */
+  box-sizing: border-box; /* Ensures border is inside image area */
+  z-index: -1; /* Place border behind the image content */
+}
+
+@media (max-width: 767px) {
+  /* Adjust breakpoint if needed */
+  .card-img-top {
+    margin-top: -75px; /* Half the image height for a 50% overlap */
+  }
+
+  /* Ensure card overlaps header */
+  .card {
+    z-index: 2;
+    position: relative;
+  }
+
+  /* Style for your header image container */
+  .header-image-container {
+    z-index: 1;
+    overflow: visible; /* Ensures overlap isn't cut off */
+  }
+
+  /* Notification & Menu Icon Alignment */
+  .mb-3.d-flex {
+    align-items: center; /* Vertically center icons */
+  }
+
+  /* Adjust positioning based on icon sizes */
+  .mb-3.d-flex .me-3 {
+    margin-top: -20px; /* Adjust for vertical alignment */
+  }
+}
+@media (min-width: 992px) {
+  /* Adjust breakpoint if needed */
+  .right-card {
+    margin-left: auto;
+    width: 100%; /* Ensures the card takes the full available width */
+    max-width: 500px; /* Sets a maximum width to maintain original dimensions */
+  }
+}
+@media (max-width: 767px) {
+  /* Adjust breakpoint if needed */
+  .img-fluid {
+    height: 350px;
+    object-fit: cover;
+  }
 }

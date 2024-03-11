@@ -17,7 +17,7 @@ function Footer() {
           />
         </a>
         <span className="mb-3 mb-md-0 text-body-secondary">
-          &copy; 2024 O2 AN2NEW, Inc
+          &copy; 2024 O2 Antonio, Inc
         </span>
       </div>
 
