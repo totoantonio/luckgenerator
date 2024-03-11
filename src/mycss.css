@@ -563,7 +563,6 @@ fw-bolder {
   z-index: 1;
   top: 20%; /* Adjust comet position */
   left: 67px; /* Start comet off-screen */
-  animation: cometPassing 10s linear infinite;
 }
 
 @keyframes cometPassing {
@@ -583,13 +582,4 @@ fw-bolder {
   height: 0px;
   right: 27px;
   top: 17%;
-}
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-  .moon {
-    /* Adjust size and positioning for smaller screens */
-    transform: scale(7); /* Scale down to 7 times its original size */
-    right: 10px; /* Adjust right offset */
-    top: 10%; /* Adjust top offset */
-  }
 }
