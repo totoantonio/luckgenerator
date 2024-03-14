@@ -16,6 +16,7 @@ function Offerings() {
                 alt="Daily Horoscope"
                 className="animated-icon me-3" // Add animated-icon class
                 height="50"
+                width="50"
               />
               <div>
                 <h5 className="card-title mb-0">Daily Chinese Horoscope:</h5>
@@ -36,6 +37,7 @@ function Offerings() {
                 alt="Fortune Subscription"
                 className="animated-icon me-3" // Add animated-icon class
                 height="50"
+                width="50"
               />
               <div>
                 <h5 className="card-title mb-0">Your Daily Fortune:</h5>
@@ -59,6 +61,7 @@ function Offerings() {
                 alt="Random Number Generator"
                 className="animated-icon me-3" // Add animated-icon class
                 height="50"
+                width="50"
               />
               <div>
                 <h5 className="card-title mb-0">Random Number Generator:</h5>
@@ -79,6 +82,7 @@ function Offerings() {
                 alt="Wheel of Fortune"
                 className="animated-icon me-3" // Add animated-icon class
                 height="50"
+                width="50"
               />
               <div>
                 <h5 className="card-title mb-0">Wheel of Fortune:</h5>
