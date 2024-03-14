@@ -2,12 +2,10 @@ import React, { useState, useRef, lazy, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
-
 import HeaderImage from "./assets/images/headerSigns.avif";
 import profilePic from "./assets/images/profileImage.avif";
 import TwitterVerifiedIcon from "/twitterverified.svg";
 import "./mycss.css";
-import GradientHeader from "./GradientHeader";
 import ZodiacFinder from "./ZodiacFinder"; // Import the ZodiacFinder component
 
 const title = "Luck Generator";
