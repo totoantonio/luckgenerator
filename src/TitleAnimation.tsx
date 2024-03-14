@@ -60,17 +60,6 @@ const TitleAnimation = () => {
   return (
     <div className="container-fluid">
       {/* Preload Header Image */}
-      <link rel="preload" as="image" href={headerImage200} />
-      <link rel="preload" as="image" href={headerImage432} />
-      <link rel="preload" as="image" href={headerImage596} />
-      <link rel="preload" as="image" href={headerImage727} />
-      <link rel="preload" as="image" href={headerImage864} />
-      <link rel="preload" as="image" href={headerImage976} />
-      <link rel="preload" as="image" href={headerImage1078} />
-      <link rel="preload" as="image" href={headerImage1179} />
-      <link rel="preload" as="image" href={headerImage1286} />
-      <link rel="preload" as="image" href={headerImage1369} />
-      <link rel="preload" as="image" href={headerImage1400} />
 
       {/* Header Image */}
       <div className="row">
