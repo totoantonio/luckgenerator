@@ -1,10 +1,10 @@
 import React, { useState, useRef, lazy, Suspense } from "react";
-import "./purifiedcss.css";
+
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
 import HeaderImage from "./assets/images/headerSigns.avif";
 import profilePic from "./assets/images/profileImage.avif";
-import TwitterVerifiedIcon from "/twitterverified.svg";
+import TwitterVerifiedIcon from "/twitterverified.svg"; // Updated import path
 import "./mycss.css";
 import ZodiacFinder from "./ZodiacFinder"; // Import the ZodiacFinder component
 
@@ -48,8 +48,9 @@ const TitleAnimation = () => {
 
   return (
     <div className="container-fluid">
-      {/* Header Image */}
+      {/* Preload Header Image */}
       <link rel="preload" as="image" href={HeaderImage} />
+      {/* Header Image */}
       <div className="row">
         <div className="col-12 px-0">
           <img src={HeaderImage} alt="Header" className="img-fluid w-100" />
@@ -58,10 +59,10 @@ const TitleAnimation = () => {
       {/* First Card */}
       <div className="row" style={{ backgroundColor: "#f3f3f5" }}>
         <div className="col-12 col-lg-6 no-gutter">
+          {/* Profile Picture */}
           <div className="card rounded-0 p-4 widescreen-card no-border full-width-mobile">
             <div className="d-flex flex-column">
               <div className="mb-3 d-flex justify-content-between align-items-center">
-                {/* Profile Picture */}
                 <img
                   src={profilePic}
                   className="card-img-top rounded-circle"
@@ -72,13 +73,11 @@ const TitleAnimation = () => {
                     objectFit: "cover",
                   }}
                 />
-                {/* Notification Bell Icon and Menu Icon */}
                 <div className="d-flex align-items-center">
                   <BiBell size={30} className="me-3" />
                   <BiDotsHorizontalRounded size={30} className="me-3" />
                 </div>
               </div>
-              {/* Profile Name with Twitter Verified Icon */}
               <div className="mb-3 d-flex align-items-center p-3">
                 <p className="card-text mb-0 lh-1 fs-1 fw-bold">
                   Luck Generator
@@ -93,7 +92,6 @@ const TitleAnimation = () => {
                   />
                 </p>
               </div>
-              {/* Description */}
               <div className="card-body">
                 <p className="card-text mb-0 lh-1">
                   Discover the fascinating traits of your Chinese Zodiac animal
@@ -143,15 +141,12 @@ const TitleAnimation = () => {
           <div className="col-md-9 mt-3 p-4 no-border">
             <div className="d-flex flex-column align-items-center justify-content-between h-100">
               <div>
-                {/* Instruction Text */}
-
                 <p className="card-text mb-4 text-left lh-1 p-3">
                   Enter your Birth Year below and click the "<b>Generate</b>"
                   button to receive your lucky numbers for the year 2024.
                 </p>
               </div>
               <div className="mb-4">
-                {/* Form */}
                 <form onSubmit={handleSubmit}>
                   <div className="form-group mb-3">
                     <label htmlFor="birthYear">Enter Your Birth Year</label>
@@ -159,18 +154,16 @@ const TitleAnimation = () => {
                       type="number"
                       className="form-control"
                       id="birthYear"
-                      required // Add required attribute for form validation
+                      required
                     />
                   </div>
                   <div className="d-flex justify-content-center">
-                    {/* Primary Button */}
                     <button
                       type="submit"
                       className="btn btn-primary btn-lg me-3"
                     >
                       Generate
                     </button>
-                    {/* Secondary Button */}
                     <button
                       type="button"
                       className="btn btn-secondary btn-lg"
