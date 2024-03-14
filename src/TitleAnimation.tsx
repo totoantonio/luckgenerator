@@ -91,7 +91,7 @@ const TitleAnimation = () => {
           {/* Profile Picture */}
           <div className="card rounded-0 p-4 widescreen-card no-border full-width-mobile">
             <div className="d-flex flex-column">
-              <div className="mb-3 d-flex justify-content-between align-items-center">
+              <h1 className="mb-3 d-flex justify-content-between align-items-center">
                 <img
                   src={profilePic}
                   className="card-img-top rounded-circle"
@@ -106,8 +106,12 @@ const TitleAnimation = () => {
                   <BiBell size={30} className="me-3" />
                   <BiDotsHorizontalRounded size={30} className="me-3" />
                 </div>
-              </div>
-              <div className="mb-3 d-flex align-items-center p-3">
+              </h1>
+              <div
+                className="mb-3 d-flex align-items-center p-3"
+                role="heading"
+                aria-level={2}
+              >
                 <p className="card-text mb-0 lh-1 fs-1 fw-bold">
                   Luck Generator
                   <img
@@ -136,7 +140,11 @@ const TitleAnimation = () => {
                 </p>
 
                 {/* Wallet Address */}
-                <div className="mt-3 d-flex align-items-center card-text">
+                <div
+                  className="mt-3 d-flex align-items-center card-text"
+                  role="heading"
+                  aria-level={4}
+                >
                   <div className="flex-grow-1 overflow-hidden">
                     <span className="text-truncate">
                       Wallet Address:<strong>{walletAddress}</strong>
