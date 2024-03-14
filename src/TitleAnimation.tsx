@@ -135,7 +135,7 @@ const TitleAnimation = () => {
                   <br />
                   Simply enter your birth year and embark on a journey of
                   self-discovery and good fortune! You can{" "}
-                  <strong>donate</strong> to keep us going! We are lovers of{" "}
+                  <strong>DONATE</strong> to keep us going! We are lovers of{" "}
                   <strong>TON</strong> Coins.
                 </p>
 
