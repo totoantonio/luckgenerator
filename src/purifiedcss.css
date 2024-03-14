@@ -425,6 +425,85 @@ summary {
     format("woff2");
   font-display: swap;
 }
+@media (max-width: 767px) {
+  .card {
+    z-index: 2;
+    position: relative;
+  }
+}
+@keyframes twinkling {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes cometPassing {
+  0% {
+    left: -50px;
+  }
+  to {
+    left: 100%;
+  }
+}
+@font-face {
+  font-family: JetBrains Mono;
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://totoantonio.github.io/luckgenerator/assets/JetBrainsMono-Bold-df3f86c0.woff)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: JetBrains Mono;
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://totoantonio.github.io/luckgenerator/assets/JetBrainsMono-Regular-bceff071.woff)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://totoantonio.github.io/luckgenerator/assets/Inter-400-954bfdf8.woff)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url(https://totoantonio.github.io/luckgenerator/assets/Inter-500-725913b9.woff)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url(https://totoantonio.github.io/luckgenerator/assets/Inter-600-522d5e11.woff)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://totoantonio.github.io/luckgenerator/assets/Inter-700-b3b91f43.woff)
+    format("woff2");
+  font-display: swap;
+}
 body,
 html {
   position: relative;
@@ -515,25 +594,6 @@ html {
   .card {
     z-index: 2;
     position: relative;
-  }
-}
-@keyframes twinkling {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes cometPassing {
-  0% {
-    left: -50px;
-  }
-  to {
-    left: 100%;
   }
 }
 @keyframes rubberBand {

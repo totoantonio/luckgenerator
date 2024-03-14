@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-//import "bootstrap/dist/css/bootstrap.min.css";
-import "./purifiedcss.css";
 import "./mycss.css"; // Import your custom CSS styles here
 import * as zodiacData from "./chinesezodiac.json";
 import horoscopeData from "./horoscope.json";
