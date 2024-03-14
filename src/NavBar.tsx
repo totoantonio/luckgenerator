@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const title = "TLG";
+const title = "LUCK GENERATOR";
 
 function NavBar() {
   return (
@@ -15,6 +15,8 @@ function NavBar() {
             src="./dragonviking.svg"
             alt="Logo"
             className="d-inline-block align-text-top pe-1"
+            width="30"
+            height="24"
           />
           {title}
         </a>
