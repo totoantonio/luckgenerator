@@ -1,8 +1,10 @@
 import React, { useState, useRef, lazy, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
-import HeaderImage from "./assets/images/HeaderGreen.png";
-import profilePic from "./assets/images/LiftOff.png";
+import { FiCopy } from "react-icons/fi";
+
+import HeaderImage from "./assets/images/headerSigns.png";
+import profilePic from "./assets/images/profileImage.png";
 import TwitterVerifiedIcon from "/twitterverified.svg";
 import "./mycss.css";
 import GradientHeader from "./GradientHeader";
@@ -14,6 +16,8 @@ const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 const TitleAnimation = () => {
   const [showModal, setShowModal] = useState(false);
   const [birthYear, setBirthYear] = useState(""); // Initialize birthYear state
+  const walletAddress = "UQDCZcS0xl1dNzlxCZsvWdLa9TmFLNl2xNfyGblIHNWwxmDr";
+  const [isCopied, setIsCopied] = useState(false);
 
   const handleModalOpen = () => {
     setShowModal(true);
@@ -28,6 +32,20 @@ const TitleAnimation = () => {
     handleModalClose();
     setBirthYear(event.currentTarget.birthYear.value); // Set birthYear from form input
     event.currentTarget.birthYear.value = ""; // Clear the input field after submission
+  };
+
+  const handleCopyClick = () => {
+    const textField = document.createElement("textarea");
+    textField.innerText = walletAddress;
+    document.body.appendChild(textField);
+    textField.select();
+    document.execCommand("copy");
+    textField.remove();
+
+    setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 1000); // Reset copy state after 1 second
   };
 
   return (
@@ -86,8 +104,37 @@ const TitleAnimation = () => {
                   of this ancient tradition. <br />
                   <br />
                   Simply enter your birth year and embark on a journey of
-                  self-discovery and good fortune!
+                  self-discovery and good fortune! You can <b>donate</b> to keep
+                  us going! We are lovers of <b>TON</b> Coins.
                 </p>
+
+                {/* Wallet Address */}
+                <div className="mt-3 d-flex align-items-center card-text">
+                  <div className="flex-grow-1 overflow-hidden">
+                    <span className="text-truncate">
+                      Wallet Address: {walletAddress}
+                    </span>
+                  </div>
+                  {/* Copy Icon */}
+                  <FiCopy
+                    size={20}
+                    className="cursor-pointer"
+                    onClick={handleCopyClick}
+                    style={{
+                      fontWeight: "bold",
+                      WebkitTapHighlightColor: "transparent",
+                    }}
+                  />
+                  {/* Copied Message */}
+                  {isCopied && (
+                    <span
+                      className="ms-2 fw-bold text-success"
+                      style={{ userSelect: "none" }}
+                    >
+                      Copied!
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
