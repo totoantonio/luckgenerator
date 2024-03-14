@@ -2,17 +2,17 @@ import React, { useState, useRef, lazy, Suspense } from "react";
 
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
-import headerImage200 from "./assets/images/headerSigns_ksouff_c_scale,w_200.png";
-import headerImage432 from "./assets/images/headerSigns_ksouff_c_scale,w_432.png";
-import headerImage596 from "./assets/images/headerSigns_ksouff_c_scale,w_596.png";
-import headerImage727 from "./assets/images/headerSigns_ksouff_c_scale,w_727.png";
-import headerImage864 from "./assets/images/headerSigns_ksouff_c_scale,w_864.png";
-import headerImage976 from "./assets/images/headerSigns_ksouff_c_scale,w_976.png";
-import headerImage1078 from "./assets/images/headerSigns_ksouff_c_scale,w_1078.png";
-import headerImage1179 from "./assets/images/headerSigns_ksouff_c_scale,w_1179.png";
-import headerImage1286 from "./assets/images/headerSigns_ksouff_c_scale,w_1286.png";
-import headerImage1369 from "./assets/images/headerSigns_ksouff_c_scale,w_1369.png";
-import headerImage1400 from "./assets/images/headerSigns_ksouff_c_scale,w_1400.png";
+import headerImage200 from "./assets/images/headerSigns_ksouff_c_scale,w_200.avif";
+import headerImage432 from "./assets/images/headerSigns_ksouff_c_scale,w_432.avif";
+import headerImage596 from "./assets/images/headerSigns_ksouff_c_scale,w_596.avif";
+import headerImage727 from "./assets/images/headerSigns_ksouff_c_scale,w_727.avif";
+import headerImage864 from "./assets/images/headerSigns_ksouff_c_scale,w_864.avif";
+import headerImage976 from "./assets/images/headerSigns_ksouff_c_scale,w_976.avif";
+import headerImage1078 from "./assets/images/headerSigns_ksouff_c_scale,w_1078.avif";
+import headerImage1179 from "./assets/images/headerSigns_ksouff_c_scale,w_1179.avif";
+import headerImage1286 from "./assets/images/headerSigns_ksouff_c_scale,w_1286.avif";
+import headerImage1369 from "./assets/images/headerSigns_ksouff_c_scale,w_1369.avif";
+import headerImage1400 from "./assets/images/headerSigns_ksouff_c_scale,w_1400.avif";
 
 import profilePic from "./assets/images/profileImage.avif";
 import TwitterVerifiedIcon from "/twitterverified.svg"; // Updated import path
