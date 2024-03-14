@@ -130,15 +130,16 @@ const TitleAnimation = () => {
                   of this ancient tradition. <br />
                   <br />
                   Simply enter your birth year and embark on a journey of
-                  self-discovery and good fortune! You can <b>donate</b> to keep
-                  us going! We are lovers of <b>TON</b> Coins.
+                  self-discovery and good fortune! You can{" "}
+                  <strong>donate</strong> to keep us going! We are lovers of{" "}
+                  <strong>TON</strong> Coins.
                 </p>
 
                 {/* Wallet Address */}
                 <div className="mt-3 d-flex align-items-center card-text">
                   <div className="flex-grow-1 overflow-hidden">
                     <span className="text-truncate">
-                      Wallet Address:<b>{walletAddress}</b>
+                      Wallet Address:<strong>{walletAddress}</strong>
                     </span>
                   </div>
                   {/* Copy Icon */}
@@ -171,8 +172,9 @@ const TitleAnimation = () => {
             <div className="d-flex flex-column align-items-center justify-content-between h-100">
               <div>
                 <p className="card-text mb-4 text-left lh-1 p-3">
-                  Enter your Birth Year below and click the "<b>Generate</b>"
-                  button to receive your lucky numbers for the year 2024.
+                  Enter your Birth Year below and click the "
+                  <strong>Generate</strong>" button to receive your lucky
+                  numbers for the year 2024.
                 </p>
               </div>
               <div className="mb-4">
@@ -203,7 +205,7 @@ const TitleAnimation = () => {
                   </div>
                 </form>
                 <p className="card-text mb-4 text-left lh-1 p-3 pt-5">
-                  Disclaimer: <b>Luck Generator</b> shall not be held
+                  Disclaimer: <strong>Luck Generator</strong> shall not be held
                   responsible for any errors, omissions, or inaccuracies in the
                   content provided, nor for any actions taken in reliance on
                   this information. Users are advised to use the information

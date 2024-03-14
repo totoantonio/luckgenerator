@@ -11,7 +11,7 @@ function Footer() {
           <img
             className="pe-1 text d-inline-block"
             src="./dragonviking.svg"
-            alt=""
+            alt="Lucky Generator Logo"
             width="30"
             height="24"
           />
@@ -28,7 +28,7 @@ function Footer() {
               <img
                 className="d-block mx-auto mb-4"
                 src="./x.svg"
-                alt=""
+                alt="X Logo"
                 width="30"
                 height="24"
               />
@@ -39,7 +39,7 @@ function Footer() {
               <img
                 className="d-block mx-auto mb-4"
                 src="./insta.svg"
-                alt=""
+                alt="Instagram Logo"
                 width="30"
                 height="24"
               />
@@ -50,7 +50,7 @@ function Footer() {
               <img
                 className="d-block mx-auto mb-4"
                 src="./facebook.svg"
-                alt=""
+                alt="Facebook Logo"
                 width="30"
                 height="24"
               />
