@@ -1,5 +1,6 @@
 import React, { useState, useRef, lazy, Suspense } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
+import "./purifiedcss.css";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
 import HeaderImage from "./assets/images/headerSigns.avif";
