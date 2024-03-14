@@ -1,5 +1,6 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
+import "./purifiedcss.css";
 
 const title = "LUCK GENERATOR";
 
@@ -12,11 +13,11 @@ function NavBar() {
           href="https://totoantonio.github.io/luckgenerator/"
         >
           <img
-            src="./dragonviking.svg"
+            src="./profileImage.avif"
             alt="Logo"
             className="d-inline-block align-text-top pe-1"
             width="30"
-            height="24"
+            height="25"
           />
           {title}
         </a>
