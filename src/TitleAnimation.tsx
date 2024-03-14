@@ -2,7 +2,18 @@ import React, { useState, useRef, lazy, Suspense } from "react";
 
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
-import HeaderImage from "./assets/images/headerSigns.avif";
+import headerImage200 from "./assets/images/headerSigns_ksouff_c_scale,w_200.png";
+import headerImage432 from "./assets/images/headerSigns_ksouff_c_scale,w_432.png";
+import headerImage596 from "./assets/images/headerSigns_ksouff_c_scale,w_596.png";
+import headerImage727 from "./assets/images/headerSigns_ksouff_c_scale,w_727.png";
+import headerImage864 from "./assets/images/headerSigns_ksouff_c_scale,w_864.png";
+import headerImage976 from "./assets/images/headerSigns_ksouff_c_scale,w_976.png";
+import headerImage1078 from "./assets/images/headerSigns_ksouff_c_scale,w_1078.png";
+import headerImage1179 from "./assets/images/headerSigns_ksouff_c_scale,w_1179.png";
+import headerImage1286 from "./assets/images/headerSigns_ksouff_c_scale,w_1286.png";
+import headerImage1369 from "./assets/images/headerSigns_ksouff_c_scale,w_1369.png";
+import headerImage1400 from "./assets/images/headerSigns_ksouff_c_scale,w_1400.png";
+
 import profilePic from "./assets/images/profileImage.avif";
 import TwitterVerifiedIcon from "/twitterverified.svg"; // Updated import path
 import "./mycss.css";
@@ -49,11 +60,29 @@ const TitleAnimation = () => {
   return (
     <div className="container-fluid">
       {/* Preload Header Image */}
-      <link rel="preload" as="image" href={HeaderImage} />
+
       {/* Header Image */}
       <div className="row">
         <div className="col-12 px-0">
-          <img src={HeaderImage} alt="Header" className="img-fluid w-100" />
+          <img
+            alt="Header"
+            sizes="(max-width: 1400px) 100vw, 1400px"
+            srcSet={`
+    ${headerImage200} 200w,
+    ${headerImage432} 432w,
+    ${headerImage596} 596w,
+    ${headerImage727} 727w,
+    ${headerImage864} 864w,
+    ${headerImage976} 976w,
+    ${headerImage1078} 1078w,
+    ${headerImage1179} 1179w,
+    ${headerImage1286} 1286w,
+    ${headerImage1369} 1369w,
+    ${headerImage1400} 1400w
+  `}
+            src={headerImage200} // Use the smallest size as the default source
+            className="img-fluid w-100"
+          />
         </div>
       </div>
       {/* First Card */}
