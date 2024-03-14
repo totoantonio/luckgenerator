@@ -1,5 +1,5 @@
 import React, { useState, useRef, lazy, Suspense } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
 import HeaderImage from "./assets/images/headerSigns.avif";
@@ -111,7 +111,7 @@ const TitleAnimation = () => {
                 <div className="mt-3 d-flex align-items-center card-text">
                   <div className="flex-grow-1 overflow-hidden">
                     <span className="text-truncate">
-                      Wallet Address: {walletAddress}
+                      Wallet Address:<b>{walletAddress}</b>
                     </span>
                   </div>
                   {/* Copy Icon */}
