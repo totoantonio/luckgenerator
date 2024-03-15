@@ -1,6 +1,5 @@
 import React from "react";
-//import "bootstrap/dist/css/bootstrap.min.css";
-import "./purifiedCSS.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const title = "LUCK GENERATOR";
 
