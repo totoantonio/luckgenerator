@@ -1,17 +1,6 @@
-import React, { useState, useRef, lazy, Suspense } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
-import headerImage200 from "./assets/images/headerSigns_ksouff_c_scale,w_200.avif";
-import headerImage432 from "./assets/images/headerSigns_ksouff_c_scale,w_432.avif";
-import headerImage596 from "./assets/images/headerSigns_ksouff_c_scale,w_596.avif";
-import headerImage727 from "./assets/images/headerSigns_ksouff_c_scale,w_727.avif";
-import headerImage864 from "./assets/images/headerSigns_ksouff_c_scale,w_864.avif";
-import headerImage976 from "./assets/images/headerSigns_ksouff_c_scale,w_976.avif";
-import headerImage1078 from "./assets/images/headerSigns_ksouff_c_scale,w_1078.avif";
-import headerImage1179 from "./assets/images/headerSigns_ksouff_c_scale,w_1179.avif";
-import headerImage1286 from "./assets/images/headerSigns_ksouff_c_scale,w_1286.avif";
-import headerImage1369 from "./assets/images/headerSigns_ksouff_c_scale,w_1369.avif";
-import headerImage1400 from "./assets/images/headerSigns_ksouff_c_scale,w_1400.avif";
 import profilePic from "./assets/images/profileImage.avif";
 import TwitterVerifiedIcon from "/twitterverified.svg";
 import "./mycss.css";
@@ -55,28 +44,52 @@ const TitleAnimation = () => {
     }, 1000);
   };
 
+  // Dynamically preload header images
+  useEffect(() => {
+    const headerImageUrls = [
+      "./assets/images/headerSigns_ksouff_c_scale,w_200.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_432.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_596.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_727.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_864.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_976.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_1078.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_1179.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_1286.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_1369.avif",
+      "./assets/images/headerSigns_ksouff_c_scale,w_1400.avif",
+    ];
+
+    headerImageUrls.forEach((url) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = url;
+      document.head.appendChild(link);
+    });
+  }, []);
+
   return (
     <div className="container-fluid">
-      <link rel="preload" as="image" href={headerImage1400} />
       <div className="row">
         <div className="col-12 px-0">
           <img
             alt="Header"
             sizes="(max-width: 1400px) 100vw, 1400px"
             srcSet={`
-    ${headerImage200} 200w,
-    ${headerImage432} 432w,
-    ${headerImage596} 596w,
-    ${headerImage727} 727w,
-    ${headerImage864} 864w,
-    ${headerImage976} 976w,
-    ${headerImage1078} 1078w,
-    ${headerImage1179} 1179w,
-    ${headerImage1286} 1286w,
-    ${headerImage1369} 1369w,
-    ${headerImage1400} 1400w
-  `}
-            src={headerImage200}
+              ./assets/images/headerSigns_ksouff_c_scale,w_200.avif 200w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_432.avif 432w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_596.avif 596w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_727.avif 727w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_864.avif 864w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_976.avif 976w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_1078.avif 1078w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_1179.avif 1179w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_1286.avif 1286w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_1369.avif 1369w,
+              ./assets/images/headerSigns_ksouff_c_scale,w_1400.avif 1400w
+            `}
+            src="./assets/images/headerSigns_ksouff_c_scale,w_200.avif"
             className="img-fluid w-100"
           />
         </div>
