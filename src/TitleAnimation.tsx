@@ -1,17 +1,30 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { useState, useRef, lazy, Suspense } from "react";
+
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
+import headerImage200 from "./assets/images/headerSigns_ksouff_c_scale,w_200.avif";
+import headerImage432 from "./assets/images/headerSigns_ksouff_c_scale,w_432.avif";
+import headerImage596 from "./assets/images/headerSigns_ksouff_c_scale,w_596.avif";
+import headerImage727 from "./assets/images/headerSigns_ksouff_c_scale,w_727.avif";
+import headerImage864 from "./assets/images/headerSigns_ksouff_c_scale,w_864.avif";
+import headerImage976 from "./assets/images/headerSigns_ksouff_c_scale,w_976.avif";
+import headerImage1078 from "./assets/images/headerSigns_ksouff_c_scale,w_1078.avif";
+import headerImage1179 from "./assets/images/headerSigns_ksouff_c_scale,w_1179.avif";
+import headerImage1286 from "./assets/images/headerSigns_ksouff_c_scale,w_1286.avif";
+import headerImage1369 from "./assets/images/headerSigns_ksouff_c_scale,w_1369.avif";
+import headerImage1400 from "./assets/images/headerSigns_ksouff_c_scale,w_1400.avif";
+
 import profilePic from "./assets/images/profileImage.avif";
-import TwitterVerifiedIcon from "/twitterverified.svg";
+import TwitterVerifiedIcon from "/twitterverified.svg"; // Updated import path
 import "./mycss.css";
-import ZodiacFinder from "./ZodiacFinder";
+import ZodiacFinder from "./ZodiacFinder"; // Import the ZodiacFinder component
 
 const title = "Luck Generator";
 const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 
 const TitleAnimation = () => {
   const [showModal, setShowModal] = useState(false);
-  const [birthYear, setBirthYear] = useState("");
+  const [birthYear, setBirthYear] = useState(""); // Initialize birthYear state
   const walletAddress = "UQDCZcS0xl1dNzlxCZsvWdLa9TmFLNl2xNfyGblIHNWwxmDr";
   const [isCopied, setIsCopied] = useState(false);
 
@@ -26,8 +39,8 @@ const TitleAnimation = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     handleModalClose();
-    setBirthYear(event.currentTarget.birthYear.value);
-    event.currentTarget.birthYear.value = "";
+    setBirthYear(event.currentTarget.birthYear.value); // Set birthYear from form input
+    event.currentTarget.birthYear.value = ""; // Clear the input field after submission
   };
 
   const handleCopyClick = () => {
@@ -41,61 +54,42 @@ const TitleAnimation = () => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
-    }, 1000);
+    }, 1000); // Reset copy state after 1 second
   };
-
-  // Dynamically preload header images
-  useEffect(() => {
-    const headerImageUrls = [
-      "./assets/images/headerSigns_ksouff_c_scale,w_200.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_432.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_596.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_727.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_864.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_976.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_1078.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_1179.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_1286.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_1369.avif",
-      "./assets/images/headerSigns_ksouff_c_scale,w_1400.avif",
-    ];
-
-    headerImageUrls.forEach((url) => {
-      const link = document.createElement("link");
-      link.rel = "preload";
-      link.as = "image";
-      link.href = url;
-      document.head.appendChild(link);
-    });
-  }, []);
 
   return (
     <div className="container-fluid">
+      {/* Preload Header Image */}
+      <link rel="preload" as="image" href={headerImage1400} />
+
+      {/* Header Image */}
       <div className="row">
         <div className="col-12 px-0">
           <img
             alt="Header"
             sizes="(max-width: 1400px) 100vw, 1400px"
             srcSet={`
-              ./assets/images/headerSigns_ksouff_c_scale,w_200.avif 200w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_432.avif 432w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_596.avif 596w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_727.avif 727w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_864.avif 864w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_976.avif 976w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_1078.avif 1078w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_1179.avif 1179w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_1286.avif 1286w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_1369.avif 1369w,
-              ./assets/images/headerSigns_ksouff_c_scale,w_1400.avif 1400w
-            `}
-            src="./assets/images/headerSigns_ksouff_c_scale,w_200.avif"
+    ${headerImage200} 200w,
+    ${headerImage432} 432w,
+    ${headerImage596} 596w,
+    ${headerImage727} 727w,
+    ${headerImage864} 864w,
+    ${headerImage976} 976w,
+    ${headerImage1078} 1078w,
+    ${headerImage1179} 1179w,
+    ${headerImage1286} 1286w,
+    ${headerImage1369} 1369w,
+    ${headerImage1400} 1400w
+  `}
+            src={headerImage200} // Use the smallest size as the default source
             className="img-fluid w-100"
           />
         </div>
       </div>
+      {/* First Card */}
       <div className="row" style={{ backgroundColor: "#f3f3f5" }}>
         <div className="col-12 col-lg-6 no-gutter">
+          {/* Profile Picture */}
           <div className="card rounded-0 p-4 widescreen-card no-border full-width-mobile">
             <div className="d-flex flex-column">
               <h1 className="mb-3 d-flex justify-content-between align-items-center">
@@ -114,7 +108,11 @@ const TitleAnimation = () => {
                   <BiDotsHorizontalRounded size={30} className="me-3" />
                 </div>
               </h1>
-              <div className="mb-3 d-flex align-items-center p-3">
+              <div
+                className="mb-3 d-flex align-items-center p-3"
+                role="heading"
+                aria-level={2}
+              >
                 <p className="card-text mb-0 lh-1 fs-1 fw-bold">
                   Luck Generator
                   <img
@@ -141,6 +139,8 @@ const TitleAnimation = () => {
                   <strong>DONATE</strong> to keep us going! We are lovers of{" "}
                   <strong>TON</strong> Coins.
                 </p>
+
+                {/* Wallet Address */}
                 <div
                   className="mt-3 d-flex align-items-center card-text"
                   role="heading"
@@ -151,6 +151,7 @@ const TitleAnimation = () => {
                       Wallet Address:<strong>{walletAddress}</strong>
                     </span>
                   </div>
+                  {/* Copy Icon */}
                   <FiCopy
                     size={20}
                     className="cursor-pointer"
@@ -160,6 +161,7 @@ const TitleAnimation = () => {
                       WebkitTapHighlightColor: "transparent",
                     }}
                   />
+                  {/* Copied Message */}
                   {isCopied && (
                     <span
                       className="ms-2 fw-bold text-success"
@@ -173,6 +175,7 @@ const TitleAnimation = () => {
             </div>
           </div>
         </div>
+        {/* Second Card */}
         <div className="col-12 col-lg-6">
           <div className="col-md-9 mt-3 p-4 no-border">
             <div className="d-flex flex-column align-items-center justify-content-between h-100">
@@ -222,6 +225,7 @@ const TitleAnimation = () => {
           </div>
         </div>
       </div>
+      {/* Modal */}
       {showModal && (
         <div>
           <div className="modal fade show" tabIndex={-1} role="dialog">
@@ -235,12 +239,12 @@ const TitleAnimation = () => {
                     width="62"
                     height="37"
                   />
-                  <h1
+                  <h4
                     className="modal-title fw-bold fs-2"
                     style={{ whiteSpace: "nowrap" }}
                   >
                     {title}
-                  </h1>
+                  </h4>
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleSubmit}>
@@ -272,6 +276,8 @@ const TitleAnimation = () => {
           <div className="modal-backdrop fade show"></div>
         </div>
       )}
+
+      {/* Lazy-loaded component with Suspense */}
       <Suspense fallback={<div>Loading...</div>}>
         <LazyZodiacFinder birthYear={birthYear} />
       </Suspense>
