@@ -26,6 +26,7 @@ const TitleAnimation = () => {
   const walletAddress = "UQDCZcS0xl1dNzlxCZsvWdLa9TmFLNl2xNfyGblIHNWwxmDr";
   const [isCopied, setIsCopied] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [vibrate, setVibrate] = useState(false);
 
   const handleModalOpen = () => {
     setShowModal(true);
@@ -57,6 +58,16 @@ const TitleAnimation = () => {
 
   useEffect(() => {
     setIsLoaded(true);
+
+    // Interval for vibrating bell
+    const vibrateInterval = setInterval(() => {
+      setVibrate(true);
+      setTimeout(() => setVibrate(false), 500); // Stop vibrating after 500 milliseconds
+    }, 2000); // Vibrate every 2 seconds
+
+    return () => {
+      clearInterval(vibrateInterval);
+    };
   }, []);
 
   return (
@@ -106,7 +117,9 @@ const TitleAnimation = () => {
                   >
                     <BiBell
                       size={30}
-                      className={isLoaded ? "me-3 vibrate" : "me-3"}
+                      className={
+                        isLoaded ? (vibrate ? "me-3 vibrate" : "me-3") : "me-3"
+                      }
                     />
                   </a>
                   <BiDotsHorizontalRounded size={30} className="me-3" />
@@ -256,8 +269,8 @@ const TitleAnimation = () => {
                   <p>
                     Stay tuned for more amazing features coming soon! We're
                     working on bringing you daily horoscopes sent directly to
-                    your email or Telegram, location tracking of the last user,
-                    a lucky wheel, and much more!
+                    your email or Telegram, GeoIP for the last user, a lucky
+                    wheel, and much more!
                   </p>
                 </div>
                 <div className="modal-footer d-flex justify-content-center border-0">

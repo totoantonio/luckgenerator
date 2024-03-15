@@ -9,7 +9,7 @@ function NavBar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
-      const headerImageHeight = 300; // Adjust this value as needed
+      const headerImageHeight = 200; // Adjust this value as needed
       const threshold = headerImageHeight / 2; // Set the threshold for when to apply the scrolled style
 
       // Calculate opacity based on scroll position
@@ -50,12 +50,6 @@ function NavBar() {
               {title}
             </span>
           </a>
-          {navbarVisible && (
-            <span className="badge-container">
-              <span className="badge-pill red-bg be-pill">BE</span>
-              <span className="badge-pill gray-bg ta-pill">TA</span>
-            </span>
-          )}
         </div>
 
         <div className="collapse navbar-collapse" id="navbarContent"></div>

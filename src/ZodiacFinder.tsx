@@ -132,6 +132,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
         numbers.push(num);
       }
     }
+    console.log("Generated numbers:", numbers); // Add this line for debugging
     return numbers;
   };
 
