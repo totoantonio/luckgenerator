@@ -60,7 +60,7 @@ const TitleAnimation = () => {
   return (
     <div className="container-fluid">
       {/* Preload Header Image */}
-
+      <link rel="preload" as="image" href={headerImage1400} />
       {/* Header Image */}
       <div className="row">
         <div className="col-12 px-0">
