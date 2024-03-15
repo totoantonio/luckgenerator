@@ -1,4 +1,4 @@
-import React, { useState, useRef, lazy, Suspense } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
 import headerImage200 from "./assets/images/headerSigns_ksouff_c_scale,w_200.avif";
@@ -25,6 +25,7 @@ const TitleAnimation = () => {
   const [birthYear, setBirthYear] = useState("");
   const walletAddress = "UQDCZcS0xl1dNzlxCZsvWdLa9TmFLNl2xNfyGblIHNWwxmDr";
   const [isCopied, setIsCopied] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleModalOpen = () => {
     setShowModal(true);
@@ -54,6 +55,10 @@ const TitleAnimation = () => {
       setIsCopied(false);
     }, 1000);
   };
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   return (
     <div className="container-fluid">
@@ -97,7 +102,10 @@ const TitleAnimation = () => {
                   }}
                 />
                 <div className="d-flex align-items-center">
-                  <BiBell size={30} className="me-3" />
+                  <BiBell
+                    size={30}
+                    className={isLoaded ? "me-3 vibrate" : "me-3"}
+                  />
                   <BiDotsHorizontalRounded size={30} className="me-3" />
                 </div>
               </h1>

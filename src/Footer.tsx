@@ -13,7 +13,7 @@ function Footer() {
         >
           <img
             className="pe-1 text d-inline-block"
-            src="./dragonviking.svg"
+            src="./tiger.svg"
             alt="Lucky Generator Logo"
             width="30"
             height="24"
