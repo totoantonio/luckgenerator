@@ -37,7 +37,6 @@ const TitleAnimation = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleModalClose();
     setBirthYear(event.currentTarget.birthYear.value);
     event.currentTarget.birthYear.value = "";
   };
@@ -62,7 +61,6 @@ const TitleAnimation = () => {
 
   return (
     <div className="container-fluid">
-      <link rel="preload" as="image" href={headerImage1400} />
       <div className="row">
         <div className="col-12 px-0">
           <img
@@ -218,57 +216,62 @@ const TitleAnimation = () => {
         </div>
       </div>
       {showModal && (
-        <div>
-          <div className="modal fade show" tabIndex={-1} role="dialog">
+        <>
+          <div className="modal-backdrop fade show"></div>
+          <div className="modal d-block fade show" tabIndex={-1} role="dialog">
             <div className="modal-dialog modal-dialog-centered" role="document">
               <div className="modal-content">
-                <div className="modal-header d-flex justify-content-center align-items-center">
+                <div className="modal-header d-flex justify-content-center align-items-center border-0">
                   <img
                     className="me-2"
-                    src="./chinese.svg"
+                    src="./tiger.svg"
                     alt="Logo"
                     width="62"
                     height="37"
                   />
-                  <h1
-                    className="modal-title fw-bold fs-2"
-                    style={{ whiteSpace: "nowrap" }}
-                  >
-                    {title}
-                  </h1>
+                  <h2 className="modal-title fw-bold fs-4 text-center">
+                    The Luck Generator!
+                  </h2>
                 </div>
                 <div className="modal-body">
-                  <form onSubmit={handleSubmit}>
-                    <div className="form-group mb-3">
-                      <label htmlFor="birthYear">Enter Your Birth Year</label>
-                      <input
-                        type="number"
-                        className="form-control"
-                        id="birthYear"
-                      />
-                    </div>
-                    <div className="d-flex justify-content-end">
-                      <button type="submit" className="btn btn-primary me-3">
-                        Submit
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        onClick={handleModalClose}
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </form>
+                  <p>
+                    Thank you for visiting our page! 🌟 We're thrilled to have
+                    you here.
+                  </p>
+                  <p>
+                    Our page is always updated with the latest features and
+                    content. It's a passion project that we work on during our
+                    free time.
+                  </p>
+                  <p>
+                    We happily accept donations to support the development and
+                    maintenance of this site. Your contributions help us grow
+                    and add more exciting features.
+                  </p>
+                  <p>
+                    Stay tuned for more amazing features coming soon! We're
+                    working on bringing you daily horoscopes sent directly to
+                    your email or Telegram, location tracking of the last user,
+                    a lucky wheel, and much more!
+                  </p>
+                </div>
+                <div className="modal-footer d-flex justify-content-center border-0">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={handleModalClose}
+                  >
+                    Close
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-          <div className="modal-backdrop fade show"></div>
-        </div>
+        </>
       )}
+
       <Suspense fallback={<div>Loading...</div>}>
-        <LazyZodiacFinder birthYear={birthYear} />
+        <LazyZodiacFinder key={birthYear} birthYear={birthYear} />
       </Suspense>
     </div>
   );
