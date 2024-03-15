@@ -5,7 +5,10 @@ const title = "LUCK GENERATOR";
 
 function NavBar() {
   return (
-    <nav className="navbar bg-white fs-5 fw-bold fs-4 bg-opacity-75">
+    <nav
+      className="navbar bg-white fs-5 fw-bold fs-4 bg-opacity-75"
+      role="navigation"
+    >
       <div className="container-fluid">
         <a
           className="navbar-brand"
