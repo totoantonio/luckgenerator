@@ -404,14 +404,23 @@
     }
   </style>
 
-  <link rel="preload" href="./assets/images/headerSigns_ksouff_c_scale,w_1400.avif" as="image">
+  <link rel="preload" href="src/assets/images/headerSigns_ksouff_c_scale,w_1400.avif" as="image">
   <link rel="preload" href="src/purifiedCSS.css" as="style" />
-  <link rel="prefetch" href="node_modules/bootstrap/dist/css/bootstrap.min.css" as="style">
+  <!--<link rel="prefetch" href="node_modules/bootstrap/dist/css/bootstrap.min.css" as="style">-->
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <script>var cb = function () {
+      var l = document.createElement('link'); l.rel = 'stylesheet';
+      l.href = 'node_modules/bootstrap/dist/css/bootstrap.min.css';
+      var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(cb);
+    else window.addEventListener('load', cb);</script>
 </body>
 
 </html>
