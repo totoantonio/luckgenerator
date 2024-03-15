@@ -100,10 +100,15 @@ const TitleAnimation = () => {
                   }}
                 />
                 <div className="d-flex align-items-center">
-                  <BiBell
-                    size={30}
-                    className={isLoaded ? "me-3 vibrate" : "me-3"}
-                  />
+                  <a
+                    href="https://t.me/luckgenerators"
+                    style={{ color: "inherit", textDecoration: "none" }}
+                  >
+                    <BiBell
+                      size={30}
+                      className={isLoaded ? "me-3 vibrate" : "me-3"}
+                    />
+                  </a>
                   <BiDotsHorizontalRounded size={30} className="me-3" />
                 </div>
               </h1>
