@@ -32,7 +32,7 @@ function NavBar() {
       <div className="container-fluid">
         <a className="navbar-brand" href="#" style={{ opacity: opacity }}>
           <img
-            src="/tiger.svg"
+            src="./tiger.svg"
             alt="Logo"
             className="d-inline-block align-text-top pe-1"
             width="30"
