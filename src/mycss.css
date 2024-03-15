@@ -522,3 +522,43 @@ fw-bolder {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+.badge-container {
+  display: flex;
+  align-items: center;
+  opacity: inherit; /* Inherit opacity from the navbar */
+  transition: opacity 0.3s ease; /* Apply opacity transition */
+}
+
+.badge-pill {
+  border-radius: 20px;
+  padding: 3px 8px; /* Adjust padding as needed */
+  margin-left: 1px; /* Decreased margin */
+  font-size: 10px; /* Adjust font size as needed */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.red-bg {
+  background-color: #ff0000; /* Red color */
+  color: white; /* White text */
+}
+
+.gray-bg {
+  background-color: #808080; /* Gray color */
+  color: white; /* White text */
+}
+
+.be-pill {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 0; /* No border radius on the right for BE */
+  border-bottom-right-radius: 0; /* No border radius on the right for BE */
+}
+
+.ta-pill {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0; /* No border radius on the left for TA */
+  border-bottom-left-radius: 0; /* No border radius on the left for TA */
+}
