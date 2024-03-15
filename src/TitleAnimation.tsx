@@ -1,5 +1,4 @@
 import React, { useState, useRef, lazy, Suspense } from "react";
-
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
 import headerImage200 from "./assets/images/headerSigns_ksouff_c_scale,w_200.avif";
@@ -13,18 +12,17 @@ import headerImage1179 from "./assets/images/headerSigns_ksouff_c_scale,w_1179.a
 import headerImage1286 from "./assets/images/headerSigns_ksouff_c_scale,w_1286.avif";
 import headerImage1369 from "./assets/images/headerSigns_ksouff_c_scale,w_1369.avif";
 import headerImage1400 from "./assets/images/headerSigns_ksouff_c_scale,w_1400.avif";
-
 import profilePic from "./assets/images/profileImage.avif";
-import TwitterVerifiedIcon from "/twitterverified.svg"; // Updated import path
+import TwitterVerifiedIcon from "/twitterverified.svg";
 import "./mycss.css";
-import ZodiacFinder from "./ZodiacFinder"; // Import the ZodiacFinder component
+import ZodiacFinder from "./ZodiacFinder";
 
 const title = "Luck Generator";
 const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 
 const TitleAnimation = () => {
   const [showModal, setShowModal] = useState(false);
-  const [birthYear, setBirthYear] = useState(""); // Initialize birthYear state
+  const [birthYear, setBirthYear] = useState("");
   const walletAddress = "UQDCZcS0xl1dNzlxCZsvWdLa9TmFLNl2xNfyGblIHNWwxmDr";
   const [isCopied, setIsCopied] = useState(false);
 
@@ -39,8 +37,8 @@ const TitleAnimation = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     handleModalClose();
-    setBirthYear(event.currentTarget.birthYear.value); // Set birthYear from form input
-    event.currentTarget.birthYear.value = ""; // Clear the input field after submission
+    setBirthYear(event.currentTarget.birthYear.value);
+    event.currentTarget.birthYear.value = "";
   };
 
   const handleCopyClick = () => {
@@ -54,14 +52,12 @@ const TitleAnimation = () => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
-    }, 1000); // Reset copy state after 1 second
+    }, 1000);
   };
 
   return (
     <div className="container-fluid">
-      {/* Preload Header Image */}
       <link rel="preload" as="image" href={headerImage1400} />
-      {/* Header Image */}
       <div className="row">
         <div className="col-12 px-0">
           <img
@@ -80,15 +76,13 @@ const TitleAnimation = () => {
     ${headerImage1369} 1369w,
     ${headerImage1400} 1400w
   `}
-            src={headerImage200} // Use the smallest size as the default source
+            src={headerImage200}
             className="img-fluid w-100"
           />
         </div>
       </div>
-      {/* First Card */}
       <div className="row" style={{ backgroundColor: "#f3f3f5" }}>
         <div className="col-12 col-lg-6 no-gutter">
-          {/* Profile Picture */}
           <div className="card rounded-0 p-4 widescreen-card no-border full-width-mobile">
             <div className="d-flex flex-column">
               <h1 className="mb-3 d-flex justify-content-between align-items-center">
@@ -107,11 +101,7 @@ const TitleAnimation = () => {
                   <BiDotsHorizontalRounded size={30} className="me-3" />
                 </div>
               </h1>
-              <div
-                className="mb-3 d-flex align-items-center p-3"
-                role="heading"
-                aria-level={2}
-              >
+              <div className="mb-3 d-flex align-items-center p-3">
                 <p className="card-text mb-0 lh-1 fs-1 fw-bold">
                   Luck Generator
                   <img
@@ -138,8 +128,6 @@ const TitleAnimation = () => {
                   <strong>DONATE</strong> to keep us going! We are lovers of{" "}
                   <strong>TON</strong> Coins.
                 </p>
-
-                {/* Wallet Address */}
                 <div
                   className="mt-3 d-flex align-items-center card-text"
                   role="heading"
@@ -150,7 +138,6 @@ const TitleAnimation = () => {
                       Wallet Address:<strong>{walletAddress}</strong>
                     </span>
                   </div>
-                  {/* Copy Icon */}
                   <FiCopy
                     size={20}
                     className="cursor-pointer"
@@ -160,7 +147,6 @@ const TitleAnimation = () => {
                       WebkitTapHighlightColor: "transparent",
                     }}
                   />
-                  {/* Copied Message */}
                   {isCopied && (
                     <span
                       className="ms-2 fw-bold text-success"
@@ -174,7 +160,6 @@ const TitleAnimation = () => {
             </div>
           </div>
         </div>
-        {/* Second Card */}
         <div className="col-12 col-lg-6">
           <div className="col-md-9 mt-3 p-4 no-border">
             <div className="d-flex flex-column align-items-center justify-content-between h-100">
@@ -224,7 +209,6 @@ const TitleAnimation = () => {
           </div>
         </div>
       </div>
-      {/* Modal */}
       {showModal && (
         <div>
           <div className="modal fade show" tabIndex={-1} role="dialog">
@@ -238,12 +222,12 @@ const TitleAnimation = () => {
                     width="62"
                     height="37"
                   />
-                  <h4
+                  <h1
                     className="modal-title fw-bold fs-2"
                     style={{ whiteSpace: "nowrap" }}
                   >
                     {title}
-                  </h4>
+                  </h1>
                 </div>
                 <div className="modal-body">
                   <form onSubmit={handleSubmit}>
@@ -275,8 +259,6 @@ const TitleAnimation = () => {
           <div className="modal-backdrop fade show"></div>
         </div>
       )}
-
-      {/* Lazy-loaded component with Suspense */}
       <Suspense fallback={<div>Loading...</div>}>
         <LazyZodiacFinder birthYear={birthYear} />
       </Suspense>
