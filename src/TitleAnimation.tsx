@@ -22,7 +22,7 @@ const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 
 const TitleAnimation = () => {
   const [showModal, setShowModal] = useState(false);
-  const [birthYear, setBirthYear] = useState("");
+  const [birthYear, setbirthYear] = useState("");
   const walletAddress = "UQDCZcS0xl1dNzlxCZsvWdLa9TmFLNl2xNfyGblIHNWwxmDr";
   const [isCopied, setIsCopied] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,7 +38,7 @@ const TitleAnimation = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setBirthYear(event.currentTarget.birthYear.value);
+    setbirthYear(event.currentTarget.birthYear.value);
     event.currentTarget.birthYear.value = "";
   };
 
