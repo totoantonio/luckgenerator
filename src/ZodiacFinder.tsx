@@ -199,6 +199,12 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                       className="border-test"
                       dangerouslySetInnerHTML={{ __html: horoscope }}
                     ></p>
+                    <p className="additional-message">
+                      Future updates of this app will include{" "}
+                      <strong>2024 outlook</strong> on&nbsp;
+                      <strong>career</strong>, <strong>love</strong>,{" "}
+                      <strong>health</strong>, and <strong>luck ratio</strong>.
+                    </p>
                   </div>
                 </div>
               </div>

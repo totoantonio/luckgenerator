@@ -9,7 +9,7 @@ function Offerings() {
       </h2>
       <div className="row gx-3 gx-md-4 gy-3 gy-md-4 align-items-center">
         <div className="col-md-6">
-          <div className="rounded-4 cbg flex-fill px-4 py-2">
+          <div className="rounded-2 cbg flex-fill px-4 py-2">
             <div className="card-body d-flex align-items-center p-2">
               <img
                 src="./fire.svg" // Replace with your image path
@@ -30,7 +30,7 @@ function Offerings() {
           </div>
         </div>
         <div className="col-md-6">
-          <div className="modal-content rounded-4 cbg flex-fill">
+          <div className="modal-content rounded-2 cbg flex-fill">
             <div className="card-body d-flex align-items-center p-2">
               <img
                 src="./random.svg" // Replace with your image path
@@ -54,7 +54,7 @@ function Offerings() {
       <div className="mt-4"></div> {/* Add space between rows */}
       <div className="row gx-3 gx-md-4 gy-3 gy-md-4 align-items-center">
         <div className="col-md-6">
-          <div className="modal-content rounded-4 cbg flex-fill">
+          <div className="modal-content rounded-2 cbg flex-fill">
             <div className="card-body d-flex align-items-center p-2">
               <img
                 src="./fortune.svg" // Replace with your image path
@@ -75,7 +75,7 @@ function Offerings() {
           </div>
         </div>
         <div className="col-md-6">
-          <div className="modal-content rounded-4 cbg flex-fill">
+          <div className="modal-content rounded-2 cbg flex-fill">
             <div className="card-body d-flex align-items-center p-2">
               <img
                 src="./wheel.svg" // Replace with your image path
