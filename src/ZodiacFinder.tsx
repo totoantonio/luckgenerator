@@ -103,7 +103,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     if (zodiacInfo) {
       setZodiacSign(calculatedZodiacSign);
       setZodiacDescription(zodiacInfo.description);
-      setLuckyNumbers(generateLuckyNumbers(7));
+      setLuckyNumbers(zodiacInfo.luckyNumbers); // Update to retrieve lucky numbers from JSON
       setShowResult(true);
 
       console.log("Setting horoscope");
@@ -122,18 +122,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
         console.log("Zodiac sign not found in horoscopeData");
       }
     }
-  };
-
-  const generateLuckyNumbers = (count: number) => {
-    const numbers: number[] = [];
-    while (numbers.length < count) {
-      const num = Math.floor(Math.random() * 60) + 1;
-      if (!numbers.includes(num)) {
-        numbers.push(num);
-      }
-    }
-    console.log("Generated numbers:", numbers); // Add this line for debugging
-    return numbers;
   };
 
   const resetState = () => {
@@ -157,27 +145,24 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                   </h1>
                   <div className="lead lh-1 mtxt">
                     {zodiacDescription.split(". ").map((sentence, index) => (
-                      <p key={index} className="lead lh-1 mtxt">
+                      <p key={index} className="card-text lh-1 mtxt">
                         {sentence.trim()}
                         {index !== zodiacDescription.split(". ").length - 1 &&
                           "."}
                       </p>
                     ))}
                   </div>
-                  <p className="lead lh-1 p-3 pt-4">
+                  <p className="card-text lh-1 pt-4">
                     Your lucky numbers:
                     <br />
                     <br />
                     <span className="lucky-numbers lead lh-1 fw-bold">
                       {luckyNumbers.map((number, index) => (
                         <span key={index} className="lucky-number">
-                          <React.Fragment>
-                            {String(number)
-                              .split("")
-                              .map((digit, digitIndex) => (
-                                <span key={digitIndex}>{digit}</span>
-                              ))}
-                          </React.Fragment>
+                          {index !== 0 && <span className="dot">·</span>}
+                          <span className="number">
+                            {String(number).padStart(2, "0")}
+                          </span>
                         </span>
                       ))}
                     </span>
@@ -209,7 +194,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                   <h1 className="display-6 fw-bold text-body-emphasis mb-3">
                     2024 Outlook
                   </h1>
-                  <div className="lead lh-1 mtxt">
+                  <div className="card-text lh-1 mtxt">
                     <p
                       className="border-test"
                       dangerouslySetInnerHTML={{ __html: horoscope }}

@@ -1,0 +1,135 @@
+[
+    {
+      "zodiac": "Rat",
+      "description": "Rats are intelligent, resourceful, and adaptable. They are quick learners and excel at planning.",
+      "characteristics": ["Clever", "Charming", "Thrifty"],
+      "2024outlook": {
+        "career": "A year of steady progress. Focus on building strong relationships and showcasing your talents.",
+        "health": "Maintain a healthy lifestyle. Be mindful of stress and get enough rest.",
+        "love": "Potential for new connections or strengthening existing partnerships. Communication is key.",
+        "luck": "80%"
+      }
+    },
+    {
+      "zodiac": "Ox",
+      "description": "Oxen are hardworking, reliable, and patient. They value stability and are known for their perseverance.",
+      "characteristics": ["Diligent", "Honest", "Determined"],
+      "2024outlook": {
+        "career": "Hard work will be rewarded. Be prepared to take on new responsibilities.",
+        "health": "Focus on fitness and maintaining a balanced diet. Prioritize relaxation techniques.",
+        "love": "A year for commitment and strengthening bonds. Singles may find lasting connections.",
+        "luck": "90%"
+      }
+    },
+    {
+      "zodiac": "Tiger",
+      "description": "Tigers are courageous, confident, and born leaders. They can be competitive and sometimes unpredictable.",
+      "characteristics": ["Brave", "Ambitious", "Independent"],
+      "2024outlook": {
+        "career": "Expect challenges, but opportunities for growth. Stay focused and don't be afraid to take calculated risks.",
+        "health": "Prioritize physical and mental wellbeing. Take breaks and address any lingering health issues.",
+        "love": "Romance may be unpredictable. Focus on open communication and strengthening existing bonds.",
+        "luck": "75%"
+      }
+    },
+    {
+      "zodiac": "Rabbit",
+      "description": "Rabbits are diplomatic, kind, and artistic. They value peace and harmony and are known for their gentle nature.",
+      "characteristics": ["Compassionate", "Creative", "Tactful"],
+      "2024outlook": {
+        "career": "A year for collaboration and teamwork. Your social skills will be valuable assets.",
+        "health": "Focus on stress management and relaxation. Prioritize a healthy work-life balance.",
+        "love": "A good year for romance. Singles may find compatible partners, and existing relationships may deepen.",
+        "luck": "70%"
+      }
+    },
+    {
+      "zodiac": "Dragon",
+      "description": "Dragons are ambitious, charismatic, and natural leaders. They are passionate and possess a strong sense of purpose.",
+      "characteristics": ["Enthusiastic", "Inspiring", "Confident"],
+      "2024outlook": {
+        "career": "A year of potential for significant achievements. Embrace new challenges and opportunities.",
+        "health": "Maintain a healthy lifestyle and prioritize exercise. Be mindful of overexertion.",
+        "love": "Singles may find passionate connections. Existing relationships may experience growth and excitement.",
+        "luck": "85%"
+      }
+    },
+    {
+      "zodiac": "Snake",
+      "description": "Snakes are wise, observant, and strategic. They are independent and possess a strong intuition.",
+      "characteristics": ["Insightful", "Mysterious", "Resourceful"],
+      "2024outlook": {
+        "career": "A year for strategic planning and calculated moves. Your intuition will guide you well.",
+        "health": "Focus on preventative healthcare and maintaining a balanced diet. Prioritize mental wellbeing.",
+        "love": "A year for emotional connection and deepening bonds. Singles may find intriguing partners.",
+        "luck": "65%"
+      }
+    },
+    {
+      "zodiac": "Horse",
+      "description": "Horses are energetic, independent, and freedom-loving. They are adventurous and enjoy challenges.",
+      "characteristics": ["Active", "Optimistic", "Free-spirited"],
+      "2024outlook": {
+        "career": "A year for travel, exploration, and expanding your horizons. Embrace new opportunities.",
+        "health": "Maintain an active lifestyle and prioritize a healthy diet. Manage stress effectively.",
+        "love": "Singles may find exciting connections. Existing relationships may experience growth through shared adventures.",
+        "luck": "95%"
+      }
+    },
+    {
+      "zodiac": "Goat",
+      "description": "Goats are compassionate, creative, and artistic. They value beauty, harmony, and helping others.",
+      "characteristics": ["Gentle", "Artistic", "Empathetic"],
+      "2024outlook": {
+        "career": "Showcase your creativity and unique talents. Opportunities may come from unexpected places.",
+        "health": "Practice mindfulness and prioritize stress management.  Focus on activities that nurture your soul.",
+        "love": "A year for deepening emotional connections and expressing your romantic side. Singles may find nurturing partnerships.",
+        "luck": "60%"
+      }
+    },
+    {
+      "zodiac": "Monkey",
+      "description": "Monkeys are intelligent, playful, and quick-witted. They are social butterflies and thrive in stimulating environments.",
+      "characteristics": ["Clever", "Playful", "Adaptable"],
+      "2024outlook": {
+        "career": "A year for networking and expanding your social circle. Your charisma and humor will open doors.",
+        "health": "Prioritize a balanced diet and regular exercise. Find activities you truly enjoy.",
+        "love": "Singles may find exciting and playful connections. Existing relationships will benefit from shared adventures.",
+        "luck": "80%"
+      }
+    },
+    {
+      "zodiac": "Rooster",
+      "description": "Roosters are organized, hardworking, and observant. They are perfectionists with high standards.",
+      "characteristics": ["Detail-oriented", "Practical", "Confident"],
+      "2024outlook": {
+        "career": "Hard work and dedication will pay off. Focus on completing projects and setting yourself up for future success.",
+        "health": "Prioritize sleep and stress management. Maintain a consistent routine.",
+        "love": "Stability and commitment will be highlighted. Singles may find partners who share their values.",
+        "luck": "70%"
+      }
+    },
+    {
+      "zodiac": "Dog",
+      "description": "Dogs are loyal, protective, and honest. They are deeply devoted to loved ones and value fairness.",
+      "characteristics": ["Loyal", "Protective", "Kind"],
+      "2024outlook": {
+        "career": "Your loyalty and reliability will be recognized. Opportunities may arise through existing networks.",
+        "health": "Focus on preventive healthcare and addressing any nagging concerns. Prioritize emotional wellbeing.",
+        "love": "Deepen bonds with loved ones. Singles may find partners who value loyalty and commitment.",
+        "luck": "85%"
+      }
+    },
+    {
+      "zodiac": "Pig",
+      "description": "Pigs are sincere, generous, and forgiving. They value comfort, pleasure, and the company of loved ones.",
+      "characteristics": ["Kind", "Loyal", "Honest"],
+      "2024outlook": {
+        "career": "Focus on networking and building strong relationships. Creative approaches will be successful.",
+        "health": "Prioritize physical activity and stress management. Indulge in self-care activities.",
+        "love": "A year for romance and deepening connections. Singles may find lasting relationships.",
+        "luck": "75%"
+      }
+    }
+  ]
+  

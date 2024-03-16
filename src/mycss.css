@@ -329,23 +329,21 @@ fw-bolder {
 /* Style for the container of the lucky numbers */
 .lucky-number {
   display: inline-flex;
-  /* Allows better spacing control */
-  margin-right: 5px;
-  /* Space between numbers */
+  align-items: center; /* Center vertically */
 }
-/* Style for the middle dot */
-.lucky-number > span::after {
-  content: "·";
-  /* Insert the middle dot character */
-  margin: 0 5px;
-  /* Adjust spacing around the dot as needed */
-  color: #333;
-  /* Set the color of the middle dot */
+
+.dot {
+  margin: 0 5px; /* Adjust horizontal spacing */
+  display: inline-flex;
+  align-items: center; /* Center vertically */
 }
-/* Remove the dot after the last digit */
-.lucky-number > span:last-child::after {
-  content: none;
+
+.number {
+  display: inline-flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
+
 /* Animation Toggle */
 .image-container img {
   width: 100%;
