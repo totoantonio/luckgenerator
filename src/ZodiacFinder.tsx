@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import "./mycss.css"; // Import your custom CSS styles here
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import "./mycss.css";
 import * as zodiacData from "./chinesezodiac.json";
 import horoscopeData from "./horoscope.json";
 
@@ -24,14 +24,6 @@ interface ZodiacFinderProps {
   birthYear?: string | null;
 }
 
-const titleStyle: CustomCSSProperties = {
-  "--gradientColor": "linear-gradient(89deg, #2689E8 18.91%, #A168FF 79.91%)",
-};
-
-interface CustomCSSProperties extends React.CSSProperties {
-  "--gradientColor": string;
-}
-
 const getCurrentDate = () => {
   const dateObj = new Date();
   const options: Intl.DateTimeFormatOptions = {
@@ -51,78 +43,83 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   const [horoscope, setHoroscope] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    console.log("useEffect triggered, birthYear:", birthYear);
-    if (birthYear) {
-      calculateZodiac(birthYear);
-    }
-  }, [birthYear]);
+  const calculateZodiac = useCallback(
+    (year: string) => {
+      console.log("Inside calculateZodiac. Year:", year);
+      const parsedYear = parseInt(year);
+      const zodiacSigns = [
+        "Rat",
+        "Ox",
+        "Tiger",
+        "Rabbit",
+        "Dragon",
+        "Snake",
+        "Horse",
+        "Goat",
+        "Monkey",
+        "Rooster",
+        "Dog",
+        "Pig",
+      ];
+      const zodiacIndex = (parsedYear - 4) % 12;
+      const calculatedZodiacSign = zodiacSigns[zodiacIndex];
+
+      if (!zodiacSigns.includes(calculatedZodiacSign)) {
+        setZodiacSign("Unknown");
+        return;
+      }
+
+      const zodiacInfo = (zodiacData as ZodiacData)[
+        calculatedZodiacSign.toLowerCase()
+      ];
+
+      if (zodiacInfo) {
+        setZodiacSign(calculatedZodiacSign);
+        setZodiacDescription(zodiacInfo.description);
+        setLuckyNumbers(zodiacInfo.luckyNumbers);
+        setShowResult(true);
+
+        console.log("Setting horoscope");
+        if (calculatedZodiacSign in horoscopeData) {
+          let modifiedHoroscope = (horoscopeData as HoroscopeData)[
+            calculatedZodiacSign
+          ].horoscope;
+
+          const sentences = modifiedHoroscope.split(". ");
+          modifiedHoroscope = sentences
+            .map((sentence) => `<p>${sentence}.</p>`)
+            .join("");
+
+          setHoroscope(modifiedHoroscope);
+        } else {
+          console.log("Zodiac sign not found in horoscopeData");
+        }
+      }
+    },
+    [
+      setZodiacSign,
+      setZodiacDescription,
+      setLuckyNumbers,
+      setShowResult,
+      setHoroscope,
+    ]
+  );
 
   useEffect(() => {
     console.log("useEffect triggered, birthYear:", birthYear);
-    if (birthYear !== null && birthYear !== undefined) {
+    if (birthYear !== null && birthYear !== undefined && birthYear !== "") {
       calculateZodiac(birthYear);
+    } else {
+      console.log("birthYear is null, undefined, or an empty string");
+      resetState();
     }
-  }, [birthYear]);
+  }, [birthYear, calculateZodiac]);
 
   useEffect(() => {
     if (showResult && resultRef.current) {
       resultRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [showResult]);
-
-  const calculateZodiac = (year: string) => {
-    console.log("Inside calculateZodiac. Year:", year);
-    const parsedYear = parseInt(year);
-    const zodiacSigns = [
-      "Rat",
-      "Ox",
-      "Tiger",
-      "Rabbit",
-      "Dragon",
-      "Snake",
-      "Horse",
-      "Goat",
-      "Monkey",
-      "Rooster",
-      "Dog",
-      "Pig",
-    ];
-    const zodiacIndex = (parsedYear - 4) % 12;
-    const calculatedZodiacSign = zodiacSigns[zodiacIndex];
-
-    if (!zodiacSigns.includes(calculatedZodiacSign)) {
-      setZodiacSign("Unknown");
-      return;
-    }
-
-    const zodiacInfo = (zodiacData as ZodiacData)[
-      calculatedZodiacSign.toLowerCase()
-    ];
-
-    if (zodiacInfo) {
-      setZodiacSign(calculatedZodiacSign);
-      setZodiacDescription(zodiacInfo.description);
-      setLuckyNumbers(zodiacInfo.luckyNumbers); // Update to retrieve lucky numbers from JSON
-      setShowResult(true);
-
-      console.log("Setting horoscope");
-      if (calculatedZodiacSign in horoscopeData) {
-        let modifiedHoroscope = (horoscopeData as HoroscopeData)[
-          calculatedZodiacSign
-        ].horoscope;
-
-        const sentences = modifiedHoroscope.split(". ");
-        modifiedHoroscope = sentences
-          .map((sentence) => `<p>${sentence}.</p>`)
-          .join("");
-
-        setHoroscope(modifiedHoroscope);
-      } else {
-        console.log("Zodiac sign not found in horoscopeData");
-      }
-    }
-  };
 
   const resetState = () => {
     setShowResult(false);
@@ -137,22 +134,20 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       <div ref={resultRef} className="result-section">
         {showResult && (
           <div className="row align-items-stretch pt-3">
-            <div className="col-lg-6 mb-4 mb-lg-0">
-              <div className="modal-content rounded-4 cbg flex-fill">
+            <div className="col-lg-6 mb-4 mb-lg-0 ">
+              <div className="warm-flame-gradient2 text-white  py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100 z-depth-1-half">
                 <div className="modal-body p-2">
-                  <h1 className="display-6 fw-bold text-body-emphasis mb-3">
-                    {zodiacSign}
-                  </h1>
-                  <div className="lead lh-1 mtxt">
+                  <h1 className="display-6 fw-bold  mb-3">{zodiacSign}</h1>
+                  <div className="lh-1 text-start pb-3">
                     {zodiacDescription.split(". ").map((sentence, index) => (
-                      <p key={index} className="card-text lh-1 mtxt">
+                      <p key={index} className="lh-1 text-start">
                         {sentence.trim()}
                         {index !== zodiacDescription.split(". ").length - 1 &&
                           "."}
                       </p>
                     ))}
                   </div>
-                  <p className="card-text lh-1 pt-4">
+                  <p className="text-white lh-1 pt-4">
                     Your lucky numbers:
                     <br />
                     <br />
@@ -172,14 +167,14 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     className="btn btn-primary btn-lg px-4 gap-3"
                     onClick={() => {
                       console.log("Great, thanks! clicked");
-                      resetState(); // Call the resetState function to reset the state
+                      resetState();
                       if (typeof window !== "undefined") {
                         const scrollOptions: ScrollToOptions = {
                           top: 0,
                           behavior: "smooth" as ScrollBehavior,
                         };
                         window.scrollTo(scrollOptions);
-                        document.documentElement.scrollTop = 0; // For older browsers
+                        document.documentElement.scrollTop = 0;
                       }
                     }}
                   >
@@ -189,12 +184,10 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
               </div>
             </div>
             <div className="col-lg-6 d-flex">
-              <div className="modal-content rounded-4 cbg flex-fill">
+              <div className="warm-flame-gradient3 text-white py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100 z-depth-1-half">
                 <div className="modal-body p-2">
-                  <h1 className="display-6 fw-bold text-body-emphasis mb-3">
-                    2024 Outlook
-                  </h1>
-                  <div className="card-text lh-1 mtxt">
+                  <h1 className="display-6 fw-bold  mb-3">2024 Outlook</h1>
+                  <div className="lh-1 text-start pb-3">
                     <p
                       className="border-test"
                       dangerouslySetInnerHTML={{ __html: horoscope }}

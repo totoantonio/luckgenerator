@@ -1,0 +1,44 @@
+@media (max-width: 992px) {
+  .product-card {
+    padding: 20px;
+    height: auto; /* Adjust height as needed */
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    padding: 10px;
+    height: auto; /* Adjust height as needed */
+  }
+}
+body,
+html {
+  position: relative;
+  font-size: 18px;
+  font-weight: 400;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background_page);
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-style: normal;
+}
+.night-fade-gradient {
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(#a18cd1),
+    to(#fbc2eb)
+  );
+  background-image: linear-gradient(to top, #a18cd1 0, #fbc2eb 100%);
+}
+.z-depth-1-half {
+  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18),
+    0 4px 15px 0 rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15) !important;
+}

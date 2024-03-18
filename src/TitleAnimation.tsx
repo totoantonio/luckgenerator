@@ -126,7 +126,7 @@ const TitleAnimation = () => {
                 </div>
               </h1>
               <div className="mb-3 d-flex align-items-center p-3">
-                <p className="card-text mb-0 lh-1 fs-1 fw-bold">
+                <p className="display-6 fw-bold lh-1 text-body-emphasis mb-0">
                   Luck Generator
                   <img
                     src={TwitterVerifiedIcon}
@@ -176,7 +176,7 @@ const TitleAnimation = () => {
                       className="ms-2 fw-bold text-success"
                       style={{ userSelect: "none" }}
                     >
-                      Copied!
+                      Wallet Address Copied!
                     </span>
                   )}
                 </div>
