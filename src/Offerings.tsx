@@ -10,7 +10,7 @@ function Offerings() {
       <div className="row gx-3 gx-md-4 gy-3 gy-md-4 align-items-stretch">
         {/* First Card */}
         <div className="col-md mb-1 mb-md-0 pt-md-2">
-          <div className="rounded-2 bg-light flex-fill px-4 py-2 h-100">
+          <div className="rounded-2 bg-white box-shadow flex-fill px-4 py-2 h-100">
             <div className="card-body d-flex flex-column align-items-center justify-content-center p-2">
               <h5 className="mb-0 text-start text-truncate">
                 Daily Chinese Horoscope:
@@ -34,7 +34,7 @@ function Offerings() {
         </div>
         {/* Second Card */}
         <div className="col-md mb-1 mb-md-0 pt-md-2">
-          <div className="rounded-2 bg-light flex-fill px-4 py-2 h-100">
+          <div className="rounded-2 bg-white box-shadow flex-fill px-4 py-2 h-100">
             <div className="card-body d-flex flex-column align-items-center justify-content-center p-2">
               <h5 className=" mb-0 text-start text-truncate">
                 Your Daily Fortune:
@@ -58,7 +58,7 @@ function Offerings() {
         </div>
         {/* Third Card */}
         <div className="col-md mb-1 mb-md-0 pt-md-2">
-          <div className="bg-light rounded-2  flex-fill px-4 py-2 h-100">
+          <div className="bg-white box-shadow rounded-2  flex-fill px-4 py-2 h-100">
             <div className="card-body d-flex flex-column align-items-center justify-content-center p-2">
               <h5 className="mb-0 text-start text-truncate">
                 Random Number Generator:
@@ -82,7 +82,7 @@ function Offerings() {
         </div>
         {/* Fourth Card */}
         <div className="col-md mb-1 mb-md-0 pt-md-2">
-          <div className="bg-light rounded-2 flex-fill px-4 py-2 h-100">
+          <div className="bg-white box-shadow rounded-2 flex-fill px-4 py-2 h-100">
             <div className="card-body d-flex flex-column align-items-center justify-content-center p-2">
               <h5 className="mb-0 text-start text-truncate">
                 Wheel of Fortune:
