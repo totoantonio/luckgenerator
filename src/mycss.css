@@ -647,14 +647,3 @@ fw-bolder {
     rgba(139, 0, 139, 1) 47%
   );
 }
-
-.zodiac-description {
-  background: linear-gradient(
-    160deg,
-    rgba(220, 20, 60, 1) 12%,
-    rgba(164, 20, 255, 1) 47%,
-    rgba(136, 75, 136, 1) 77%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
