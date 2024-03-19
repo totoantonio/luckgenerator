@@ -67,7 +67,7 @@ html {
   text-rendering: optimizeLegibility; /* For optimized legibility */
   transform: translateZ(0); /* Trigger GPU acceleration */
   backface-visibility: hidden; /* Trigger GPU acceleration */
-  font-family: Arial, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; /* Use a font stack with smooth rendering */
   font-style: normal;
   line-height: 1.5; /* Adjust line-height for better spacing */

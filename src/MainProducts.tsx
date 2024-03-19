@@ -27,6 +27,7 @@ const MainProducts = () => {
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    console.log("Handling form submission...");
     event.preventDefault();
     const enteredBirthYear = event.currentTarget.birthYear.value;
     setBirthYear(enteredBirthYear);
@@ -207,7 +208,11 @@ const MainProducts = () => {
                   />
                 </div>
                 <div className="d-flex justify-content-center">
-                  <button type="submit" className="btn btn-primary btn-lg me-3">
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-lg me-3"
+                    onClick={() => console.log("Generate button clicked")}
+                  >
                     Generate
                   </button>
                   <button
