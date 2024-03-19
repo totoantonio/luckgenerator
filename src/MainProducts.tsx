@@ -14,7 +14,6 @@ const MainProducts = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [vibrate, setVibrate] = useState(false);
   const [renderZodiacFinder, setRenderZodiacFinder] = useState(false);
-  const [recentTransactions, setRecentTransactions] = useState<any[]>([]);
 
   const handleModalOpen = () => {
     setShowModal(true);
@@ -60,29 +59,6 @@ const MainProducts = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // Function to fetch recent received TON transactions
-    const fetchRecentTransactions = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.tonviewer.com/transactions"
-        );
-        // Assuming the API response contains an array of recent transactions
-        setRecentTransactions(response.data);
-      } catch (error) {
-        console.error("Error fetching recent transactions:", error);
-      }
-    };
-
-    fetchRecentTransactions();
-
-    // Optionally, you can set up a timer to periodically fetch new transactions
-    const intervalId = setInterval(fetchRecentTransactions, 60000); // Fetch every minute
-
-    // Cleanup function to clear the interval when the component unmounts
-    return () => clearInterval(intervalId);
-  }, []);
-
   return (
     <div className="container">
       <div className="row align-items-stretch pt-3">
@@ -106,8 +82,9 @@ const MainProducts = () => {
                   size={30}
                   className="me-3"
                   style={{ animation: vibrate ? "shake 0.5s" : "none" }}
+                  aria-hidden="true"
                 />
-                <BiDotsHorizontalRounded size={30} />
+                <BiDotsHorizontalRounded size={30} aria-hidden="true" />
               </div>
             </div>
             <div className="lh-1 text-start pb-3">
@@ -124,37 +101,6 @@ const MainProducts = () => {
                 on bringing you daily horoscopes sent directly to your email or
                 Telegram, GeoIP for the last user, a lucky wheel, and much more!
               </p>
-
-              {/* Mapping recent transactions */}
-              {recentTransactions.map((transaction, index) => (
-                <div key={index} className="mb-3">
-                  <p
-                    className="mb-0"
-                    style={{
-                      maxWidth: "200px",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    <strong>Hash:</strong> {transaction.hash}
-                  </p>
-                  <p
-                    className="mb-0"
-                    style={{
-                      maxWidth: "200px",
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    <strong>Amount:</strong> {transaction.amount} TON
-                  </p>
-                </div>
-              ))}
-
-              {/* End of mapping recent transactions */}
-
               <div className="d-flex align-items-center">
                 <div
                   className="flex-grow-1 overflow-hidden"
@@ -172,6 +118,7 @@ const MainProducts = () => {
                     fontWeight: "bold",
                     WebkitTapHighlightColor: "transparent",
                   }}
+                  aria-label="Copy wallet address"
                 />
                 {isCopied && (
                   <span
@@ -206,6 +153,7 @@ const MainProducts = () => {
                     className="form-control"
                     id="birthYear"
                     required
+                    aria-label="Enter your birth year"
                   />
                 </div>
                 <div className="d-flex justify-content-center">
@@ -235,7 +183,7 @@ const MainProducts = () => {
 
       <div className="row">
         <div className="col">
-          {renderZodiacFinder && (
+          {renderZodiacFinder && birthYear && birthYear.trim() !== "" && (
             <Suspense fallback={<div>Loading...</div>}>
               <LazyZodiacFinder key={birthYear} birthYear={birthYear} />
             </Suspense>

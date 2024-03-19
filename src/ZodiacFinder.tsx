@@ -24,17 +24,6 @@ interface ZodiacFinderProps {
   birthYear?: string | null;
 }
 
-const getCurrentDate = () => {
-  const dateObj = new Date();
-  const options: Intl.DateTimeFormatOptions = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  };
-  return dateObj.toLocaleDateString("en-US", options);
-};
-
 const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   const [showResult, setShowResult] = useState(false);
   const [zodiacSign, setZodiacSign] = useState("");
@@ -174,7 +163,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                           behavior: "smooth" as ScrollBehavior,
                         };
                         window.scrollTo(scrollOptions);
-                        document.documentElement.scrollTop = 0;
+                        document.documentElement.scrollTop = 10;
                       }
                     }}
                   >
