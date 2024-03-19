@@ -66,7 +66,7 @@ const MainProducts = () => {
           <div className="bg-white box-shadow py-3 px-4 py-md-5 px-md-5 text-center overflow-hidden rounded-3 h-100">
             <div className="my-3 py-3 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
-                <h2 className="display-6 fw-bold">Luck Generator</h2>
+                <h1 className="display-6 fw-bold">Luck Generator</h1>
                 <img
                   src="/luckgenerator/twitterverified.svg"
                   alt="Twitter Verified Icon"
@@ -118,8 +118,9 @@ const MainProducts = () => {
                     fontWeight: "bold",
                     WebkitTapHighlightColor: "transparent",
                   }}
-                  aria-label="Copy wallet address"
+                  aria-label="Copy wallet address to clipboard"
                 />
+
                 {isCopied && (
                   <span
                     className="ms-2 fw-bold text-success"
