@@ -175,7 +175,7 @@ const MainProducts = () => {
                     Transaction: {lastTransaction.hash.substring(0, 20)}...
                   </span>
                   <span className="amount-text">
-                    Amount: {lastTransaction.amount} TON
+                    &nbsp;Amount: {lastTransaction.amount} TON
                   </span>
                 </p>
               )}
