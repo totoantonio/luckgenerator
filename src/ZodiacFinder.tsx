@@ -157,13 +157,17 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     onClick={() => {
                       console.log("Great, thanks! clicked");
                       resetState();
-                      if (typeof window !== "undefined") {
-                        const scrollOptions: ScrollToOptions = {
-                          top: 0,
-                          behavior: "smooth" as ScrollBehavior,
-                        };
-                        window.scrollTo(scrollOptions);
-                        document.documentElement.scrollTop = 10;
+                      const generateReportCard = document.querySelector(
+                        ".generate-report-card"
+                      ); // Select the Generate Report card
+                      if (generateReportCard) {
+                        const cardPosition =
+                          generateReportCard.getBoundingClientRect().top +
+                          window.pageYOffset; // Get the position of the card relative to the document top
+                        window.scrollTo({
+                          top: cardPosition,
+                          behavior: "smooth",
+                        }); // Scroll to the position of the card
                       }
                     }}
                   >

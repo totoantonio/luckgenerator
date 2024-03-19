@@ -91,7 +91,7 @@ const MainProducts = () => {
     <div className="container">
       <div className="row align-items-stretch pt-3">
         <div className="col-lg-6 mb-4 mb-lg-0">
-          <div className="bg-white box-shadow py-3 px-4 py-md-5 px-md-5 text-center overflow-hidden rounded-3 h-100">
+          <div className="bg-white box-shadow py-2 px-4 py-md-5 px-md-5 text-center overflow-hidden rounded-3 h-100">
             <div className="my-3 py-3 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
                 <h1 className="display-6 fw-bold">Luck Generator</h1>
@@ -176,8 +176,8 @@ const MainProducts = () => {
           </div>
         </div>
 
-        <div className="col-lg-6 mb-4 mb-lg-0 text-white">
-          <div className="ripe-malinka-gradient py-3 px-4 py-md-5 px-md-5 text-center overflow-hidden rounded-3 h-100">
+        <div className="col-lg-6 mb-4 mb-lg-0 text-white generate-report-card">
+          <div className="ripe-malinka-gradient py-2 px-4 py-md-5 px-md-5 text-center overflow-hidden rounded-3 h-100">
             <div className="my-3 py-3 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
                 <h2 className="display-6 fw-bold">Generate Report</h2>
