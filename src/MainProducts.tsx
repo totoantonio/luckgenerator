@@ -27,8 +27,9 @@ const MainProducts = () => {
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault(); // Prevent default form submission behavior
     console.log("Handling form submission...");
-    event.preventDefault();
+
     const enteredBirthYear = event.currentTarget.birthYear.value;
     setBirthYear(enteredBirthYear);
     setRenderZodiacFinder(true);
@@ -36,7 +37,10 @@ const MainProducts = () => {
     // Scroll to the result area
     const resultArea = document.querySelector(".result-section");
     if (resultArea) {
-      resultArea.scrollIntoView({ behavior: "smooth" });
+      // Check if the result section is not already visible
+      if (resultArea.getBoundingClientRect().top !== 0) {
+        resultArea.scrollIntoView({ behavior: "smooth" });
+      }
     }
 
     event.currentTarget.reset(); // Reset the form after submitting
@@ -102,7 +106,16 @@ const MainProducts = () => {
           <div className="bg-white box-shadow py-2 px-4 py-md-5 px-md-5 text-center overflow-hidden rounded-3 h-100">
             <div className="my-3 py-3 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
-                <h1 className="display-6 fw-bold">Luck Generator</h1>
+                <h1
+                  className="display-6 fw-bold"
+                  style={{
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  Luck Generator
+                </h1>
                 <img
                   src="/luckgenerator/twitterverified.svg"
                   alt="Twitter Verified Icon"
@@ -123,6 +136,7 @@ const MainProducts = () => {
                 <BiDotsHorizontalRounded size={30} aria-hidden="true" />
               </div>
             </div>
+
             <div className="lh-1 text-start pb-3">
               <p>
                 Simply enter your birth year and embark on a journey of
@@ -208,13 +222,10 @@ const MainProducts = () => {
                   />
                 </div>
                 <div className="d-flex justify-content-center">
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-lg me-3"
-                    onClick={() => console.log("Generate button clicked")}
-                  >
+                  <button type="submit" className="btn btn-primary btn-lg me-3">
                     Generate
                   </button>
+
                   <button
                     type="button"
                     className="btn btn-secondary btn-lg"
