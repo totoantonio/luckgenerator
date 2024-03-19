@@ -4,6 +4,7 @@ import { FiCopy } from "react-icons/fi";
 import TwitterVerifiedIcon from "/twitterverified.svg";
 const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 import "./mycss.css";
+import axios from "axios";
 
 const MainProducts = () => {
   const walletAddress = "UQDCZcS0xl1dNzlxCZsvWdLa9TmFLNl2xNfyGblIHNWwxmDr";
@@ -13,6 +14,7 @@ const MainProducts = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [vibrate, setVibrate] = useState(false);
   const [renderZodiacFinder, setRenderZodiacFinder] = useState(false);
+  const [recentTransactions, setRecentTransactions] = useState<any[]>([]);
 
   const handleModalOpen = () => {
     setShowModal(true);
@@ -58,6 +60,29 @@ const MainProducts = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Function to fetch recent received TON transactions
+    const fetchRecentTransactions = async () => {
+      try {
+        const response = await axios.get(
+          "https://api.tonviewer.com/transactions"
+        );
+        // Assuming the API response contains an array of recent transactions
+        setRecentTransactions(response.data);
+      } catch (error) {
+        console.error("Error fetching recent transactions:", error);
+      }
+    };
+
+    fetchRecentTransactions();
+
+    // Optionally, you can set up a timer to periodically fetch new transactions
+    const intervalId = setInterval(fetchRecentTransactions, 60000); // Fetch every minute
+
+    // Cleanup function to clear the interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div className="container">
       <div className="row align-items-stretch pt-3">
@@ -99,6 +124,37 @@ const MainProducts = () => {
                 on bringing you daily horoscopes sent directly to your email or
                 Telegram, GeoIP for the last user, a lucky wheel, and much more!
               </p>
+
+              {/* Mapping recent transactions */}
+              {recentTransactions.map((transaction, index) => (
+                <div key={index} className="mb-3">
+                  <p
+                    className="mb-0"
+                    style={{
+                      maxWidth: "200px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    <strong>Hash:</strong> {transaction.hash}
+                  </p>
+                  <p
+                    className="mb-0"
+                    style={{
+                      maxWidth: "200px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    <strong>Amount:</strong> {transaction.amount} TON
+                  </p>
+                </div>
+              ))}
+
+              {/* End of mapping recent transactions */}
+
               <div className="d-flex align-items-center">
                 <div
                   className="flex-grow-1 overflow-hidden"
