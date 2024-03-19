@@ -29,9 +29,17 @@ const MainProducts = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const enteredBirthYear = event.currentTarget.birthYear.value;
-    setBirthYear(enteredBirthYear);
-    event.currentTarget.birthYear.value = "";
-    setRenderZodiacFinder(true);
+
+    // Ensure the entered value is a valid number
+    const parsedYear = parseInt(enteredBirthYear);
+    if (!isNaN(parsedYear)) {
+      // Update the birthYear state with the parsed year
+      setBirthYear(parsedYear.toString()); // Convert parsedYear to string before updating state
+      setRenderZodiacFinder(true); // Trigger rendering of the ZodiacFinder component
+    } else {
+      // Handle invalid input (e.g., display an error message)
+      console.error("Invalid input. Please enter a valid birth year.");
+    }
   };
 
   const handleCopyClick = () => {

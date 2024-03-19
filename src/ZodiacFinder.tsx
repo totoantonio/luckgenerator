@@ -156,7 +156,10 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     className="btn btn-primary btn-lg px-4 gap-3"
                     onClick={() => {
                       console.log("Great, thanks! clicked");
-                      resetState();
+                      const form = document.querySelector("form"); // Select the form element
+                      if (form) {
+                        form.reset(); // Reset the form fields
+                      }
                       const generateReportCard = document.querySelector(
                         ".generate-report-card"
                       ); // Select the Generate Report card
