@@ -666,3 +666,15 @@ fw-bolder {
   top: -9999px;
   left: -9999px;
 }
+/* Adjust font size for transaction and amount text */
+.transaction-text,
+.amount-text {
+  font-size: 16px; /* Base font size */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .transaction-container {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+}

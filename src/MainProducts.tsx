@@ -14,6 +14,9 @@ const MainProducts = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [vibrate, setVibrate] = useState(false);
   const [renderZodiacFinder, setRenderZodiacFinder] = useState(false);
+  const donationWalletAddress =
+    "UQCDKjllCzHooYuMo_TVqFaXvhUWEvJKJmpfABImrrzD0xf_";
+  const [lastTransaction, setLastTransaction] = useState<any>(null);
 
   const handleModalOpen = () => {
     setShowModal(true);
@@ -59,6 +62,31 @@ const MainProducts = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchLastTransaction = async () => {
+      try {
+        const response = await axios.get(
+          `https://tonapi.io/v2/accounts/${donationWalletAddress}`
+        );
+        const lastActivity = response.data.last_activity;
+        if (lastActivity) {
+          const lastTransactionHash = `0x${lastActivity.toString(10)}`;
+          const lastTransactionAmount = (response.data.balance / 1e9).toFixed(
+            2
+          ); // Convert to TON and round to 2 decimal places
+          setLastTransaction({
+            hash: lastTransactionHash,
+            amount: lastTransactionAmount,
+          });
+        }
+      } catch (error) {
+        console.error("Error fetching last transaction:", error);
+      }
+    };
+
+    fetchLastTransaction();
+  }, []);
+
   return (
     <div className="container">
       <div className="row align-items-stretch pt-3">
@@ -101,6 +129,7 @@ const MainProducts = () => {
                 on bringing you daily horoscopes sent directly to your email or
                 Telegram, GeoIP for the last user, a lucky wheel, and much more!
               </p>
+
               <div className="d-flex align-items-center">
                 <div
                   className="flex-grow-1 overflow-hidden"
@@ -130,6 +159,19 @@ const MainProducts = () => {
                   </span>
                 )}
               </div>
+              {lastTransaction && (
+                <p
+                  id="transactionContainer"
+                  className="text-black-50 pt-2 transaction-container"
+                >
+                  <span className="transaction-text">
+                    Transaction: {lastTransaction.hash.substring(0, 20)}...
+                  </span>
+                  <span className="amount-text">
+                    Amount: {lastTransaction.amount} TON
+                  </span>
+                </p>
+              )}
             </div>
           </div>
         </div>
