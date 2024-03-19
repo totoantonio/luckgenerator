@@ -226,7 +226,7 @@ const MainProducts = () => {
 
       <div className="row">
         <div className="col">
-          {renderZodiacFinder && birthYear && birthYear.trim() !== "" && (
+          {renderZodiacFinder && (
             <Suspense fallback={<div>Loading...</div>}>
               <LazyZodiacFinder key={birthYear} birthYear={birthYear} />
             </Suspense>
