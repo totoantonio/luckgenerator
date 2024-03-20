@@ -94,15 +94,18 @@ const MainProducts = () => {
             <div className="my-3 py-1 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
                 <h1
-                  className="display-6 fw-bold"
+                  className="display-6 fw-bold gradient-red"
                   style={{
                     whiteSpace: "nowrap",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
+                    WebkitBackgroundClip: "text", // For Webkit-based browsers
+                    color: "transparent", // Set text color to transparent
                   }}
                 >
                   Luck Generator
                 </h1>
+
                 <img
                   src="/luckgenerator/twitterverified.svg"
                   alt="Twitter Verified Icon"
