@@ -7,15 +7,13 @@ import "./mycss.css";
 import axios from "axios";
 
 const MainProducts = () => {
-  const walletAddress = "UQDCZcS0xl1dNzlxCZsvWdLa9TmFLNl2xNfyGblIHNWwxmDr";
+  const walletAddress = "UQCDKjllCzHooYuMo_TVqFaXvhUWEvJKJmpfABImrrzD0xf_";
   const [isCopied, setIsCopied] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [birthYear, setBirthYear] = useState<string | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [vibrate, setVibrate] = useState(false);
   const [renderZodiacFinder, setRenderZodiacFinder] = useState(false);
-  const donationWalletAddress =
-    "UQCDKjllCzHooYuMo_TVqFaXvhUWEvJKJmpfABImrrzD0xf_";
   const [lastTransaction, setLastTransaction] = useState<any>(null);
 
   const handleModalOpen = () => {
@@ -78,7 +76,7 @@ const MainProducts = () => {
     const fetchLastTransaction = async () => {
       try {
         const response = await axios.get(
-          `https://tonapi.io/v2/accounts/${donationWalletAddress}`
+          `https://tonapi.io/v2/accounts/${walletAddress}`
         );
         const lastActivity = response.data.last_activity;
         if (lastActivity) {
@@ -103,8 +101,8 @@ const MainProducts = () => {
     <div className="container">
       <div className="row align-items-stretch pt-3">
         <div className="col-lg-6 mb-4 mb-lg-0">
-          <div className="bg-white box-shadow py-2 px-4 py-md-5 px-md-5 text-center overflow-hidden rounded-3 h-100">
-            <div className="my-3 py-3 d-flex align-items-center justify-content-between">
+          <div className="bg-white box-shadow py-2 px-4 py-md-2 px-md-4 text-center overflow-hidden rounded-3 h-100">
+            <div className="my-3 py-1 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
                 <h1
                   className="display-6 fw-bold"
@@ -155,12 +153,13 @@ const MainProducts = () => {
               <div className="d-flex align-items-center">
                 <div
                   className="flex-grow-1 overflow-hidden"
-                  style={{ maxWidth: "80%" }}
+                  style={{ maxWidth: "90%" }}
                 >
                   <span className="text-truncate">
                     Wallet Address: <strong>{walletAddress}</strong>
                   </span>
                 </div>
+                &nbsp;&nbsp;
                 <FiCopy
                   size={20}
                   className="cursor-pointer"
@@ -168,10 +167,10 @@ const MainProducts = () => {
                   style={{
                     fontWeight: "bold",
                     WebkitTapHighlightColor: "transparent",
+                    backgroundColor: "transparent",
                   }}
                   aria-label="Copy wallet address to clipboard"
                 />
-
                 {isCopied && (
                   <span
                     className="ms-2 fw-bold text-success"
@@ -182,25 +181,30 @@ const MainProducts = () => {
                 )}
               </div>
               {lastTransaction && (
-                <p
-                  id="transactionContainer"
-                  className="text-black-50 pt-2 transaction-container"
+                <div
+                  className="flex-grow-1 overflow-hidden"
+                  style={{ maxWidth: "90%" }}
                 >
-                  <span className="transaction-text">
-                    Transaction: {lastTransaction.hash.substring(0, 20)}...
-                  </span>
-                  <span className="amount-text">
-                    &nbsp;Amount: {lastTransaction.amount} TON
-                  </span>
-                </p>
+                  <p
+                    id="transactionContainer"
+                    className="text-black-50 pt-2 transaction-container"
+                  >
+                    <span className="transaction-text">
+                      Lastest TX: {lastTransaction.hash.substring(0, 20)}...
+                    </span>
+                    <span className="amount-text">
+                      &nbsp;: {lastTransaction.amount} TON
+                    </span>
+                  </p>
+                </div>
               )}
             </div>
           </div>
         </div>
 
         <div className="col-lg-6 mb-4 mb-lg-0 text-white generate-report-card">
-          <div className="ripe-malinka-gradient py-2 px-4 py-md-5 px-md-5 text-center overflow-hidden rounded-3 h-100">
-            <div className="my-3 py-3 d-flex align-items-center justify-content-between">
+          <div className="gradient-red py-2 px-4 py-md-2 px-md-4 text-center overflow-hidden rounded-3 h-100">
+            <div className="my-3 py-1 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
                 <h2 className="display-6 fw-bold">Generate Report</h2>
               </div>
