@@ -118,7 +118,7 @@ const MainProducts = () => {
                 {/* Increase the margin on the right side */}
                 <a href="https://t.me/alfiesuperhalk">
                   <img
-                    src="/telegram.svg"
+                    src="./telegram.svg"
                     alt="Telegram Icon"
                     width="30"
                     height="30"
