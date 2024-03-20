@@ -16,9 +16,7 @@ function Footer() {
             height="24"
           />
         </a>
-        <span className="text-body-secondary" style={{ fontSize: "0.8rem" }}>
-          &copy; 2024 O2, Inc
-        </span>
+        <span className="card-text">&copy; 2024 O2, Inc</span>
       </div>
 
       <div className="d-flex">
