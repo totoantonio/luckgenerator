@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import ZodiacFinder from "./ZodiacFinder";
 import Offerings from "./Offerings";
 import Footer from "./Footer";
-import TitleAnimation from "./TitleAnimation";
+
 import HeaderHero from "./HeaderHero";
 import MainProducts from "./MainProducts";
 

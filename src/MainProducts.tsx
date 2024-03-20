@@ -1,7 +1,6 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
-import TwitterVerifiedIcon from "/twitterverified.svg";
 const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 import "./mycss.css";
 import axios from "axios";
@@ -9,20 +8,12 @@ import axios from "axios";
 const MainProducts = () => {
   const walletAddress = "UQCDKjllCzHooYuMo_TVqFaXvhUWEvJKJmpfABImrrzD0xf_";
   const [isCopied, setIsCopied] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+
   const [birthYear, setBirthYear] = useState<string | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
+
   const [vibrate, setVibrate] = useState(false);
   const [renderZodiacFinder, setRenderZodiacFinder] = useState(false);
   const [lastTransaction, setLastTransaction] = useState<any>(null);
-
-  const handleModalOpen = () => {
-    setShowModal(true);
-  };
-
-  const handleModalClose = () => {
-    setShowModal(false);
-  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevent default form submission behavior
@@ -60,8 +51,6 @@ const MainProducts = () => {
   };
 
   useEffect(() => {
-    setIsLoaded(true);
-
     const vibrateInterval = setInterval(() => {
       setVibrate(true);
       setTimeout(() => setVibrate(false), 500);
@@ -125,13 +114,17 @@ const MainProducts = () => {
                 />
               </div>
               <div className="d-flex align-items-center">
-                <BiBell
-                  size={30}
-                  className="me-3"
-                  style={{ animation: vibrate ? "shake 0.5s" : "none" }}
-                  aria-hidden="true"
-                />
-                <BiDotsHorizontalRounded size={30} aria-hidden="true" />
+                <BiBell size={30} className="me--1" aria-hidden="true" />{" "}
+                {/* Increase the margin on the right side */}
+                <a href="https://t.me/alfiesuperhalk">
+                  <img
+                    src="/telegram.svg"
+                    alt="Telegram Icon"
+                    width="30"
+                    height="30"
+                    aria-hidden="true"
+                  />
+                </a>
               </div>
             </div>
 
@@ -183,7 +176,7 @@ const MainProducts = () => {
               {lastTransaction && (
                 <div
                   className="flex-grow-1 overflow-hidden"
-                  style={{ maxWidth: "90%" }}
+                  style={{ maxWidth: "100%" }}
                 >
                   <p
                     id="transactionContainer"
@@ -193,7 +186,8 @@ const MainProducts = () => {
                       Lastest TX: {lastTransaction.hash.substring(0, 20)}...
                     </span>
                     <span className="amount-text">
-                      &nbsp;: {lastTransaction.amount} TON
+                      {" "}
+                      : {lastTransaction.amount} TON
                     </span>
                   </p>
                 </div>
@@ -230,11 +224,7 @@ const MainProducts = () => {
                     Generate
                   </button>
 
-                  <button
-                    type="button"
-                    className="btn btn-secondary btn-lg"
-                    onClick={handleModalOpen}
-                  >
+                  <button type="button" className="btn btn-secondary btn-lg">
                     Learn More
                   </button>
                 </div>

@@ -590,3 +590,9 @@ fw-bolder {
   top: -9999px;
   left: -9999px;
 }
+/* Transaction Container*/
+.transaction-container {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

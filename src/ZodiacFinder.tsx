@@ -34,7 +34,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
 
   const calculateZodiac = useCallback(
     (year: string) => {
-      console.log("Inside calculateZodiac. Year:", year);
       const parsedYear = parseInt(year);
       const zodiacSigns = [
         "Rat",
@@ -68,7 +67,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
         setLuckyNumbers(zodiacInfo.luckyNumbers);
         setShowResult(true);
 
-        console.log("Setting horoscope");
         if (calculatedZodiacSign in horoscopeData) {
           let modifiedHoroscope = (horoscopeData as HoroscopeData)[
             calculatedZodiacSign
@@ -81,7 +79,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
 
           setHoroscope(modifiedHoroscope);
         } else {
-          console.log("Zodiac sign not found in horoscopeData");
         }
       }
     },
@@ -95,11 +92,9 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   );
 
   useEffect(() => {
-    console.log("useEffect triggered, birthYear:", birthYear);
     if (birthYear !== null && birthYear !== undefined && birthYear !== "") {
       calculateZodiac(birthYear);
     } else {
-      console.log("birthYear is null, undefined, or an empty string");
       resetState();
     }
   }, [birthYear, calculateZodiac]);
@@ -155,7 +150,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     type="button"
                     className="btn btn-primary btn-lg px-4 gap-3"
                     onClick={() => {
-                      console.log("Great, thanks! clicked");
                       const form = document.querySelector("form"); // Select the form element
                       if (form) {
                         form.reset(); // Reset the form fields
@@ -181,7 +175,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
             </div>
 
             <div className="col-lg-6 d-flex">
-              <div className="gradient-red text-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100 share-card">
+              <div className="gradient-red text-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100">
                 <div className="modal-body p-2">
                   <h1 className="display-6 fw-bold  mb-3">2024 Outlook</h1>
                   <div className="lh-1 text-start pb-3">
