@@ -146,6 +146,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                       ))}
                     </span>
                   </p>
+
                   <button
                     type="button"
                     className="btn btn-primary btn-lg px-4 gap-3"
