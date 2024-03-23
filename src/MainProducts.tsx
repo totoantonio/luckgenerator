@@ -94,13 +94,11 @@ const MainProducts = () => {
             <div className="my-3 py-1 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
                 <h1
-                  className="display-6 fw-bold gradient-red"
+                  className="display-6 fw-bold"
                   style={{
                     whiteSpace: "nowrap",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    WebkitBackgroundClip: "text", // For Webkit-based browsers
-                    color: "transparent", // Set text color to transparent
                   }}
                 >
                   Luck Generator
@@ -183,7 +181,7 @@ const MainProducts = () => {
                 >
                   <p
                     id="transactionContainer"
-                    className="text-black-50 pt-2 transaction-container"
+                    className="text-black-50 pt-2 transaction-container fw-bold"
                   >
                     <span className="transaction-text">
                       Lastest TX: {lastTransaction.hash.substring(0, 20)}...
@@ -223,11 +221,11 @@ const MainProducts = () => {
                   />
                 </div>
                 <div className="d-flex justify-content-center">
-                  <button type="submit" className="btn btn-primary btn-lg me-3">
+                  <button type="submit" className="btn btn-primary active me-3">
                     Generate
                   </button>
 
-                  <button type="button" className="btn btn-secondary btn-lg">
+                  <button type="button" className="btn btn-secondary me-3">
                     Learn More
                   </button>
                 </div>
