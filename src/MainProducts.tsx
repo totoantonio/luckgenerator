@@ -230,7 +230,10 @@ const MainProducts = () => {
                   </button>
                 </div>
               </form>
-              <p className="mb-4 text-left lh-1 p-3 pt-5 text-white">
+              <p
+                className="mb-4 text-left lh-1 p-3 pt-5 text-white"
+                style={{ fontSize: "16px" }}
+              >
                 Disclaimer: <strong>Luck Generator</strong> shall not be held
                 responsible for any errors, omissions, or inaccuracies in the
                 content provided, nor for any actions taken in reliance on this
