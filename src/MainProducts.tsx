@@ -181,14 +181,19 @@ const MainProducts = () => {
                 >
                   <p
                     id="transactionContainer"
-                    className="text-black-50 pt-2 transaction-container fw-bold"
+                    className="text-black-50 pt-2 transaction-container fw-light"
+                    style={{ fontSize: "16px" }}
                   >
                     <span className="transaction-text">
-                      Lastest TX: {lastTransaction.hash.substring(0, 20)}...
+                      Lastest TX: {lastTransaction.hash.substring(0, 25)}...
                     </span>
                     <span className="amount-text">
                       {" "}
-                      : {lastTransaction.amount} TON
+                      :{" "}
+                      {typeof lastTransaction.amount === "number"
+                        ? lastTransaction.amount.toFixed(9)
+                        : lastTransaction.amount}{" "}
+                      TON
                     </span>
                   </p>
                 </div>
@@ -237,8 +242,7 @@ const MainProducts = () => {
                 Disclaimer: <strong>Luck Generator</strong> shall not be held
                 responsible for any errors, omissions, or inaccuracies in the
                 content provided, nor for any actions taken in reliance on this
-                information. Users are advised to use the information provided
-                at their own discretion and risk.
+                information.
               </p>
             </div>
           </div>
