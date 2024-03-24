@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import "./mycss.css";
 import * as zodiacData from "./chinesezodiac.json";
 import horoscopeData from "./horoscope.json";
+import motivationalQuotes from "./motivational.json";
 
 interface ZodiacInfo {
   description: string;
@@ -31,6 +32,12 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   const [luckyNumbers, setLuckyNumbers] = useState<number[]>([]);
   const [horoscope, setHoroscope] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
+
+  const getRandomQuote = () => {
+    const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+    return motivationalQuotes[randomIndex];
+  };
+  const [randomQuote, setRandomQuote] = useState(() => getRandomQuote());
 
   const calculateZodiac = useCallback(
     (year: string) => {
@@ -146,10 +153,21 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                       ))}
                     </span>
                   </p>
-
+                  <div className="lh-1 text-start pb-3 pt-3">
+                    <p
+                      className="border-test"
+                      dangerouslySetInnerHTML={{ __html: horoscope }}
+                    ></p>
+                    <p className="additional-message">
+                      Future updates will include <strong>2024 Outlook</strong>{" "}
+                      on&nbsp;
+                      <strong>Career</strong>, <strong>Love</strong>,{" "}
+                      <strong>Health</strong>, and <strong>Luck Level</strong>.
+                    </p>
+                  </div>
                   <button
                     type="button"
-                    className="btn btn-primary btn-lg px-4 gap-3"
+                    className="btn btn-primary  px-4 gap-3"
                     onClick={() => {
                       const form = document.querySelector("form"); // Select the form element
                       if (form) {
@@ -175,20 +193,14 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
               </div>
             </div>
 
-            <div className="col-lg-6 d-flex">
-              <div className="gradient-red text-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100">
+            <div className="col-lg-6 mb-4 mb-lg-0">
+              <div className="bg-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2">
                 <div className="modal-body p-2">
-                  <h1 className="display-6 fw-bold  mb-3">2024 Outlook</h1>
+                  <h1 className="display-6 fw-bold  mb-3">Motivations</h1>
                   <div className="lh-1 text-start pb-3">
-                    <p
-                      className="border-test"
-                      dangerouslySetInnerHTML={{ __html: horoscope }}
-                    ></p>
-                    <p className="additional-message">
-                      Future updates will include <strong>2024 Outlook</strong>{" "}
-                      on&nbsp;
-                      <strong>Career</strong>, <strong>Love</strong>,{" "}
-                      <strong>Health</strong>, and <strong>Luck Level</strong>.
+                    <p className="quote fw-bold">{randomQuote.quote}</p>
+                    <p className="author" style={{ textAlign: "right" }}>
+                      {randomQuote.author}
                     </p>
                   </div>
                 </div>
