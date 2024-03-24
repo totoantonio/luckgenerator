@@ -1,7 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import NavBar from "./NavBar";
-import ZodiacFinder from "./ZodiacFinder";
 import Offerings from "./Offerings";
 import Footer from "./Footer";
 
@@ -13,7 +12,6 @@ createRoot(rootElement).render(
   <React.StrictMode>
     <HeaderHero />
     <MainProducts />
-    <ZodiacFinder />
     <Offerings />
     <Footer />
   </React.StrictMode>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
-const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 import "./mycss.css";
 import axios from "axios";
+
+const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 
 const MainProducts = () => {
   const walletAddress = "UQCDKjllCzHooYuMo_TVqFaXvhUWEvJKJmpfABImrrzD0xf_";
