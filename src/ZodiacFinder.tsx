@@ -179,13 +179,47 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
             <div className="col-lg-6 mb-4 mb-lg-0">
               <div className="bg-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100">
                 <div className="modal-body p-2">
-                  <h1 className="display-6 fw-bold mb-3">Motivations</h1>
+                  <h1 className="display-6 fw-bold mb-3">How It Works</h1>
                   <div className="lh-1 text-start pb-3">
-                    <p className="lead quote text-black-50 fw-bold">
+                    <p className="lead quote text-black-50">
+                      <strong>"</strong>
                       {randomQuote.quote}
+                      <strong>"</strong>
                     </p>
-                    <p className="author" style={{ textAlign: "right" }}>
+                    <p
+                      className="author text-black-50"
+                      style={{ textAlign: "right" }}
+                    >
                       {randomQuote.author}
+                    </p>
+                    <p className="lh-1 fw-bold  pt-3 lead">
+                      Curious about how the luck generator works?
+                    </p>
+                    <p className="lh-sm">
+                      1. <strong>Enter Your Birth Year:</strong> Begin by
+                      inputting your year of birth into the form. This serves as
+                      the foundation for discovering your lucky number.
+                    </p>
+                    <p className="lh-sm">
+                      2. <strong>Click Generate:</strong> With a simple click,
+                      you'll receive not only your Chinese Horoscope Sign and
+                      its characteristics but also your unique lucky number.
+                    </p>
+                    <p className="lh-sm">
+                      3. <strong>Automatic Scrolling:</strong> Upon generating,
+                      the page seamlessly scrolls down to unveil your results
+                      without any manual intervention.
+                    </p>
+                    <p className="lh-sm">
+                      4. <strong>Dive into Lucky Numbers:</strong> Now, brace
+                      yourself for the excitement! Our generator swiftly selects
+                      a lucky number based on your birth year, akin to plucking
+                      a winning ticket from a hat.
+                    </p>
+
+                    <p className="lh-sm">
+                      Your fortune is just a few clicks away – give it a spin
+                      and discover the number fate has in store for you today!
                     </p>
                   </div>
                 </div>

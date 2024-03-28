@@ -73,65 +73,14 @@ html {
   width: 100%;
   height: auto;
 }
-.badge {
-  position: absolute;
-  top: 61px;
-  right: 47px;
-}
-.badge.coming-soon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
-}
+
 @media (max-width: 768px) {
   .col-12.col-lg-6 {
     flex-direction: column;
     align-items: center;
   }
 }
-.star-burst {
-  position: absolute;
-  width: 2em;
-  height: 2em;
-  background-color: #ffd700;
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-.star-burst::before {
-  content: "$";
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.star-burst.active {
-  opacity: 1;
-  transform: translateY(-20px) scale(1.5);
-  opacity: 1;
-  transform: translateY(-20px) scale(1.5);
-  animation: coinFloatUp 1s ease-out;
-}
-@keyframes coinFloatUp {
-  0% {
-    transform: translateY(-20px) scale(1.5);
-  }
-  100% {
-    transform: translateY(-50px) scale(1.5);
-  }
-}
-.star-burst svg {
-  fill: #ffd700;
-  width: 5em;
-}
-.gradient-text {
-  background: var(--gradientColor);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+
 @media screen and (max-width: 768px) {
   #title {
     font-size: 100%;
@@ -235,22 +184,7 @@ fw-bolder {
 .image-container img:hover {
   animation: rotateOnce 1s linear forwards;
 }
-@keyframes rotateAnimation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
-}
-@keyframes rotateOnce {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(90deg);
-  }
-}
+
 @media (max-width: 767px) {
   .row.flex-lg-row.align-items-center.g-5.py-5 {
     padding-top: 1rem !important;
@@ -347,17 +281,7 @@ fw-bolder {
     transform: translateX(-2px);
   }
 }
-.vibrate {
-  animation: vibrate 0.1s infinite;
-}
-.navbar-scrolled {
-  background-color: rgba(0, 0, 0, 0.529);
-  transition: background-color 1s ease;
-}
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
+
 @media (max-width: 992px) {
   .product-card {
     padding: 20px;
