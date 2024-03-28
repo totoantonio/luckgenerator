@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from "react";
+import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
 import "./mycss.css";
@@ -9,22 +9,20 @@ const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
 const MainProducts = () => {
   const walletAddress = "UQCDKjllCzHooYuMo_TVqFaXvhUWEvJKJmpfABImrrzD0xf_";
   const [isCopied, setIsCopied] = useState(false);
-
-  const [birthYear, setBirthYear] = useState<string | null>(null);
-
-  const [vibrate, setVibrate] = useState(false);
-  const [renderZodiacFinder, setRenderZodiacFinder] = useState(false);
   const [lastTransaction, setLastTransaction] = useState<any>(null);
+  const [birthYear, setBirthYear] = useState<string | null>(null);
+  const [showZodiacFinder, setShowZodiacFinder] = useState<boolean>(false);
+  const [key, setKey] = useState<number>(0);
+  const resultRef = useRef<HTMLDivElement>(null);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent default form submission behavior
-    console.log("Handling form submission...");
-
+    event.preventDefault();
     const enteredBirthYear = event.currentTarget.birthYear.value;
     setBirthYear(enteredBirthYear);
-    setRenderZodiacFinder(true);
-
-    event.currentTarget.reset(); // Reset the form after submitting
+    setShowZodiacFinder(true);
+    setKey((prevKey) => prevKey + 1);
+    scrollResultIntoView(); // Scroll to result section
+    event.currentTarget.reset();
   };
 
   const handleCopyClick = () => {
@@ -34,24 +32,11 @@ const MainProducts = () => {
     textField.select();
     document.execCommand("copy");
     textField.remove();
-
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
     }, 1000);
-    console.log("Copying wallet address...");
   };
-
-  useEffect(() => {
-    const vibrateInterval = setInterval(() => {
-      setVibrate(true);
-      setTimeout(() => setVibrate(false), 500);
-    }, 2000);
-
-    return () => {
-      clearInterval(vibrateInterval);
-    };
-  }, []);
 
   useEffect(() => {
     const fetchLastTransaction = async () => {
@@ -64,7 +49,7 @@ const MainProducts = () => {
           const lastTransactionHash = `0x${lastActivity.toString(10)}`;
           const lastTransactionAmount = (response.data.balance / 1e9).toFixed(
             2
-          ); // Convert to TON and round to 2 decimal places
+          );
           setLastTransaction({
             hash: lastTransactionHash,
             amount: lastTransactionAmount,
@@ -77,6 +62,12 @@ const MainProducts = () => {
 
     fetchLastTransaction();
   }, []);
+
+  const scrollResultIntoView = () => {
+    if (resultRef.current) {
+      resultRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="container">
@@ -108,7 +99,6 @@ const MainProducts = () => {
               </div>
               <div className="d-flex align-items-center">
                 <BiBell size={30} className="me--1" aria-hidden="true" />{" "}
-                {/* Increase the margin on the right side */}
                 <a href="https://t.me/alfiesuperhalk">
                   <img
                     src="./telegram.svg"
@@ -145,18 +135,19 @@ const MainProducts = () => {
                     Wallet Address: <strong>{walletAddress}</strong>
                   </span>
                 </div>
-                &nbsp;&nbsp;
-                <FiCopy
-                  size={20}
+                <button
                   className="cursor-pointer"
                   onClick={handleCopyClick}
+                  aria-label="Copy wallet address to clipboard"
                   style={{
                     fontWeight: "bold",
                     WebkitTapHighlightColor: "transparent",
                     backgroundColor: "transparent",
+                    border: "none",
                   }}
-                  aria-label="Copy wallet address to clipboard"
-                />
+                >
+                  <FiCopy size={20} />
+                </button>
                 {isCopied && (
                   <span
                     className="ms-2 fw-bold text-success"
@@ -166,6 +157,7 @@ const MainProducts = () => {
                   </span>
                 )}
               </div>
+
               {lastTransaction && (
                 <div
                   className="flex-grow-1 overflow-hidden"
@@ -243,11 +235,17 @@ const MainProducts = () => {
 
       <div className="row">
         <div className="col">
-          {renderZodiacFinder && (
-            <Suspense fallback={<div>Loading...</div>}>
-              <LazyZodiacFinder key={birthYear} birthYear={birthYear} />
-            </Suspense>
-          )}
+          <div ref={resultRef}>
+            {" "}
+            {/* This div serves as the target for scrolling */}
+            {showZodiacFinder && (
+              <div ref={resultRef}>
+                <Suspense key={key} fallback={<div>Loading...</div>}>
+                  <LazyZodiacFinder birthYear={birthYear} />
+                </Suspense>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import "./mycss.css";
 import * as zodiacData from "./chinesezodiac.json";
 import horoscopeData from "./horoscope.json";
@@ -25,126 +25,111 @@ interface ZodiacFinderProps {
   birthYear?: string | null;
 }
 
+const getRandomQuote = () => {
+  const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+  return motivationalQuotes[randomIndex];
+};
+
 const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
-  const [showResult, setShowResult] = useState(true); // Initialize showResult as true initially
+  const [showResult, setShowResult] = useState(false);
   const [zodiacSign, setZodiacSign] = useState("");
   const [zodiacDescription, setZodiacDescription] = useState("");
   const [luckyNumbers, setLuckyNumbers] = useState<number[]>([]);
   const [horoscope, setHoroscope] = useState("");
-  const resultRef = useRef<HTMLDivElement>(null);
-
-  const getRandomQuote = () => {
-    const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
-    return motivationalQuotes[randomIndex];
-  };
   const [randomQuote, setRandomQuote] = useState(() => getRandomQuote());
 
-  const calculateZodiac = useCallback(
-    (year: string) => {
-      const parsedYear = parseInt(year);
-      const zodiacSigns = [
-        "Rat",
-        "Ox",
-        "Tiger",
-        "Rabbit",
-        "Dragon",
-        "Snake",
-        "Horse",
-        "Goat",
-        "Monkey",
-        "Rooster",
-        "Dog",
-        "Pig",
-      ];
-      const zodiacIndex = (parsedYear - 4) % 12;
-      const calculatedZodiacSign = zodiacSigns[zodiacIndex];
+  const calculateZodiac = (year: string) => {
+    const parsedYear = parseInt(year);
 
-      if (!zodiacSigns.includes(calculatedZodiacSign)) {
-        setZodiacSign("Unknown");
-        return;
+    const zodiacSigns = [
+      "Rat",
+      "Ox",
+      "Tiger",
+      "Rabbit",
+      "Dragon",
+      "Snake",
+      "Horse",
+      "Goat",
+      "Monkey",
+      "Rooster",
+      "Dog",
+      "Pig",
+    ];
+
+    const zodiacIndex = (parsedYear - 4) % 12;
+    const calculatedZodiacSign = zodiacSigns[zodiacIndex];
+
+    if (!zodiacSigns.includes(calculatedZodiacSign)) {
+      setZodiacSign("Unknown");
+      return;
+    }
+
+    const zodiacInfo = (zodiacData as ZodiacData)[
+      calculatedZodiacSign.toLowerCase()
+    ];
+
+    if (zodiacInfo) {
+      setZodiacSign(calculatedZodiacSign);
+      setZodiacDescription(zodiacInfo.description);
+      setLuckyNumbers(zodiacInfo.luckyNumbers);
+      setShowResult(true);
+
+      if (calculatedZodiacSign in horoscopeData) {
+        let modifiedHoroscope = (horoscopeData as HoroscopeData)[
+          calculatedZodiacSign
+        ].horoscope;
+        const sentences = modifiedHoroscope.split(". ");
+        modifiedHoroscope = sentences
+          .map((sentence) => `<p>${sentence}.</p>`)
+          .join("");
+        setHoroscope(modifiedHoroscope);
       }
-
-      const zodiacInfo = (zodiacData as ZodiacData)[
-        calculatedZodiacSign.toLowerCase()
-      ];
-
-      if (zodiacInfo) {
-        setZodiacSign(calculatedZodiacSign);
-        setZodiacDescription(zodiacInfo.description);
-        setLuckyNumbers(zodiacInfo.luckyNumbers);
-        setShowResult(true);
-
-        if (calculatedZodiacSign in horoscopeData) {
-          let modifiedHoroscope = (horoscopeData as HoroscopeData)[
-            calculatedZodiacSign
-          ].horoscope;
-
-          const sentences = modifiedHoroscope.split(". ");
-          modifiedHoroscope = sentences
-            .map((sentence) => `<p>${sentence}.</p>`)
-            .join("");
-
-          setHoroscope(modifiedHoroscope);
-        } else {
-        }
-      }
-    },
-    [
-      setZodiacSign,
-      setZodiacDescription,
-      setLuckyNumbers,
-      setShowResult,
-      setHoroscope,
-    ]
-  );
+    }
+  };
 
   useEffect(() => {
-    if (birthYear !== null && birthYear !== undefined && birthYear !== "") {
+    if (birthYear) {
+      setShowResult(false);
       calculateZodiac(birthYear);
+      setShowResult(true);
     } else {
-      resetState();
+      setShowResult(false);
+      setZodiacSign("");
+      setZodiacDescription("");
+      setLuckyNumbers([]);
+      setHoroscope("");
     }
-  }, [birthYear, calculateZodiac]);
+  }, [birthYear]);
 
-  useEffect(() => {
-    if (showResult && resultRef.current) {
-      resultRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [showResult]);
-
-  const resetState = () => {
+  const handleCloseResult = () => {
     setShowResult(false);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    const form = document.querySelector("form");
+    if (form) {
+      form.reset();
+      const input = form.querySelector("input");
+      if (input) {
+        input.disabled = false;
+      }
+    }
     setZodiacSign("");
     setZodiacDescription("");
     setLuckyNumbers([]);
     setHoroscope("");
   };
 
-  const handleCloseResult = () => {
-    setShowResult(false); // Update showResult to false when the button is clicked
-    window.scrollTo({
-      top: 0, // Scroll to the top of the document
-      behavior: "smooth", // Smooth scrolling behavior
-    });
-    const form = document.querySelector("form"); // Select the form element
-    if (form) {
-      form.reset(); // Reset the form fields
-      const input = form.querySelector("input");
-      if (input) {
-        input.disabled = false; // Re-enable the input field
-      }
-    }
-  };
-
   return (
     <div className={`container mt-1 px-0 ${showResult ? "" : "hidden"}`}>
-      <div ref={resultRef} className="result-section">
+      <div className="result-section">
         {showResult && (
           <div className="row align-items-stretch pt-3">
             <div className="col-lg-6 mb-4 mb-lg-0">
               <div className="gradient-red text-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2">
                 <div className="modal-body p-2">
-                  <h1 className="display-6 fw-bold  mb-3">{zodiacSign}</h1>
+                  <h1 className="display-6 fw-bold mb-3">{zodiacSign}</h1>
                   <div className="lh-1 text-start pb-3">
                     {zodiacDescription.split(". ").map((sentence, index) => (
                       <p key={index} className="lh-1 text-start">
@@ -176,15 +161,14 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                     ></p>
                     <p className="additional-message">
                       Future updates will include <strong>2024 Outlook</strong>{" "}
-                      on&nbsp;
-                      <strong>Career</strong>, <strong>Love</strong>,{" "}
+                      on <strong>Career</strong>, <strong>Love</strong>,{" "}
                       <strong>Health</strong>, and <strong>Luck Level</strong>.
                     </p>
                   </div>
                   <button
                     type="button"
                     className="btn btn-primary px-4 gap-3"
-                    onClick={handleCloseResult} // Call handleCloseResult when the button is clicked
+                    onClick={handleCloseResult}
                   >
                     Great, Thanks
                   </button>
@@ -195,7 +179,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
             <div className="col-lg-6 mb-4 mb-lg-0">
               <div className="bg-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100">
                 <div className="modal-body p-2">
-                  <h1 className="display-6 fw-bold  mb-3">Motivations</h1>
+                  <h1 className="display-6 fw-bold mb-3">Motivations</h1>
                   <div className="lh-1 text-start pb-3">
                     <p className="quote fw-bold">{randomQuote.quote}</p>
                     <p className="author" style={{ textAlign: "right" }}>
