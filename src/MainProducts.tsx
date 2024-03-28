@@ -165,11 +165,12 @@ const MainProducts = () => {
                 >
                   <p
                     id="transactionContainer"
-                    className="text-black-50 pt-2 transaction-container fw-light"
+                    className="text-black-50  transaction-container fw-light"
                     style={{ fontSize: "16px" }}
                   >
                     <span className="transaction-text">
-                      Lastest TX: {lastTransaction.hash.substring(0, 25)}...
+                      Last Transaction: {lastTransaction.hash.substring(0, 25)}
+                      ...
                     </span>
                     <span className="amount-text">
                       {" "}

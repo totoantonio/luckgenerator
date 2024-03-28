@@ -3,11 +3,11 @@ import "./Offerings.css"; // Import CSS file for animations
 
 function Offerings() {
   return (
-    <div className="container px-2 py-5">
+    <div className="container px-3 py-5">
       <h2 className="display-6 fw-bold text-body-emphasis mb-3">
         What's coming
       </h2>
-      <div className="row gx-3 gx-md-4 gy-3 gy-md-4 align-items-stretch">
+      <div className="row gx-3 gx-md-4 gy-2 gy-md-4 align-items-stretch">
         {/* First Card */}
         <div className="col-md mb-1 mb-md-0 pt-md-2">
           <div className="rounded-2 bg-white box-shadow flex-fill px-2 py-2 h-100">
