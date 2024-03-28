@@ -181,7 +181,9 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                 <div className="modal-body p-2">
                   <h1 className="display-6 fw-bold mb-3">Motivations</h1>
                   <div className="lh-1 text-start pb-3">
-                    <p className="lead quote">{randomQuote.quote}</p>
+                    <p className="lead quote text-black-50 fw-bold">
+                      {randomQuote.quote}
+                    </p>
                     <p className="author" style={{ textAlign: "right" }}>
                       {randomQuote.author}
                     </p>
