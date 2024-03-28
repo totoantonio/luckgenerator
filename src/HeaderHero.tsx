@@ -11,12 +11,12 @@ const HeaderHero = () => {
           <LazyLoad height={200} once>
             <img
               src="./tiger.svg"
+              data-src="./tiger.svg"
               className="d-block mx-auto mb-4"
               alt="Luck Generator"
             />
           </LazyLoad>
         </div>
-        {/* Title and Text */}
         <div className="col-lg-4">
           <p className="lead mb-4 text-center text-start p-3 lh-1 ">
             Discover the fascinating traits of your Chinese Zodiac animal and

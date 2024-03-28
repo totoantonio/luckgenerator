@@ -26,7 +26,11 @@ html {
   line-height: 1.6;
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none; /* WebKit (Safari, Chrome) */
+  -moz-appearance: none; /* Firefox */
+  appearance: none; /* Standard */
 }
+
 .card-text {
   color: #161c28 !important;
   font-size: 18px;
