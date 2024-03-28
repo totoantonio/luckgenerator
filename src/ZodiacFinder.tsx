@@ -26,7 +26,7 @@ interface ZodiacFinderProps {
 }
 
 const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
-  const [showResult, setShowResult] = useState(false);
+  const [showResult, setShowResult] = useState(true); // Initialize showResult as true initially
   const [zodiacSign, setZodiacSign] = useState("");
   const [zodiacDescription, setZodiacDescription] = useState("");
   const [luckyNumbers, setLuckyNumbers] = useState<number[]>([]);
@@ -120,13 +120,29 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     setHoroscope("");
   };
 
+  const handleCloseResult = () => {
+    setShowResult(false); // Update showResult to false when the button is clicked
+    window.scrollTo({
+      top: 0, // Scroll to the top of the document
+      behavior: "smooth", // Smooth scrolling behavior
+    });
+    const form = document.querySelector("form"); // Select the form element
+    if (form) {
+      form.reset(); // Reset the form fields
+      const input = form.querySelector("input");
+      if (input) {
+        input.disabled = false; // Re-enable the input field
+      }
+    }
+  };
+
   return (
     <div className={`container mt-1 px-0 ${showResult ? "" : "hidden"}`}>
       <div ref={resultRef} className="result-section">
         {showResult && (
           <div className="row align-items-stretch pt-3">
             <div className="col-lg-6 mb-4 mb-lg-0">
-              <div className="gradient-red text-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100">
+              <div className="gradient-red text-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2">
                 <div className="modal-body p-2">
                   <h1 className="display-6 fw-bold  mb-3">{zodiacSign}</h1>
                   <div className="lh-1 text-start pb-3">
@@ -167,25 +183,8 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                   </div>
                   <button
                     type="button"
-                    className="btn btn-primary  px-4 gap-3"
-                    onClick={() => {
-                      const form = document.querySelector("form"); // Select the form element
-                      if (form) {
-                        form.reset(); // Reset the form fields
-                      }
-                      const generateReportCard = document.querySelector(
-                        ".generate-report-card"
-                      ); // Select the Generate Report card
-                      if (generateReportCard) {
-                        const cardPosition =
-                          generateReportCard.getBoundingClientRect().top +
-                          window.pageYOffset; // Get the position of the card relative to the document top
-                        window.scrollTo({
-                          top: cardPosition,
-                          behavior: "smooth",
-                        }); // Scroll to the position of the card
-                      }
-                    }}
+                    className="btn btn-primary px-4 gap-3"
+                    onClick={handleCloseResult} // Call handleCloseResult when the button is clicked
                   >
                     Great, Thanks
                   </button>
@@ -194,7 +193,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
             </div>
 
             <div className="col-lg-6 mb-4 mb-lg-0">
-              <div className="bg-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2">
+              <div className="bg-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100">
                 <div className="modal-body p-2">
                   <h1 className="display-6 fw-bold  mb-3">Motivations</h1>
                   <div className="lh-1 text-start pb-3">

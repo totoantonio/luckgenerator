@@ -24,15 +24,6 @@ const MainProducts = () => {
     setBirthYear(enteredBirthYear);
     setRenderZodiacFinder(true);
 
-    // Scroll to the result area
-    const resultArea = document.querySelector(".result-section");
-    if (resultArea) {
-      // Check if the result section is not already visible
-      if (resultArea.getBoundingClientRect().top !== 0) {
-        resultArea.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-
     event.currentTarget.reset(); // Reset the form after submitting
   };
 
