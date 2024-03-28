@@ -43,7 +43,7 @@ function NavBar() {
               style={{ opacity: navbarVisible ? 1 : 0 }}
             />
             <span
-              className="navbar-title fs-5 fw-bold"
+              className="navbar-title "
               style={{ opacity: navbarVisible ? 1 : 0 }}
             >
               {title}

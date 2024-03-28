@@ -71,8 +71,8 @@ const MainProducts = () => {
 
   return (
     <div className="container">
-      <div className="row align-items-stretch pt-3">
-        <div className="col-lg-6 mb-4 mb-lg-0">
+      <div className="row align-items-md-stretch pt-3">
+        <div className="col-md-6 mb-4 mb-lg-0">
           <div className="bg-white box-shadow py-2 px-4 py-md-2 px-md-4 text-center overflow-hidden rounded-3 h-100">
             <div className="my-3 py-1 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">
@@ -186,7 +186,7 @@ const MainProducts = () => {
           </div>
         </div>
 
-        <div className="col-lg-6 mb-4 mb-lg-0 text-white generate-report-card">
+        <div className="col-md-6 mb-4 mb-lg-0 text-white generate-report-card">
           <div className="gradient-red py-2 px-4 py-md-2 px-md-4 text-center overflow-hidden rounded-3 h-100">
             <div className="my-3 py-1 d-flex align-items-center justify-content-between">
               <div className="d-flex align-items-center">

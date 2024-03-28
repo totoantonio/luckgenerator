@@ -177,11 +177,11 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
             </div>
 
             <div className="col-lg-6 mb-4 mb-lg-0">
-              <div className="bg-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2 h-100">
+              <div className="bg-white box-shadow py-3 px-3 py-md-5 px-md-5 text-center overflow-hidden rounded-2">
                 <div className="modal-body p-2">
                   <h1 className="display-6 fw-bold mb-3">Motivations</h1>
                   <div className="lh-1 text-start pb-3">
-                    <p className="quote fw-bold">{randomQuote.quote}</p>
+                    <p className="lead quote fw-bold">{randomQuote.quote}</p>
                     <p className="author" style={{ textAlign: "right" }}>
                       {randomQuote.author}
                     </p>
