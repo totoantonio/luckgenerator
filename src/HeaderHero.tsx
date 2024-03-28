@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from "react-lazyload";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const HeaderHero = () => {
@@ -7,12 +8,13 @@ const HeaderHero = () => {
       <div className="row justify-content-center align-items-center">
         {/* Image */}
         <div className="col-lg-4 mb-2 mb-lg-0">
-          <img
-            src="./tiger.svg"
-            className="d-block mx-auto mb-4"
-            alt="Luck Generator"
-            loading="lazy"
-          />
+          <LazyLoad height={200} once>
+            <img
+              src="./tiger.svg"
+              className="d-block mx-auto mb-4"
+              alt="Luck Generator"
+            />
+          </LazyLoad>
         </div>
         {/* Title and Text */}
         <div className="col-lg-4">
