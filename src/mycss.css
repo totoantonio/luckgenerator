@@ -1,49 +1,13 @@
 .inter-unique {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: normal; /* Replace <weight> with an actual font weight value, e.g., normal, bold, etc. */
-  font-style: normal;
-  font-variation-settings: "slnt" 0;
-} /*
-
-@font-face {
-  font-family: Inter;
-  font-style: normal;
   font-weight: 400;
-  font-display: block;
-  src: url(../src/assets/fonts/Inter-400.woff) format("woff2");
-  font-display: swap;
-}
-@font-face {
-  font-family: Inter;
   font-style: normal;
-  font-weight: 500;
-  font-display: block;
-  src: url(../src/assets/fonts/Inter-500.woff) format("woff2");
-  font-display: swap;
+  font-variation-settings: slnt 0;
 }
-@font-face {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 600;
-  font-display: block;
-  src: url(../src/assets/fonts/Inter-600.woff) format("woff2");
-  font-display: swap;
-}
-@font-face {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  font-display: block;
-  src: url(../src/assets/fonts/Inter-700.woff) format("woff2");
-  font-display: swap;
-}*/
-
-/* src/main.css */
 body {
-  background-color: #f8f9fa !important; /* Replace with your color code */
+  background-color: #f8f9fa !important;
 }
-
 body,
 html {
   position: relative;
@@ -63,87 +27,36 @@ html {
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: transparent;
 }
-
 .card-text {
   color: #161c28 !important;
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 @media (max-width: 768px) {
   .card-text {
     font-size: 16px;
   }
 }
-
 .card-title {
   color: #161c28 !important;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 @media (max-width: 768px) {
   .card-title {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
   }
 }
-
 .no-border {
   border: none !important;
 }
 .fs-1-plus {
   font-size: 2em;
-  /* Adjust the value as needed */
 }
-
-/* .card-img-top {
-  border-radius: 0;
-  animation: doubleHeartbeat 1.5s ease-in-out infinite alternate;
-}
-@keyframes doubleHeartbeat {
-  0% {
-    transform: scale(1);
-  }
-  20% {
-    transform: scale(1.1);
-  }
-  35% {
-    transform: scale(1);
-  }
-  60% {
-    transform: scale(1.08);
-  }
-  80% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-.card-img-top {
-  max-width: 50%;
-  height: auto;
-  border-radius: 0;
-}
-.card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.card {
-  position: relative;
-}
-.card-content-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
-/* badge */
 .image-container {
   position: relative;
   display: flex;
@@ -167,8 +80,6 @@ html {
   right: 0;
   transform: translate(50%, -50%);
 }
-
-/* (Optional) Media Query for Mobile Responsiveness */
 @media (max-width: 768px) {
   .col-12.col-lg-6 {
     flex-direction: column;
@@ -179,14 +90,14 @@ html {
   position: absolute;
   width: 2em;
   height: 2em;
-  background-color: gold;
+  background-color: #ffd700;
   border-radius: 50%;
   opacity: 0;
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 .star-burst::before {
   content: "$";
-  color: white;
+  color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -195,8 +106,6 @@ html {
 .star-burst.active {
   opacity: 1;
   transform: translateY(-20px) scale(1.5);
-}
-.star-burst.active {
   opacity: 1;
   transform: translateY(-20px) scale(1.5);
   animation: coinFloatUp 1s ease-out;
@@ -208,12 +117,10 @@ html {
   100% {
     transform: translateY(-50px) scale(1.5);
   }
-  /* Coin moves further up */
 }
 .star-burst svg {
-  fill: gold;
+  fill: #ffd700;
   width: 5em;
-  /* Larger coin */
 }
 .gradient-text {
   background: var(--gradientColor);
@@ -221,23 +128,17 @@ html {
   background-clip: text;
   color: transparent;
 }
-/* Adjust font size for smaller screens */
 @media screen and (max-width: 768px) {
   #title {
     font-size: 100%;
-    /* Adjust as needed */
   }
 }
 fw-bolder {
   font-weight: 900 !important;
 }
-/*Modal*/
-
 .modal-content {
   padding: 20px;
 }
-
-/* Media queries using Bootstrap breakpoints */
 @media (max-width: 1400px) {
   .Title {
     font-size: 5.5rem;
@@ -252,114 +153,84 @@ fw-bolder {
 @media (max-width: 992px) {
   .Title {
     font-size: 4.5rem;
-    /* Increase this for larger font on smaller screens */
   }
 }
 @media (max-width: 768px) {
   .Title {
     font-size: 4rem;
-    /* Increase this for even larger font on very small screens */
     line-height: 3.25rem;
-    /* Reduce line-height if needed */
   }
 }
 .lucky-number {
   margin-right: 5px;
-  /* Adjust spacing between numbers */
 }
 .zodiactitle {
   background: linear-gradient(89deg, #2689e8 18.91%, #a168ff 79.91%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-weight: bold;
+  font-weight: 700;
 }
 .hidden {
   display: none;
 }
 @media (max-width: 767px) {
-  /* Adjust breakpoint as needed */
   .container.col-xxl-8 {
     padding-top: 1rem !important;
-    /* Smaller top padding */
     padding-bottom: 1rem;
-    /* Smaller bottom padding */
   }
-}
-@media (max-width: 767px) {
-  /* Adjust breakpoint as needed */
   .col-12.col-lg-6.order-lg-1 {
     margin: 0;
     padding: 0;
   }
-}
-@media (max-width: 767px) {
-  /* Adjust breakpoint as needed */
   .col-12.col-lg-6.order-lg-2.text-center.text-lg-start {
-    /* Target your text card */
     margin-top: -1.5rem;
-    /* Use a negative top margin */
   }
 }
 @media (max-width: 768px) {
-  /* Adjust breakpoint as needed */
   .my-custom-title {
     font-size: calc(1.5rem + 3vw);
-    /* Initial smaller font size */
     max-width: 100%;
-    /* Allow text to fill container width */
     white-space: nowrap;
-    /* Prevent wrapping initially */
     overflow: hidden;
     text-overflow: ellipsis;
-    /* Add ellipsis if necessary */
   }
 }
 .graytitles {
-  /* Assuming you're still using this class */
   color: #70757a !important;
-  /* Default Google gray */
 }
 .cbg {
   background-color: #f0f4f8;
-  /* Replace with your desired background color */
 }
 .xtmt {
   color: #191f2f;
 }
-/* Style for the container of the lucky numbers */
 .lucky-number {
   display: inline-flex;
-  align-items: center; /* Center vertically */
+  align-items: center;
 }
 .align-items-stretch > .col-md-6 {
   display: flex;
 }
-
 .dot {
-  margin: 0 5px; /* Adjust horizontal spacing */
+  margin: 0 5px;
   display: inline-flex;
-  align-items: center; /* Center vertically */
+  align-items: center;
 }
-
 .number {
   display: inline-flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
 }
-
-/* Animation Toggle */
 .image-container img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  animation: rotateAnimation 1s linear 1; /* Limit to 3 rotations by default */
+  animation: rotateAnimation 1s linear 1;
 }
-
 .image-container img:hover {
-  animation: rotateOnce 1s linear forwards; /* Rotate once on hover */
+  animation: rotateOnce 1s linear forwards;
 }
-
 @keyframes rotateAnimation {
   from {
     transform: rotate(0deg);
@@ -368,44 +239,35 @@ fw-bolder {
     transform: rotate(180deg);
   }
 }
-
 @keyframes rotateOnce {
   from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(90deg); /* Rotate only 180 degrees on hover */
+    transform: rotate(90deg);
   }
 }
-
-/* padding of image from the top */
 @media (max-width: 767px) {
   .row.flex-lg-row.align-items-center.g-5.py-5 {
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
   }
 }
-
 .card-text-container {
-  height: 100px; /* Adjust the height as needed */
+  height: 100px;
   overflow: hidden;
 }
-
-/* new look */
-/* styles.css */
 @media (min-width: 992px) {
   .first-card {
-    background-color: white;
+    background-color: #fff;
     border-radius: 30px;
     min-height: 500px;
     transform: translate(0px, -49.568px);
     width: 70%;
     margin: 0 auto;
   }
-}
-@media (min-width: 992px) {
   .widescreen-card {
-    background-color: white;
+    background-color: #fff;
     border-radius: 10px !important;
     min-height: 500px;
     transform: translate(0px, -49.568px);
@@ -418,19 +280,14 @@ fw-bolder {
   padding-left: 0;
 }
 @media (max-width: 767px) {
-  /* Adjust breakpoint if needed */
   .full-width-mobile {
-    /* Assuming this is your class for the card */
     border-radius: 0;
   }
 }
-/* General Profile Picture Styles */
 .card-img-top {
-  margin-bottom: 0; /* Remove default bottom margin */
-  position: relative; /* Allows for positioning adjustments */
+  margin-bottom: 0;
+  position: relative;
 }
-
-/* White Border (using pseudo-element) */
 .card-img-top::after {
   content: "";
   position: absolute;
@@ -438,56 +295,43 @@ fw-bolder {
   left: 0;
   width: 100%;
   height: 100%;
-  border: 5px solid white; /* Adjust border thickness as needed */
-  border-radius: inherit; /* Inherit rounded corners from image */
-  box-sizing: border-box; /* Ensures border is inside image area */
-  z-index: -1; /* Place border behind the image content */
+  border: 5px solid #fff;
+  border-radius: inherit;
+  box-sizing: border-box;
+  z-index: -1;
 }
-
 @media (max-width: 767px) {
-  /* Adjust breakpoint if needed */
   .card-img-top {
-    margin-top: -75px; /* Half the image height for a 50% overlap */
+    margin-top: -75px;
   }
-
-  /* Ensure card overlaps header */
   .card {
     z-index: 2;
     position: relative;
   }
-
-  /* Style for your header image container */
   .header-image-container {
     z-index: 1;
-    overflow: visible; /* Ensures overlap isn't cut off */
+    overflow: visible;
   }
-
-  /* Notification & Menu Icon Alignment */
   .mb-3.d-flex {
-    align-items: center; /* Vertically center icons */
+    align-items: center;
   }
-
-  /* Adjust positioning based on icon sizes */
   .mb-3.d-flex .me-3 {
-    margin-top: -20px; /* Adjust for vertical alignment */
+    margin-top: -20px;
   }
 }
 @media (min-width: 992px) {
-  /* Adjust breakpoint if needed */
   .right-card {
     margin-left: auto;
-    width: 100%; /* Ensures the card takes the full available width */
-    max-width: 500px; /* Sets a maximum width to maintain original dimensions */
+    width: 100%;
+    max-width: 500px;
   }
 }
 @media (max-width: 767px) {
-  /* Adjust breakpoint if needed */
   .img-fluid {
     height: 350px;
     object-fit: cover;
   }
 }
-/* Gradient Animation */
 @keyframes vibrate {
   0% {
     transform: translateX(-2px);
@@ -499,44 +343,31 @@ fw-bolder {
     transform: translateX(-2px);
   }
 }
-
 .vibrate {
   animation: vibrate 0.1s infinite;
 }
-/* NavBar*/
 .navbar-scrolled {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.529
-  ); /* Change background color to black with opacity */
-  transition: background-color 1s ease; /* Modify only the background color transition */
+  background-color: rgba(0, 0, 0, 0.529);
+  transition: background-color 1s ease;
 }
-
 .fade-out {
-  opacity: 0; /* Set opacity to 0 to make the navbar disappear */
-  transition: opacity 1s ease; /* Apply transition to opacity only */
+  opacity: 0;
+  transition: opacity 1s ease;
 }
-
 @media (max-width: 992px) {
   .product-card {
     padding: 20px;
-    height: auto; /* Adjust height as needed */
+    height: auto;
   }
 }
-
 @media (max-width: 576px) {
   .product-card {
     padding: 10px;
-    height: auto; /* Adjust height as needed */
+    height: auto;
   }
 }
 .night-fade-gradient {
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-}
-
-.night-fade-gradient {
   background-image: -webkit-gradient(
     linear,
     left bottom,
@@ -546,22 +377,15 @@ fw-bolder {
   );
   background-image: linear-gradient(to top, #a18cd1 0, #fbc2eb 100%);
 }
-
 .z-depth-1-half {
   -webkit-box-shadow: 0 5px 11px 0 rgba(189, 197, 209, 0.3),
     0 4px 15px 0 rgba(189, 197, 209, 0.3) !important;
   box-shadow: 0 5px 11px 0 rgba(189, 197, 209, 0.3),
     0 4px 15px 0 rgba(189, 197, 209, 0.3) !important;
 }
-
-/*.box-shadow {
-  box-shadow: 0 0.5rem 1.2rem rgba(189, 197, 209, 0.3);
-}*/
-
 .box-shadow {
   box-shadow: 0 0.5rem 1.2rem rgba(244, 2, 2, 0.043);
 }
-
 .my-gradient-red {
   background-image: radial-gradient(
     circle,
@@ -582,33 +406,25 @@ fw-bolder {
     #a50ed8
   );
 }
-
 .skip-link {
   position: absolute;
   top: -9999px;
   left: -9999px;
 }
-/* Transaction Container*/
 .transaction-container {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .ton-black {
   color: #04060b;
 }
-
 .btn {
   border-radius: 30px !important;
-
   cursor: pointer;
   box-shadow: 10px 10px 14px 1px rgba(0, 0, 0, 0.2);
   transition: all 0.5s;
 }
-
 .btn :hover {
   opacity: 0.8;
 }
-
-/* NavBar.css */
