@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BiMoon, BiSun } from "react-icons/bi";
 import { FaReact, FaLeaf, FaGithub, FaTelegram } from "react-icons/fa";
 
@@ -8,6 +8,15 @@ import "./mycss.css";
 function NavBar() {
   const [isLightTheme, setIsLightTheme] = useState(true);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [scrollingDisabled, setScrollingDisabled] = useState(false);
+
+  useEffect(() => {
+    if (isModalVisible) {
+      disableScrolling();
+    } else {
+      enableScrolling();
+    }
+  }, [isModalVisible]);
 
   const toggleTheme = () => {
     setIsLightTheme((prevTheme) => !prevTheme);
@@ -15,6 +24,16 @@ function NavBar() {
 
   const toggleModal = () => {
     setIsModalVisible((prev) => !prev);
+  };
+
+  const disableScrolling = () => {
+    setScrollingDisabled(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const enableScrolling = () => {
+    setScrollingDisabled(false);
+    document.body.style.overflow = "unset";
   };
 
   const SunIcon = <BiSun />;
@@ -77,7 +96,7 @@ function NavBar() {
           style={{
             display: "block",
             backgroundColor: isLightTheme
-              ? "background-color: rgba(255, 255, 255, 0.5)"
+              ? "rgba(255, 255, 255, 0.5)"
               : "rgba(0, 0, 0, 0.5)",
           }}
         >
@@ -106,12 +125,14 @@ function NavBar() {
               </div>
               <div className="modal-body lh-sm">
                 <p>
-                  Welcome to my website! 🌟 I'm a hobbyist web developer who
-                  enjoys building with React and Vite.
+                  Welcome to my <strong>Luck Generator - Find Your Luck</strong>
+                  . I'm a hobbyist web developer who enjoys building with React
+                  and Vite.
                 </p>
                 <p>
                   This website is hosted on GitHub, where I occasionally update
-                  it during my free time or when I surpass my sales targets.
+                  it during my free time or when I surpass my sales targets (my
+                  day job).
                 </p>
                 <p>
                   I'm a firm believer in luck and its role in our lives. Join me

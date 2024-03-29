@@ -381,3 +381,6 @@ fw-bolder {
   backdrop-filter: blur(30px); /* Apply blur effect to the background */
   z-index: 9999; /* Ensure modal appears above other content */
 }
+.btn-light {
+  box-shadow: none !important;
+}
