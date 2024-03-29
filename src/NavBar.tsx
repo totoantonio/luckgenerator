@@ -1,59 +1,142 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { BiMoon, BiSun } from "react-icons/bi";
+import { FaReact, FaLeaf, FaGithub, FaTelegram } from "react-icons/fa";
 
-const title = "LUCK GENERATOR";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./mycss.css";
 
 function NavBar() {
-  const [navbarVisible, setNavbarVisible] = useState(true); // Track visibility of navbar
+  const [isLightTheme, setIsLightTheme] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset;
-      const headerImageHeight = 200; // Adjust this value as needed
-      const threshold = headerImageHeight / 2; // Set the threshold for when to apply the scrolled style
+  const toggleTheme = () => {
+    setIsLightTheme((prevTheme) => !prevTheme);
+  };
 
-      // Calculate opacity based on scroll position
-      const opacity = Math.max(0, 1 - (scrollTop - threshold) / threshold);
-      setNavbarVisible(opacity > 0);
-    };
+  const toggleModal = () => {
+    setIsModalVisible((prev) => !prev);
+  };
 
-    window.addEventListener("scroll", handleScroll);
+  const SunIcon = <BiSun />;
+  const MoonIcon = <BiMoon />;
+  const themeIcon = isLightTheme ? MoonIcon : SunIcon;
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const navbarColorClass = isLightTheme
+    ? "navbar-light bg-light"
+    : "navbar-dark bg-dark";
+
+  const modalBgClass = isLightTheme ? "bg-light" : "bg-dark";
+  const modalTextColorClass = isLightTheme ? "text-dark" : "text-light";
+
+  // Define the logo source based on the theme mode
+  const logoSource = isLightTheme ? "./tiger.svg" : "./tigerWhite.svg";
 
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light fixed-top"
-      style={{
-        backgroundColor: `rgba(255, 255, 255, ${navbarVisible ? 1 : 0})`,
-        transition: "background-color 0.5s ease-in-out",
-      }}
-    >
-      <div className="container-fluid">
-        <div className="d-flex align-items-center">
-          <a className="navbar-brand" href="#">
+    <>
+      <nav className={`navbar ${navbarColorClass}`}>
+        <div className="container-fluid">
+          <a className={`navbar-brand`} href="#">
             <img
-              src="./tiger.svg"
+              src={logoSource}
               alt="Logo"
-              className="d-inline-block align-text-top pe-1"
               width="30"
-              height="25"
-              style={{ opacity: navbarVisible ? 1 : 0 }}
+              height="24"
+              className="d-inline-block align-text-top"
             />
             <span
-              className="navbar-title "
-              style={{ opacity: navbarVisible ? 1 : 0 }}
-            >
-              {title}
-            </span>
+              className={`title-text ${
+                isLightTheme ? "light-text" : "dark-text"
+              }`}
+            ></span>
           </a>
-        </div>
 
-        <div className="collapse navbar-collapse" id="navbarContent"></div>
-      </div>
-    </nav>
+          <div className="d-flex align-items-center">
+            <button
+              className={`btn btn-${isLightTheme ? "light" : "dark"} me-2`}
+              onClick={toggleTheme}
+              aria-label={`Toggle ${isLightTheme ? "Dark" : "Light"} Theme`}
+            >
+              {themeIcon}
+            </button>
+            <button
+              className={`navbar-toggler`}
+              type="button"
+              onClick={toggleModal}
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      {isModalVisible && (
+        <div
+          className={`modal ${isLightTheme ? "text-dark" : "text-light"}`}
+          tabIndex={-1}
+          role="dialog"
+          style={{
+            display: "block",
+            backgroundColor: isLightTheme
+              ? "background-color: rgba(255, 255, 255, 0.5)"
+              : "rgba(0, 0, 0, 0.5)",
+          }}
+        >
+          <div className="modal-dialog" role="document">
+            <div
+              className={`modal-content border-0 ${
+                isLightTheme ? "bg-white" : "bg-dark"
+              }`}
+            >
+              <div className="modal-header">
+                <h5
+                  className={`modal-title ${
+                    isLightTheme ? "text-dark" : "text-light"
+                  }`}
+                >
+                  About Us
+                </h5>
+                <button
+                  type="button"
+                  className={`btn-close ${
+                    isLightTheme ? "text-dark" : "text-light"
+                  }`}
+                  onClick={toggleModal}
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body lh-sm">
+                <p>
+                  Welcome to my website! 🌟 I'm a hobbyist web developer who
+                  enjoys building with React and Vite.
+                </p>
+                <p>
+                  This website is hosted on GitHub, where I occasionally update
+                  it during my free time or when I surpass my sales targets.
+                </p>
+                <p>
+                  I'm a firm believer in luck and its role in our lives. Join me
+                  as we explore how technology and luck intersect.
+                </p>
+                <p>
+                  Still working on our Light and Dark Theme Mode. I am not sure
+                  when i can finish it. But notice that it is already working in
+                  our NavBar.
+                </p>
+              </div>
+              <div className="d-flex justify-content-between align-items-center px-4">
+                <FaReact size={32} color={isLightTheme ? "black" : "white"} />
+                <FaLeaf size={32} color={isLightTheme ? "black" : "white"} />
+                <FaGithub size={32} color={isLightTheme ? "black" : "white"} />
+                <FaTelegram
+                  size={32}
+                  color={isLightTheme ? "black" : "white"}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

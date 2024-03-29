@@ -10,6 +10,7 @@ import MainProducts from "./MainProducts";
 const rootElement = document.getElementById("root") as Element;
 createRoot(rootElement).render(
   <React.StrictMode>
+    <NavBar />
     <HeaderHero />
     <MainProducts />
     <Offerings />
