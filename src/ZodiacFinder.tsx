@@ -186,27 +186,26 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                       The Impact of Lucky Numbers
                     </p>
                     <p className="lh-sm">
-                      1. <strong>Psychological Boost:</strong> Believing in
-                      lucky numbers can give people a sense of optimism and
+                      <strong>Psychological Boost:</strong> Believing in lucky
+                      numbers can give people a sense of optimism and
                       confidence, leading to positive choices and a greater
                       likelihood of success.
                     </p>
                     <p className="lh-sm">
-                      2. <strong>Decision-Making:</strong> People might consult
+                      <strong>Decision-Making:</strong> People might consult
                       their lucky numbers before making important decisions such
                       as choosing dates for events, buying lottery tickets, or
                       selecting house numbers.
                     </p>
                     <p className="lh-sm">
-                      3. <strong>Superstition:</strong> Some consider lucky
-                      numbers as charms of good fortune and might be hesitant to
-                      act if faced with what they believe to be an unlucky
-                      number.
+                      <strong>Superstition:</strong> Some consider lucky numbers
+                      as charms of good fortune and might be hesitant to act if
+                      faced with what they believe to be an unlucky number.
                     </p>
                     <p className="lh-sm">
-                      4. <strong>Sense of Belonging:</strong> Sharing belief in
-                      the power of lucky numbers can create a sense of
-                      commonality and connection within cultural groups.
+                      <strong>Sense of Belonging:</strong> Sharing belief in the
+                      power of lucky numbers can create a sense of commonality
+                      and connection within cultural groups.
                     </p>
 
                     <p className="lh-1">
