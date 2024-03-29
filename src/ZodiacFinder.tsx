@@ -37,6 +37,7 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   const [luckyNumbers, setLuckyNumbers] = useState<number[]>([]);
   const [horoscope, setHoroscope] = useState("");
   const [randomQuote, setRandomQuote] = useState(() => getRandomQuote());
+  const [isLoading, setIsLoading] = useState(true);
 
   const calculateZodiac = (year: string) => {
     const parsedYear = parseInt(year);
@@ -72,7 +73,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
       setZodiacSign(calculatedZodiacSign);
       setZodiacDescription(zodiacInfo.description);
       setLuckyNumbers(zodiacInfo.luckyNumbers);
-      setShowResult(true);
 
       if (calculatedZodiacSign in horoscopeData) {
         let modifiedHoroscope = (horoscopeData as HoroscopeData)[
@@ -84,6 +84,9 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
           .join("");
         setHoroscope(modifiedHoroscope);
       }
+
+      setIsLoading(false); // Set loading state to false
+      setShowResult(true); // Show result
     }
   };
 
@@ -91,13 +94,6 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
     if (birthYear) {
       setShowResult(false);
       calculateZodiac(birthYear);
-      setShowResult(true);
-    } else {
-      setShowResult(false);
-      setZodiacSign("");
-      setZodiacDescription("");
-      setLuckyNumbers([]);
-      setHoroscope("");
     }
   }, [birthYear]);
 
@@ -124,6 +120,17 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   return (
     <div className={`container mt-1 px-0 ${showResult ? "" : "hidden"}`}>
       <div className="result-section">
+        {/* Placeholder animation while loading */}
+        {isLoading && (
+          <div className="d-flex justify-content-center align-items-center placeholder-animation">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+            <span className="ms-2">Loading...</span>
+          </div>
+        )}
+
+        {/* Display result after loading */}
         {showResult && (
           <div className="row align-items-stretch pt-3">
             <div className="col-lg-6 mb-4 mb-lg-0">
