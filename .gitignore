@@ -8,4 +8,7 @@ chinesezodiac.json
 horoscope.json
 tsconfig.node.json
 mycss.css
+_headers
+generateSitemap.cjs
+htmlMinifyPlugin.js
 
