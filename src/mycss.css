@@ -416,3 +416,15 @@ fw-bolder {
   transform: rotate(180deg);
   margin-left: 20px; /* Moon icon starts at the right */
 }
+
+.light-theme {
+  background-color: #f8f9fa; /* Set the background color for the light theme */
+}
+
+.dark-theme {
+  background-color: #343a40; /* Set the background color for the dark theme */
+}
+
+.bg-dark {
+  background-color: #343a40 !important;
+}

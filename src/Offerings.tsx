@@ -1,18 +1,27 @@
 import React from "react";
 import "./Offerings.css"; // Import CSS file for animations
 
-function Offerings() {
+interface OfferingsProps {
+  isLightTheme: boolean;
+}
+
+const Offerings: React.FC<OfferingsProps> = ({ isLightTheme }) => {
+  const headerColorClass = isLightTheme ? "text-dark" : "text-white";
+
   return (
     <div className="container px-3 py-5">
-      <h2 className="display-6 fw-bold text-body-emphasis mb-3">
+      <h2 className={`display-6 fw-bold mb-3 ${headerColorClass}`}>
         What's coming
       </h2>
       <div className="row gx-3 gx-md-4 gy-2 gy-md-4 align-items-stretch">
+        {/* Cards */}
         {/* First Card */}
         <div className="col-md mb-1 mb-md-0 pt-md-2">
           <div className="rounded-2 bg-white box-shadow flex-fill px-2 py-2 h-100">
             <div className="card-body d-flex flex-column align-items-center justify-content-center p-2">
-              <h5 className="mb-0 text-start text-truncate">
+              <h5
+                className={`mb-0 text-start text-truncate ${headerColorClass}`}
+              >
                 Daily Chinese Horoscope:
               </h5>
               <div className="d-flex align-items-center justify-content-center">
@@ -39,7 +48,9 @@ function Offerings() {
         <div className="col-md mb-1 mb-md-0 pt-md-2">
           <div className="rounded-2 bg-white box-shadow flex-fill px-2 py-2 h-100">
             <div className="card-body d-flex flex-column align-items-center justify-content-center p-2">
-              <h5 className=" mb-0 text-start text-truncate">
+              <h5
+                className={`mb-0 text-start text-truncate ${headerColorClass}`}
+              >
                 Your Daily Fortune:
               </h5>
               <div className="d-flex align-items-center justify-content-center">
@@ -66,7 +77,9 @@ function Offerings() {
         <div className="col-md mb-1 mb-md-0 pt-md-2">
           <div className="bg-white box-shadow rounded-2  flex-fill px-2 py-2 h-100">
             <div className="card-body d-flex flex-column align-items-center justify-content-center p-2">
-              <h5 className="mb-0 text-start text-truncate">
+              <h5
+                className={`mb-0 text-start text-truncate ${headerColorClass}`}
+              >
                 Random Number Generator:
               </h5>
               <div className="d-flex align-items-center justify-content-center">
@@ -93,7 +106,9 @@ function Offerings() {
         <div className="col-md mb-1 mb-md-0 pt-md-2">
           <div className="bg-white box-shadow rounded-2 flex-fill px-2 py-2 h-100">
             <div className="card-body d-flex flex-column align-items-center justify-content-center p-2">
-              <h5 className="mb-0 text-start text-truncate">
+              <h5
+                className={`mb-0 text-start text-truncate ${headerColorClass}`}
+              >
                 Wheel of Fortune:
               </h5>
               <div className="d-flex align-items-center justify-content-center">
@@ -119,6 +134,6 @@ function Offerings() {
       </div>
     </div>
   );
-}
+};
 
 export default Offerings;
