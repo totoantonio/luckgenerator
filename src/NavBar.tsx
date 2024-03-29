@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BiMoon, BiSun } from "react-icons/bi";
+import { BiMoon, BiSun, BiMenu } from "react-icons/bi";
 import { FaReact, FaLeaf, FaGithub, FaTelegram } from "react-icons/fa";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -41,30 +41,18 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
     ? "navbar-light bg-light"
     : "navbar-dark bg-dark";
 
-  const modalBgClass = isLightTheme ? "bg-light" : "bg-dark";
-  const modalTextColorClass = isLightTheme ? "text-dark" : "text-light";
-
-  const logoSource = isLightTheme ? "./tiger.svg" : "./tigerWhite.svg";
-
   return (
     <>
       <nav className={`navbar ${navbarColorClass}`}>
         <div className="container-fluid">
-          <a className={`navbar-brand`} href="#">
-            <img
-              src={logoSource}
-              alt="Logo"
-              width="30"
-              height="24"
-              className="d-inline-block align-text-top"
-            />
-            <span
-              className={`title-text ${
-                isLightTheme ? "light-text" : "dark-text"
-              }`}
-            ></span>
-          </a>
-
+          <button
+            className={`navbar-toggler`}
+            type="button"
+            onClick={toggleModal}
+            aria-label="Toggle navigation"
+          >
+            <BiMenu size={24} color={isLightTheme ? "black" : "white"} />
+          </button>
           <div className="d-flex align-items-center">
             <div
               className="theme-toggle"
@@ -75,14 +63,6 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
                 {themeIcon}
               </div>
             </div>
-            <button
-              className={`navbar-toggler`}
-              type="button"
-              onClick={toggleModal}
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
           </div>
         </div>
       </nav>
@@ -149,7 +129,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
               </div>
               <div className="modal-body lh-sm">
                 <p>
-                  Welcome to<strong>Luck Generator - Find Your Luck</strong>.
+                  Welcome to <strong>Luck Generator - Find Your Luck</strong>.
                   I'm a hobbyist web developer who enjoys building with React
                   and Vite.
                 </p>
