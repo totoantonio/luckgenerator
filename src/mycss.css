@@ -386,3 +386,33 @@ fw-bolder {
 .btn-light {
   box-shadow: none !important;
 }
+.theme-toggle {
+  width: 40px;
+  height: 24px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  overflow: hidden; /* Ensure icons are hidden when transitioning */
+}
+
+.theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease, margin-left 0.3s ease; /* Add margin-left transition */
+}
+
+.sun {
+  transform: rotate(0deg);
+  margin-left: 0; /* Sun icon starts at the left */
+}
+
+.moon {
+  transform: rotate(180deg);
+  margin-left: 20px; /* Moon icon starts at the right */
+}

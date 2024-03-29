@@ -66,13 +66,15 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
           </a>
 
           <div className="d-flex align-items-center">
-            <button
-              className={`btn btn-${isLightTheme ? "light" : "dark"} me-2`}
+            <div
+              className="theme-toggle"
               onClick={toggleTheme}
               aria-label={`Toggle ${isLightTheme ? "Dark" : "Light"} Theme`}
             >
-              {themeIcon}
-            </button>
+              <div className={`theme-icon ${isLightTheme ? "sun" : "moon"}`}>
+                {themeIcon}
+              </div>
+            </div>
             <button
               className={`navbar-toggler`}
               type="button"
@@ -147,8 +149,8 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
               </div>
               <div className="modal-body lh-sm">
                 <p>
-                  Welcome to my <strong>Luck Generator - Find Your Luck</strong>
-                  . I'm a hobbyist web developer who enjoys building with React
+                  Welcome to<strong>Luck Generator - Find Your Luck</strong>.
+                  I'm a hobbyist web developer who enjoys building with React
                   and Vite.
                 </p>
                 <p>
