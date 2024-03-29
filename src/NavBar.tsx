@@ -5,10 +5,13 @@ import { FaReact, FaLeaf, FaGithub, FaTelegram } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./mycss.css";
 
-function NavBar() {
-  const [isLightTheme, setIsLightTheme] = useState(true);
+interface NavBarProps {
+  isLightTheme: boolean;
+  toggleTheme: () => void;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [scrollingDisabled, setScrollingDisabled] = useState(false);
 
   useEffect(() => {
     if (isModalVisible) {
@@ -18,21 +21,15 @@ function NavBar() {
     }
   }, [isModalVisible]);
 
-  const toggleTheme = () => {
-    setIsLightTheme((prevTheme) => !prevTheme);
-  };
-
   const toggleModal = () => {
     setIsModalVisible((prev) => !prev);
   };
 
   const disableScrolling = () => {
-    setScrollingDisabled(true);
     document.body.style.overflow = "hidden";
   };
 
   const enableScrolling = () => {
-    setScrollingDisabled(false);
     document.body.style.overflow = "unset";
   };
 
@@ -47,7 +44,6 @@ function NavBar() {
   const modalBgClass = isLightTheme ? "bg-light" : "bg-dark";
   const modalTextColorClass = isLightTheme ? "text-dark" : "text-light";
 
-  // Define the logo source based on the theme mode
   const logoSource = isLightTheme ? "./tiger.svg" : "./tigerWhite.svg";
 
   return (
@@ -117,11 +113,37 @@ function NavBar() {
                 <button
                   type="button"
                   className={`btn-close ${
-                    isLightTheme ? "text-dark" : "text-light"
+                    isLightTheme ? "btn-light" : "btn-dark"
                   }`}
                   onClick={toggleModal}
                   aria-label="Close"
-                ></button>
+                  style={{
+                    border: "none", // Remove any border
+                    background: "none", // Remove background
+                    cursor: "pointer", // Add pointer cursor for better usability
+                    position: "relative", // Ensure button is positioned relative
+                  }}
+                >
+                  {/* SVG icon for the close button */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    fill={isLightTheme ? "black" : "white"}
+                    viewBox="0 0 16 16"
+                    style={{
+                      position: "absolute", // Position the SVG icon absolutely
+                      top: "50%", // Center vertically
+                      left: "50%", // Center horizontally
+                      transform: "translate(-50%, -50%)", // Center the SVG icon
+                    }}
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M3.854 3.146a.5.5 0 0 1 .708 0L8 7.293l3.646-3.647a.5.5 0 1 1 .708.708L8.707 8l3.647 3.646a.5.5 0 1 1-.708.708L8 8.707l-3.646 3.647a.5.5 0 0 1-.708-.708L7.293 8 3.646 4.354a.5.5 0 0 1 0-.708z"
+                    />
+                  </svg>
+                </button>
               </div>
               <div className="modal-body lh-sm">
                 <p>
@@ -159,6 +181,6 @@ function NavBar() {
       )}
     </>
   );
-}
+};
 
 export default NavBar;

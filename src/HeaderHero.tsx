@@ -18,7 +18,7 @@ const HeaderHero = () => {
           </LazyLoad>
         </div>
         <div className="col-lg-4">
-          <p className="lead mb-4 text-center text-start p-3 lh-1 ">
+          <p className="lead mb-4 text-center text-start p-3 lh-1 text-dark">
             Discover the fascinating traits of your Chinese Zodiac animal and
             receive a set of lucky numbers tailored to your sign! <br />
           </p>

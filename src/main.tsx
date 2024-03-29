@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import NavBar from "./NavBar";
 import Offerings from "./Offerings";
@@ -7,13 +7,28 @@ import Footer from "./Footer";
 import HeaderHero from "./HeaderHero";
 import MainProducts from "./MainProducts";
 
+const App: React.FC = () => {
+  const [isLightTheme, setIsLightTheme] = useState(true);
+
+  const toggleTheme = () => {
+    setIsLightTheme((prevTheme) => !prevTheme);
+  };
+
+  return (
+    <div className={`app ${isLightTheme ? "light-theme" : "dark-theme"}`}>
+      {/* Pass the theme-related props to the NavBar component */}
+      <NavBar isLightTheme={isLightTheme} toggleTheme={toggleTheme} />
+      <HeaderHero />
+      <MainProducts />
+      <Offerings />
+      <Footer />
+    </div>
+  );
+};
+
 const rootElement = document.getElementById("root") as Element;
 createRoot(rootElement).render(
   <React.StrictMode>
-    <NavBar />
-    <HeaderHero />
-    <MainProducts />
-    <Offerings />
-    <Footer />
+    <App />
   </React.StrictMode>
 );

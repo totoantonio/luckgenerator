@@ -15,7 +15,9 @@ html {
   font-weight: 400;
   margin: 0;
   padding: 0;
-  background-color: var(--background_page);
+  background-color: var(
+    --background_page
+  ); /* Use the same background color variable */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transform: translateZ(0);
