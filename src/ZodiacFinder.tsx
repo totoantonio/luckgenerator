@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./mycss.css";
 import * as zodiacData from "./chinesezodiac.json";
 import horoscopeData from "./horoscope.json";
-import motivationalQuotes from "./motivational.json";
 
 interface ZodiacInfo {
   description: string;
@@ -25,18 +24,13 @@ interface ZodiacFinderProps {
   birthYear?: string | null;
 }
 
-const getRandomQuote = () => {
-  const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
-  return motivationalQuotes[randomIndex];
-};
-
 const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
   const [showResult, setShowResult] = useState(false);
   const [zodiacSign, setZodiacSign] = useState("");
   const [zodiacDescription, setZodiacDescription] = useState("");
   const [luckyNumbers, setLuckyNumbers] = useState<number[]>([]);
   const [horoscope, setHoroscope] = useState("");
-  const [randomQuote, setRandomQuote] = useState(() => getRandomQuote());
+
   const [isLoading, setIsLoading] = useState(true);
 
   const calculateZodiac = (year: string) => {
@@ -188,45 +182,39 @@ const ZodiacFinder: React.FC<ZodiacFinderProps> = ({ birthYear }) => {
                 <div className="modal-body p-2">
                   <h1 className="display-6 fw-bold mb-3">How It Works</h1>
                   <div className="lh-1 text-start pb-3">
-                    <p className="lead quote text-black-50">
-                      <strong>"</strong>
-                      {randomQuote.quote}
-                      <strong>"</strong>
-                    </p>
-                    <p
-                      className="author text-black-50"
-                      style={{ textAlign: "right" }}
-                    >
-                      {randomQuote.author}
-                    </p>
                     <p className="lh-1 fw-bold  pt-3 lead">
-                      Curious about how the luck generator works?
+                      The Impact of Lucky Numbers
                     </p>
                     <p className="lh-sm">
-                      1. <strong>Enter Your Birth Year:</strong> Begin by
-                      inputting your year of birth into the form. This serves as
-                      the foundation for discovering your lucky number.
+                      1. <strong>Psychological Boost:</strong> Believing in
+                      lucky numbers can give people a sense of optimism and
+                      confidence, leading to positive choices and a greater
+                      likelihood of success.
                     </p>
                     <p className="lh-sm">
-                      2. <strong>Click Generate:</strong> With a simple click,
-                      you'll receive not only your Chinese Horoscope Sign and
-                      its characteristics but also your unique lucky number.
+                      2. <strong>Decision-Making:</strong> People might consult
+                      their lucky numbers before making important decisions such
+                      as choosing dates for events, buying lottery tickets, or
+                      selecting house numbers.
                     </p>
                     <p className="lh-sm">
-                      3. <strong>Automatic Scrolling:</strong> Upon generating,
-                      the page seamlessly scrolls down to unveil your results
-                      without any manual intervention.
+                      3. <strong>Superstition:</strong> Some consider lucky
+                      numbers as charms of good fortune and might be hesitant to
+                      act if faced with what they believe to be an unlucky
+                      number.
                     </p>
                     <p className="lh-sm">
-                      4. <strong>Dive into Lucky Numbers:</strong> Now, brace
-                      yourself for the excitement! Our generator swiftly selects
-                      a lucky number based on your birth year, akin to plucking
-                      a winning ticket from a hat.
+                      4. <strong>Sense of Belonging:</strong> Sharing belief in
+                      the power of lucky numbers can create a sense of
+                      commonality and connection within cultural groups.
                     </p>
 
-                    <p className="lh-sm">
-                      Your fortune is just a few clicks away – give it a spin
-                      and discover the number fate has in store for you today!
+                    <p className="lh-1">
+                      The impact of lucky numbers in daily life is complex. They
+                      can provide comfort, a sense of hope, and sometimes act as
+                      a motivational factor. Whether or not lucky numbers truly
+                      have influence, however, is largely a matter of personal
+                      belief.
                     </p>
                   </div>
                 </div>

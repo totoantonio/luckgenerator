@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef, lazy, Suspense } from "react";
-import { BiBell, BiDotsHorizontalRounded } from "react-icons/bi";
+import { BiBell } from "react-icons/bi";
 import { FiCopy } from "react-icons/fi";
-import "./mycss.css";
 import axios from "axios";
-
-const LazyZodiacFinder = lazy(() => import("./ZodiacFinder"));
+import LazyZodiacFinder from "./ZodiacFinder";
 
 const MainProducts = () => {
   const walletAddress = "UQCDKjllCzHooYuMo_TVqFaXvhUWEvJKJmpfABImrrzD0xf_";
@@ -65,7 +63,15 @@ const MainProducts = () => {
 
   const scrollResultIntoView = () => {
     if (resultRef.current) {
-      resultRef.current.scrollIntoView({ behavior: "smooth" });
+      const resultHeight = resultRef.current.clientHeight;
+      const scrollToPosition = resultRef.current.offsetTop - resultHeight / 2;
+
+      const scrollToPositionOptions: ScrollToOptions = {
+        top: scrollToPosition,
+        behavior: "smooth",
+      };
+
+      window.scrollTo(scrollToPositionOptions);
     }
   };
 
@@ -240,7 +246,7 @@ const MainProducts = () => {
             {" "}
             {/* This div serves as the target for scrolling */}
             {showZodiacFinder && (
-              <div ref={resultRef}>
+              <div>
                 <Suspense key={key} fallback={<div>Loading...</div>}>
                   <LazyZodiacFinder birthYear={birthYear} />
                 </Suspense>
