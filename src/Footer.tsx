@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import LazyLoad from "react-lazyload";
+import { FaArrowUp, FaTwitter, FaInstagram } from "react-icons/fa";
 
 interface FooterProps {
   isLightTheme: boolean;
@@ -7,10 +8,29 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
   const textClass = isLightTheme ? "text-dark" : "text-white";
-  const imageSource = isLightTheme ? "./tiger.svg" : "./tigerWhite.svg";
 
-  // CSS style to invert color for dark theme
-  const iconStyle = isLightTheme ? {} : { filter: "invert(1)" };
+  // State to track visibility of arrow-up icon
+  const [showArrow, setShowArrow] = useState(false);
+
+  // Function to scroll to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling behavior
+    });
+  };
+
+  // Event listener to show/hide arrow-up icon based on scroll position
+  window.onscroll = () => {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      setShowArrow(true);
+    } else {
+      setShowArrow(false);
+    }
+  };
 
   return (
     <footer
@@ -21,8 +41,7 @@ const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
         <a href="/" className="me-2 text-body-secondary text-decoration-none">
           <LazyLoad>
             <img
-              className="pe-1"
-              src={imageSource}
+              src={isLightTheme ? "./tiger.svg" : "./tigerWhite.svg"}
               alt="Lucky Generator Logo"
               width="30"
               height="24"
@@ -32,28 +51,24 @@ const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
         <span className={`card-text ${textClass}`}>&copy; 2024 O2, Inc</span>
       </div>
 
-      <div className="d-flex">
+      <div className="d-flex align-items-center">
+        {showArrow && (
+          <button
+            className={`me-3 btn btn-link text-body-secondary ${textClass}`}
+            onClick={scrollToTop}
+            style={{ border: "none", boxShadow: "none" }}
+          >
+            <FaArrowUp size={24} />
+          </button>
+        )}
         <a className={`me-3 text-body-secondary ${textClass}`} href="#">
-          <LazyLoad>
-            <img
-              src="./x.svg"
-              alt="X Logo"
-              width="30"
-              height="24"
-              style={iconStyle} // Apply iconStyle here
-            />
-          </LazyLoad>
+          <FaTwitter size={24} style={{ border: "none", boxShadow: "none" }} />
         </a>
         <a className={`me-3 text-body-secondary ${textClass}`} href="#">
-          <LazyLoad>
-            <img
-              src="./insta.svg"
-              alt="Instagram Logo"
-              width="30"
-              height="24"
-              style={iconStyle} // Apply iconStyle here
-            />
-          </LazyLoad>
+          <FaInstagram
+            size={24}
+            style={{ border: "none", boxShadow: "none" }}
+          />
         </a>
       </div>
     </footer>
