@@ -4,13 +4,12 @@ import { FaReact, FaLeaf, FaGithub, FaTelegram } from "react-icons/fa";
 import FocusTrap from "focus-trap-react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./mycss.css"; // Make sure you have this file for custom styles
+import "./mycss.css";
 
 interface NavBarProps {
   isLightTheme: boolean;
   toggleTheme: () => void;
 }
-
 const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);

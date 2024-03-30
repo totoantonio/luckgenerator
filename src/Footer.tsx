@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LazyLoad from "react-lazyload";
 import {
   FaArrowUp,
@@ -14,53 +14,67 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
   const textClass = isLightTheme ? "text-dark" : "text-white";
-
-  // State to track visibility of cookie warning
   const [showCookieWarning, setShowCookieWarning] = useState(false);
+  const cookieWarningRef = useRef<HTMLDivElement>(null);
 
-  // Function to close the cookie warning
   const handleCloseCookieWarning = () => {
     setShowCookieWarning(false);
   };
 
   useEffect(() => {
-    // Function to handle scrolling and show the cookie warning
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShowCookieWarning(true);
+          } else {
+            setShowCookieWarning(false);
+          }
+        });
+      },
+      { rootMargin: "0px 0px 20px 0px" }
+    );
 
-      if (documentHeight - scrollY <= windowHeight * 1.2) {
-        setShowCookieWarning(true);
-        window.removeEventListener("scroll", handleScroll);
+    const updateCookieWarningPosition = () => {
+      if (cookieWarningRef.current) {
+        const windowHeight = window.innerHeight;
+        const cookieWarningHeight = cookieWarningRef.current.offsetHeight;
+        cookieWarningRef.current.style.bottom = `${20}px`;
       }
     };
 
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
+    const targetElement = document.querySelector("footer");
+    if (targetElement) {
+      observer.observe(targetElement);
+    }
 
-    // Cleanup
+    window.addEventListener("resize", updateCookieWarningPosition);
+    updateCookieWarningPosition();
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (targetElement) {
+        observer.unobserve(targetElement);
+      }
+      window.removeEventListener("resize", updateCookieWarningPosition);
     };
-  }, []); // Empty dependency array ensures this effect runs only once
+  }, []);
 
   const CookieWarning = () => (
     <div
       className={`cookie-warning-card ${textClass}`}
       style={{
         display: showCookieWarning ? "flex" : "none",
-        position: "fixed",
-        bottom: "20px",
-        left: "auto", // Set left to auto
-        right: "10px", // Adjusted distance from the right side
-        width: "90vw",
-        maxWidth: "500px",
+        position: "absolute", // Corrected
+        right: "20px",
+        bottom: "40px",
+        maxWidth: "400px",
         padding: "10px",
-        backgroundColor: "#ced4da",
+        backgroundColor: "#dee2e6",
         borderRadius: "10px",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+        zIndex: 9999,
       }}
+      ref={cookieWarningRef}
     >
       <div
         className="lh-1 d-flex justify-content-between align-items-center"
@@ -81,7 +95,7 @@ const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
         <button
           className={`btn btn-link ${textClass}`}
           onClick={handleCloseCookieWarning}
-          style={{ flex: "none" }}
+          style={{ flex: "none", boxShadow: "none", border: "none" }}
         >
           <FaTimes style={{ color: "black" }} />
         </button>
@@ -107,7 +121,6 @@ const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
         </a>
         <span className={`card-text ${textClass}`}>&copy; 2024 O2, Inc</span>
       </div>
-
       <div className="d-flex align-items-center">
         <a className={`me-3 text-body-secondary ${textClass}`} href="#">
           <FaTwitter size={24} style={isLightTheme ? {} : { color: "white" }} />
