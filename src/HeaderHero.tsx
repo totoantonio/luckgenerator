@@ -20,6 +20,8 @@ const HeaderHero: React.FC<HeaderHeroProps> = ({ isLightTheme }) => {
               src={imageSource}
               className="d-block mx-auto mb-4"
               alt="Luck Generator"
+              width="350"
+              height="250"
             />
           </LazyLoad>
         </div>
