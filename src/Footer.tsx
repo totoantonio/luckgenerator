@@ -14,7 +14,7 @@ const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
 
   return (
     <footer
-      className="container d-flex justify-content-between align-items-center py-1"
+      className="container d-flex justify-content-between align-items-center pt-5 pb-2"
       role="contentinfo"
     >
       <div className="d-flex align-items-center">

@@ -9,7 +9,7 @@ const Offerings: React.FC<OfferingsProps> = ({ isLightTheme }) => {
   const headerColorClass = isLightTheme ? "text-dark" : "text-white";
 
   return (
-    <div className="container px-3 py-5">
+    <div className="container pt-5">
       <h2 className={`display-6 fw-bold mb-3 ${headerColorClass}`}>
         What's coming
       </h2>
