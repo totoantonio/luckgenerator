@@ -121,7 +121,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
                 </div>
                 <div className="modal-body lh-sm">
                   <p>
-                    Welcome to<strong>Luck Generator - Find Your Luck</strong>.
+                    Welcome to <strong>Luck Generator - Find Your Luck</strong>.
                     I'm a hobbyist web developer who enjoys building with React
                     and Vite.
                   </p>
