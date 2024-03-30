@@ -27,7 +27,7 @@ const HeaderHero: React.FC<HeaderHeroProps> = ({ isLightTheme }) => {
         >
           <LazyLoad height={200} once>
             <img
-              src="./cultureIndia.avif"
+              src="./cultureEast.avif"
               className="img-fluid rounded-circle border border-white"
               alt="Luck Generator"
               width="350"
