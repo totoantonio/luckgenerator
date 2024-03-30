@@ -26,7 +26,7 @@ const App: React.FC = () => {
       <HeaderHero isLightTheme={isLightTheme} />
       <MainProducts />
       <Offerings isLightTheme={isLightTheme} />
-      <Footer />
+      <Footer isLightTheme={isLightTheme} />
     </div>
   );
 };

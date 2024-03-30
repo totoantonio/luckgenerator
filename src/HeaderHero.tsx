@@ -1,39 +1,63 @@
 import React from "react";
 import LazyLoad from "react-lazyload";
-import "bootstrap/dist/css/bootstrap.min.css";
 
-interface HeaderHeroProps {
+interface FooterProps {
   isLightTheme: boolean;
 }
 
-const HeaderHero: React.FC<HeaderHeroProps> = ({ isLightTheme }) => {
-  const imageSource = isLightTheme ? "./tiger.svg" : "./tigerWhite.svg";
+const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
   const textClass = isLightTheme ? "text-dark" : "text-white";
+  const imageSource = isLightTheme ? "./tiger.svg" : "./tigerWhite.svg";
+
+  // CSS style to invert color for dark theme
+  const iconStyle = isLightTheme ? {} : { filter: "invert(1)" };
 
   return (
-    <div className="container px-4 pt-5">
-      <div className="row justify-content-center align-items-center">
-        {/* Image */}
-        <div className="col-lg-4 mb-2 mb-lg-0">
-          <LazyLoad height={200} once>
+    <footer
+      className="container d-flex justify-content-between align-items-center py-1"
+      role="contentinfo"
+    >
+      <div className="d-flex align-items-center">
+        <a href="/" className="me-2 text-body-secondary text-decoration-none">
+          <LazyLoad>
             <img
+              className="pe-1"
               src={imageSource}
-              className="d-block mx-auto mb-4"
-              alt="Luck Generator"
-              width="350"
-              height="250"
+              alt="Lucky Generator Logo"
+              width="30"
+              height="24"
             />
           </LazyLoad>
-        </div>
-        <div className={`col-lg-4 ${textClass}`}>
-          <p className="lead mb-4 text-center text-start p-3 lh-1">
-            Discover the fascinating traits of your Chinese Zodiac animal and
-            receive a set of lucky numbers tailored to your sign! <br />
-          </p>
-        </div>
+        </a>
+        <span className={`card-text ${textClass}`}>&copy; 2024 O2, Inc</span>
       </div>
-    </div>
+
+      <div className="d-flex">
+        <a className={`me-3 text-body-secondary ${textClass}`} href="#">
+          <LazyLoad>
+            <img
+              src="./x.svg"
+              alt="X Logo"
+              width="30"
+              height="24"
+              style={iconStyle} // Apply iconStyle here
+            />
+          </LazyLoad>
+        </a>
+        <a className={`me-3 text-body-secondary ${textClass}`} href="#">
+          <LazyLoad>
+            <img
+              src="./insta.svg"
+              alt="Instagram Logo"
+              width="30"
+              height="24"
+              style={iconStyle} // Apply iconStyle here
+            />
+          </LazyLoad>
+        </a>
+      </div>
+    </footer>
   );
 };
 
-export default HeaderHero;
+export default Footer;
