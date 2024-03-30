@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from "react-lazyload";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 interface BlogProps {
@@ -22,12 +23,14 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         {/* First Row */}
         <div className="col-lg-4">
           <div className="text-center">
-            <img
-              src="./cultures.avif"
-              alt="Culture 1"
-              className="img-fluid rounded-circle border border-white mb-3"
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
+            <LazyLoad height={200}>
+              <img
+                src="./cultures.avif"
+                alt="Culture 1"
+                className="img-fluid rounded-circle border border-white mb-3"
+                style={{ width: "200px", height: "200px", objectFit: "cover" }}
+              />
+            </LazyLoad>
             <p
               className={`text-start lh-1 ${textClass}`}
               style={{ fontSize: "16px" }}
@@ -43,12 +46,14 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         </div>
         <div className="col-lg-4">
           <div className="text-center">
-            <img
-              src="./cultureJapan.avif"
-              alt="Culture 2"
-              className="img-fluid rounded-circle border border-white mb-3"
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
+            <LazyLoad height={200}>
+              <img
+                src="./cultureJapan.avif"
+                alt="Culture 2"
+                className="img-fluid rounded-circle border border-white mb-3"
+                style={{ width: "200px", height: "200px", objectFit: "cover" }}
+              />
+            </LazyLoad>
             <p
               className={`text-start lh-1 ${textClass}`}
               style={{ fontSize: "16px" }}
@@ -62,12 +67,14 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         </div>
         <div className="col-lg-4">
           <div className="text-center">
-            <img
-              src="./cultureIndia.avif"
-              alt="Culture 3"
-              className="img-fluid rounded-circle border border-white mb-3"
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
+            <LazyLoad height={200}>
+              <img
+                src="./cultureIndia.avif"
+                alt="Culture 3"
+                className="img-fluid rounded-circle border border-white mb-3"
+                style={{ width: "200px", height: "200px", objectFit: "cover" }}
+              />
+            </LazyLoad>
             <p
               className={`text-start lh-1 ${textClass}`}
               style={{ fontSize: "16px" }}
@@ -83,12 +90,14 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         {/* Second Row */}
         <div className="col-lg-4">
           <div className="text-center">
-            <img
-              src="./cultureWest.avif"
-              alt="Culture 4"
-              className="img-fluid rounded-circle border border-white mb-3"
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
+            <LazyLoad height={200}>
+              <img
+                src="./cultureWest.avif"
+                alt="Culture 4"
+                className="img-fluid rounded-circle border border-white mb-3"
+                style={{ width: "200px", height: "200px", objectFit: "cover" }}
+              />
+            </LazyLoad>
             <p
               className={`text-start lh-1 ${textClass}`}
               style={{ fontSize: "16px" }}
@@ -103,12 +112,14 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         </div>
         <div className="col-lg-4">
           <div className="text-center">
-            <img
-              src="./cultureEast.avif"
-              alt="Culture 5"
-              className="img-fluid rounded-circle border border-white mb-3"
-              style={{ width: "200px", height: "200px", objectFit: "cover" }}
-            />
+            <LazyLoad height={200}>
+              <img
+                src="./cultureEast.avif"
+                alt="Culture 5"
+                className="img-fluid rounded-circle border border-white mb-3"
+                style={{ width: "200px", height: "200px", objectFit: "cover" }}
+              />
+            </LazyLoad>
             <p
               className={`text-start lh-1 ${textClass}`}
               style={{ fontSize: "16px" }}

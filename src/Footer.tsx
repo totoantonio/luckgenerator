@@ -58,16 +58,19 @@ const Footer: React.FC<FooterProps> = ({ isLightTheme }) => {
             onClick={scrollToTop}
             style={{ border: "none", boxShadow: "none" }}
           >
-            <FaArrowUp size={24} />
+            <FaArrowUp
+              size={24}
+              style={isLightTheme ? {} : { color: "white" }}
+            />
           </button>
         )}
         <a className={`me-3 text-body-secondary ${textClass}`} href="#">
-          <FaTwitter size={24} style={{ border: "none", boxShadow: "none" }} />
+          <FaTwitter size={24} style={isLightTheme ? {} : { color: "white" }} />
         </a>
         <a className={`me-3 text-body-secondary ${textClass}`} href="#">
           <FaInstagram
             size={24}
-            style={{ border: "none", boxShadow: "none" }}
+            style={isLightTheme ? {} : { color: "white" }}
           />
         </a>
       </div>
