@@ -6,6 +6,7 @@ import Footer from "./Footer";
 
 import HeaderHero from "./HeaderHero";
 import MainProducts from "./MainProducts";
+import Blog from "./blog";
 
 interface AppProps {
   isLightTheme: boolean;
@@ -21,11 +22,11 @@ const App: React.FC = () => {
 
   return (
     <div className={`app ${isLightTheme ? "light-theme" : "dark-theme"}`}>
-      {/* Pass the theme-related props to the NavBar component */}
       <NavBar isLightTheme={isLightTheme} toggleTheme={toggleTheme} />
       <HeaderHero isLightTheme={isLightTheme} />
       <MainProducts />
       <Offerings isLightTheme={isLightTheme} />
+      <Blog isLightTheme={isLightTheme} />
       <Footer isLightTheme={isLightTheme} />
     </div>
   );
