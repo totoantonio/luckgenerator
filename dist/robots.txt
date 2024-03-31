@@ -1,5 +1,5 @@
-# Robots.txt file for example.com
-# Last updated: [Insert Date]
+Robots.txt file for https://totoantonio.github.io/luckgenerator
+Last updated: Sat, 02 Apr 2024 12:30:00 GMT
 
 # Allow all user-agents to crawl all content
 User-agent: *
@@ -14,5 +14,4 @@ Disallow: /tmp/
 Disallow: /example-page.html
 
 # Specify sitemap location
-Sitemap: Sitemap: https://totoantonio.github.io/luckgenerator/sitemap.xml
-
+Sitemap: https://totoantonio.github.io/luckgenerator/sitemap.xml

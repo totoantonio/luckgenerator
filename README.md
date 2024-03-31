@@ -1,8 +1,6 @@
 # Luck Generator Website
 
-<div style="width: 100px; height: 100px;">
-    <img src="https://totoantonio.github.io/luckgenerator/tiger.svg" style="width: 100%; height: 100%;" />
-</div>
+<img src="https://totoantonio.github.io/luckgenerator/tiger.svg" style="width: 100px; height: 100px;" />
 
 Welcome to the Luck Generator website! This project is a practice exercise for learning React and understanding how it works.
 
@@ -29,7 +27,7 @@ The website takes your birth year as input and calculates your Chinese zodiac si
 
 ## Preview
 
-![Luck Generator Preview](https://totoantonio.github.io/luckgenerator/dragonviking.svg)
+![Luck Generator Preview](https://totoantonio.github.io/luckgenerator/LuckGenerator.png)
 
 ## Usage
 
