@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BiMoon, BiSun, BiMenu } from "react-icons/bi";
 import { FaReact, FaLeaf, FaGithub, FaTelegram } from "react-icons/fa";
 import FocusTrap from "focus-trap-react";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./mycss.css";
 
 interface NavBarProps {
   isLightTheme: boolean;
@@ -12,6 +15,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
   const [loading, setLoading] = useState(true);
   const [loadingTime, setLoadingTime] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const startTime = new Date().getTime();
@@ -27,6 +31,14 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
     // Clean-up function
     return () => clearTimeout(timeoutId);
   }, []); // Empty dependency array to run only once on component mount
+
+  useEffect(() => {
+    if (isModalVisible) {
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
+  }, [isModalVisible]);
 
   const toggleModal = () => {
     setIsModalVisible((prev) => !prev);
@@ -82,11 +94,11 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
       </nav>
       {isModalVisible && (
         <div
-          className={`modal ${
-            isLightTheme ? "text-dark" : "text-light"
-          } position-fixed`}
+          className={`modal ${isLightTheme ? "text-dark" : "text-light"}`}
           tabIndex={-1}
           role="dialog"
+          style={{ display: "block" }}
+          ref={modalRef}
         >
           <FocusTrap focusTrapOptions={{ initialFocus: ".modal-content" }}>
             <div className="modal-dialog" role="document">
