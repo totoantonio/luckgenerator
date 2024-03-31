@@ -82,7 +82,9 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
       </nav>
       {isModalVisible && (
         <div
-          className={`modal ${isLightTheme ? "text-dark" : "text-light"}`}
+          className={`modal ${
+            isLightTheme ? "text-dark" : "text-light"
+          } position-fixed`}
           tabIndex={-1}
           role="dialog"
         >
