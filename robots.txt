@@ -1,0 +1,17 @@
+Robots.txt file for https://totoantonio.github.io/luckgenerator
+Last updated: Sat, 02 Apr 2024 12:30:00 GMT
+
+# Allow all user-agents to crawl all content
+User-agent: *
+Disallow:
+
+# Directories to disallow crawling
+Disallow: /private/
+Disallow: /admin/
+Disallow: /tmp/
+
+# Files to disallow crawling
+Disallow: /example-page.html
+
+# Specify sitemap location
+Sitemap: https://totoantonio.github.io/luckgenerator/sitemap.xml
