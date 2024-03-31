@@ -1,26 +1,32 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { BiMoon, BiSun, BiMenu } from "react-icons/bi";
 import { FaReact, FaLeaf, FaGithub, FaTelegram } from "react-icons/fa";
 import FocusTrap from "focus-trap-react";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./mycss.css";
 
 interface NavBarProps {
   isLightTheme: boolean;
   toggleTheme: () => void;
 }
+
 const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
+  const [loading, setLoading] = useState(true);
+  const [loadingTime, setLoadingTime] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isModalVisible) {
-      document.body.classList.add("modal-open");
-    } else {
-      document.body.classList.remove("modal-open");
-    }
-  }, [isModalVisible]);
+    const startTime = new Date().getTime();
+
+    // Simulate loading time, replace this with your actual loading logic
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+      const endTime = new Date().getTime();
+      const timeDiff = (endTime - startTime) / 1000; // in seconds
+      setLoadingTime(timeDiff);
+    }, 2000); // Simulating 2 seconds of loading time
+
+    // Clean-up function
+    return () => clearTimeout(timeoutId);
+  }, []); // Empty dependency array to run only once on component mount
 
   const toggleModal = () => {
     setIsModalVisible((prev) => !prev);
@@ -34,10 +40,14 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
     ? "navbar-light bg-light"
     : "navbar-dark bg-dark";
 
+  const loadingTimeStyle = {
+    color: isLightTheme ? "black" : "white",
+  };
+
   return (
     <>
       <nav className={`navbar ${navbarColorClass}`} role="navigation">
-        <div className="container-fluid">
+        <div className="container-fluid d-flex align-items-center justify-content-between">
           <button
             className="navbar-toggler"
             type="button"
@@ -48,7 +58,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
           </button>
           <div className="d-flex align-items-center">
             <div
-              className="theme-toggle"
+              className="theme-toggle ms-3"
               onClick={toggleTheme}
               aria-label={`Toggle ${isLightTheme ? "Dark" : "Light"} Theme`}
             >
@@ -56,6 +66,17 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
                 {themeIcon}
               </div>
             </div>
+            {!loading && (
+              <div
+                className="loading-time-info ms-3"
+                style={{ ...loadingTimeStyle, textAlign: "center" }}
+              >
+                <strong>{loadingTime}</strong>
+                <div style={{ fontSize: "8px", marginTop: "-9px" }}>
+                  Loaded in secs
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </nav>
@@ -64,8 +85,6 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
           className={`modal ${isLightTheme ? "text-dark" : "text-light"}`}
           tabIndex={-1}
           role="dialog"
-          style={{ display: "block" }}
-          ref={modalRef}
         >
           <FocusTrap focusTrapOptions={{ initialFocus: ".modal-content" }}>
             <div className="modal-dialog" role="document">
