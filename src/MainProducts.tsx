@@ -144,7 +144,7 @@ const MainProducts = () => {
                 <button
                   className="cursor-pointer"
                   onClick={handleCopyClick}
-                  aria-label="Copy wallet address to clipboard"
+                  aria-label="Copy wallet address"
                   style={{
                     fontWeight: "bold",
                     WebkitTapHighlightColor: "transparent",
@@ -213,7 +213,7 @@ const MainProducts = () => {
                     className="form-control"
                     id="birthYear"
                     required
-                    aria-label="Enter your birth year"
+                    aria-label="Birth year"
                   />
                 </div>
                 <div className="d-flex justify-content-center">

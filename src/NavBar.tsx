@@ -36,13 +36,13 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
 
   return (
     <>
-      <nav className={`navbar ${navbarColorClass}`}>
+      <nav className={`navbar ${navbarColorClass}`} role="navigation">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
             type="button"
             onClick={toggleModal}
-            aria-label="Toggle navigation"
+            aria-label="Toggle Navigation Menu"
           >
             <BiMenu size={24} color={isLightTheme ? "black" : "white"} />
           </button>

@@ -26,15 +26,12 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
             <LazyLoad height={200}>
               <img
                 src="./cultures.avif"
-                alt="Culture 1"
+                alt="Chinese Fortune Teller"
                 className="img-fluid rounded-circle border border-white mb-3"
                 style={{ width: "200px", height: "200px", objectFit: "cover" }}
               />
             </LazyLoad>
-            <p
-              className={`text-start lh-1 ${textClass}`}
-              style={{ fontSize: "16px" }}
-            >
+            <p className={`text-start lh-1 ${textClass}`}>
               <strong>China:</strong> In Chinese culture, the number 8 is
               considered extremely lucky because its pronunciation sounds
               similar to the word for "wealth" or "prosper." Similarly, the
@@ -49,15 +46,12 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
             <LazyLoad height={200}>
               <img
                 src="./cultureJapan.avif"
-                alt="Culture 2"
+                alt="Japanese Fortune Teller"
                 className="img-fluid rounded-circle border border-white mb-3"
                 style={{ width: "200px", height: "200px", objectFit: "cover" }}
               />
             </LazyLoad>
-            <p
-              className={`text-start lh-1 ${textClass}`}
-              style={{ fontSize: "16px" }}
-            >
+            <p className={`text-start lh-1 ${textClass}`}>
               <strong>Japan:</strong> In Japan, the number 7 is considered
               lucky, stemming from its association with the Seven Gods of
               Fortune. Additionally, the number 9 is considered lucky because
@@ -70,15 +64,12 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
             <LazyLoad height={200}>
               <img
                 src="./cultureIndia.avif"
-                alt="Culture 3"
+                alt="Indian Fortune Teller"
                 className="img-fluid rounded-circle border border-white mb-3"
                 style={{ width: "200px", height: "200px", objectFit: "cover" }}
               />
             </LazyLoad>
-            <p
-              className={`text-start lh-1 ${textClass}`}
-              style={{ fontSize: "16px" }}
-            >
+            <p className={`text-start lh-1 ${textClass}`}>
               <strong>India:</strong> In Hindu culture, the number 9 is
               considered auspicious and is associated with the goddess of
               wealth, Lakshmi. It's also common for numbers ending in 1 to be
@@ -93,15 +84,12 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
             <LazyLoad height={200}>
               <img
                 src="./cultureWest.avif"
-                alt="Culture 4"
+                alt="Western Fortune Teller"
                 className="img-fluid rounded-circle border border-white mb-3"
                 style={{ width: "200px", height: "200px", objectFit: "cover" }}
               />
             </LazyLoad>
-            <p
-              className={`text-start lh-1 ${textClass}`}
-              style={{ fontSize: "16px" }}
-            >
+            <p className={`text-start lh-1 ${textClass}`}>
               <strong>United States:</strong> In Western culture, the number 7
               is often regarded as lucky, influenced by its significance in
               religious texts and folklore. It's associated with good fortune
@@ -115,15 +103,12 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
             <LazyLoad height={200}>
               <img
                 src="./cultureEast.avif"
-                alt="Culture 5"
+                alt="Islamic Fortune Teller"
                 className="img-fluid rounded-circle border border-white mb-3"
                 style={{ width: "200px", height: "200px", objectFit: "cover" }}
               />
             </LazyLoad>
-            <p
-              className={`text-start lh-1 ${textClass}`}
-              style={{ fontSize: "16px" }}
-            >
+            <p className={`text-start lh-1 ${textClass}`}>
               <strong>Islamic cultures:</strong> In Islamic cultures, the number
               786 is considered lucky because it represents the phrase
               "Bismillah al-Rahman al-Rahim" (In the name of Allah, the Most
