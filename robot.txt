@@ -1,0 +1,18 @@
+# Robots.txt file for example.com
+# Last updated: [Insert Date]
+
+# Allow all user-agents to crawl all content
+User-agent: *
+Disallow:
+
+# Directories to disallow crawling
+Disallow: /private/
+Disallow: /admin/
+Disallow: /tmp/
+
+# Files to disallow crawling
+Disallow: /example-page.html
+
+# Specify sitemap location
+Sitemap: Sitemap: https://totoantonio.github.io/luckgenerator/sitemap.xml
+
