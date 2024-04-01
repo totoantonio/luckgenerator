@@ -30,6 +30,7 @@ const HeaderHero: React.FC<HeaderHeroProps> = ({ isLightTheme }) => {
               alt="Luck Generator"
               width="300"
               height="300"
+              loading="lazy"
             />
           </LazyLoad>
         </div>
