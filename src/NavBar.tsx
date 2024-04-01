@@ -20,17 +20,15 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
   useEffect(() => {
     const startTime = new Date().getTime();
 
-    // Simulate loading time, replace this with your actual loading logic
     const timeoutId = setTimeout(() => {
       setLoading(false);
       const endTime = new Date().getTime();
-      const timeDiff = (endTime - startTime) / 1000; // in seconds
+      const timeDiff = (endTime - startTime) / 1000;
       setLoadingTime(timeDiff);
-    }, 2000); // Simulating 2 seconds of loading time
+    }, 2000);
 
-    // Clean-up function
     return () => clearTimeout(timeoutId);
-  }, []); // Empty dependency array to run only once on component mount
+  }, []);
 
   useEffect(() => {
     if (isModalVisible) {
@@ -64,7 +62,7 @@ const NavBar: React.FC<NavBarProps> = ({ isLightTheme, toggleTheme }) => {
             className="navbar-toggler"
             type="button"
             onClick={toggleModal}
-            aria-label="Toggle Navigation Menu"
+            aria-label="Primary"
           >
             <BiMenu size={24} color={isLightTheme ? "black" : "white"} />
           </button>
