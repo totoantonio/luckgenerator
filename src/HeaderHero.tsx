@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LazyLoad from "react-lazyload";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./mycss.css";
 
 interface HeaderHeroProps {
@@ -30,7 +30,6 @@ const HeaderHero: React.FC<HeaderHeroProps> = ({ isLightTheme }) => {
               alt="Luck Generator"
               width="300"
               height="300"
-              loading="lazy"
             />
           </LazyLoad>
         </div>
