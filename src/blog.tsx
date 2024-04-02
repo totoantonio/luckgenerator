@@ -23,7 +23,7 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         {/* First Row */}
         <div className="col-lg-4">
           <div className="text-center">
-            <LazyLoad height={200}>
+            <LazyLoad height={400}>
               <img
                 src="./cultures.avif"
                 alt="Chinese Fortune Teller"
@@ -44,7 +44,7 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         </div>
         <div className="col-lg-4">
           <div className="text-center">
-            <LazyLoad height={200}>
+            <LazyLoad height={400}>
               <img
                 src="./cultureJapan.avif"
                 alt="Japanese Fortune Teller"
@@ -62,7 +62,7 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         </div>
         <div className="col-lg-4">
           <div className="text-center">
-            <LazyLoad height={200}>
+            <LazyLoad height={400}>
               <img
                 src="./cultureIndia.avif"
                 alt="Indian Fortune Teller"
@@ -82,7 +82,7 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         {/* Second Row */}
         <div className="col-lg-4">
           <div className="text-center">
-            <LazyLoad height={200}>
+            <LazyLoad height={400}>
               <img
                 src="./cultureWest.avif"
                 alt="Western Fortune Teller"
@@ -103,7 +103,7 @@ const Blog: React.FC<BlogProps> = ({ isLightTheme }) => {
         </div>
         <div className="col-lg-4">
           <div className="text-center">
-            <LazyLoad height={200}>
+            <LazyLoad height={400}>
               <img
                 src="./cultureEast.avif"
                 alt="Islamic Fortune Teller"
